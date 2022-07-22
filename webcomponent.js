@@ -1,10 +1,10 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-        <h1>Hello World Test this again</h1>
+        <h1>Hello World  Test this again</h1>
     `;
 
-    class HelloWorld1 extends HTMLElement {
+    class  extends  {
 
 
 		constructor() {
