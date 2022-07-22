@@ -4,7 +4,7 @@
         <h1>Hello World  Test this again</h1>
     `;
 
-    class  extends  {
+    class HelloWorld1 extends HTMLElement {
 
 
 		constructor() {
