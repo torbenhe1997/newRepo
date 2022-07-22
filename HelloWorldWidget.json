@@ -1,0 +1,52 @@
+{
+	"name": "Elephant report",
+	"description": "Elepahnt report",
+	"eula": "",
+	"vendor": "",
+	"license": "",
+	"id": "com.sap.sample.elephantReport",
+	"newInstancePrefix": "ElephantReport",
+	"version": "0.0.1",
+	"icon": "https://torbenhe1997.github.io/SAC_Integration/icon.png",
+	"webcomponents": [
+        {
+			"kind": "main",
+			"tag": "com-sap-sample-helloworld1",
+            "url": "https://torbenhe1997.github.io/SAC_Integration/webcomponent.js",
+            "integrity": "",
+            "ignoreIntegrity" : true
+        }
+    ],
+	"properties": {
+
+		"width": {
+            "type": "integer",
+            "default": 100
+        },
+        "height": {
+            "type": "integer",
+            "default": 100
+        }
+	},
+	"methods": {
+		"setWidth": {
+			"description": "Sets the width of the respective text field",
+			"parameters":[{
+				"name": "newWidth",
+				"type": "integer"
+			}],
+			"body": "this.width = newWidth;"
+		},
+		"setHeight": {
+			"description": "Sets the height of the respective text field",
+			"parameters":[{
+				"name": "newHeight",
+				"type": "integer"
+			}],
+			"body": "this.height = newHeight;"
+		}	
+			
+	},
+	"events": {
+	}
+}
