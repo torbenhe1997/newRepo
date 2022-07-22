@@ -21,11 +21,11 @@
 
 		"width": {
             "type": "integer",
-            "default": 100000000
+            "default": 10
         },
         "height": {
             "type": "integer",
-            "default": 100000000
+            "default": 10
         }
 	},
 	"methods": {
