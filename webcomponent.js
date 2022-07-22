@@ -1,24 +1,17 @@
 (function()  {
-    let tmpl = document.createElement('template');
-    tmpl.innerHTML = `
-    <style>
-        <html>
-            <body>
-                <div class="header">
-                    <div class ="dropdown">
-                        <button class="link">information</button>
-                        <div class ="dropdown-menu">
-                            Dropdown Content
-                        </div>
-                    </div>    
-                    <a href="#" class = "link">Pricing</a>
-                    <button class ="link"> Login</button>
-                </div>
-            </body>
-        </html>
     
-        </style>
-    `;
+    <input type="button" value="Generate a table" onclick="generate_table()"></input>
+
+
+    let tmpl = document.createElement('template');
+    template.innerHTML = `
+			<style>
+				:host {
+					display: block;
+				} 
+			</style> 
+			<div id="chart_div"></div>
+		`;
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
 
