@@ -1,9 +1,10 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-        <h1>Hello World Test</h1>
+        <h1>Hello World</h1>
     `;
-    customElements.define('com.sap.sample.elephantReport', class EleTestphantReport extends HTMLElement {
+
+    class HelloWorld1 extends HTMLElement {
 
 
 		constructor() {
@@ -52,5 +53,7 @@
 
         redraw(){
         }
-    });
+    }
+    
+    customElements.define('com-sap-sample-helloworld1',  HelloWorld1);
 })();
