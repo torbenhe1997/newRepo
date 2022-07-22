@@ -1,11 +1,11 @@
 {
-	"name": "Elephant report",
-	"description": "Elepahnt report",
+	"name": "Test report",
+	"description": "Test report",
 	"eula": "",
 	"vendor": "",
 	"license": "",
 	"id": "com.sap.sample.elephantReport",
-	"newInstancePrefix": "ElephantReport",
+	"newInstancePrefix": "EleTestphantReport",
 	"version": "0.0.1",
 	"icon": "https://torbenhe1997.github.io/newRepo/icon.png",
 	"webcomponents": [
@@ -21,11 +21,11 @@
 
 		"width": {
             "type": "integer",
-            "default": 100
+            "default": 100000000
         },
         "height": {
             "type": "integer",
-            "default": 100
+            "default": 100000000
         }
 	},
 	"methods": {
