@@ -1,51 +1,25 @@
 {
-	"name": "Test report",
-	"description": "Test report",
+	"name": "Hello World Step 1",
+	"description": "The first step in creating a minamilistic KPI tile",
 	"eula": "",
 	"vendor": "",
 	"license": "",
-	"id": "com.sap.sample.elephantReport",
-	"newInstancePrefix": "EleTestphantReport",
+	"id": "com.sap.sample.helloworld1",
+	"newInstancePrefix": "HelloWorld1",
 	"version": "0.0.1",
-	"icon": "https://torbenhe1997.github.io/newRepo/icon.png",
+	"icon": "https://torbenhe1997.github.io/SAC_Integration/icon.png",
 	"webcomponents": [
         {
 			"kind": "main",
 			"tag": "com-sap-sample-helloworld1",
-            "url": "https://torbenhe1997.github.io/newRepo/webcomponent.js",
+            "url": "https://torbenhe1997.github.io/SAC_Integration/webcomponent.js",
             "integrity": "",
             "ignoreIntegrity" : true
         }
     ],
 	"properties": {
-
-		"width": {
-            "type": "integer",
-            "default": 1000
-        },
-        "height": {
-            "type": "integer",
-            "default": 1000
-        }
 	},
 	"methods": {
-		"setWidth": {
-			"description": "Sets the width of the respective text field",
-			"parameters":[{
-				"name": "newWidth",
-				"type": "integer"
-			}],
-			"body": "this.width = newWidth;"
-		},
-		"setHeight": {
-			"description": "Sets the height of the respective text field",
-			"parameters":[{
-				"name": "newHeight",
-				"type": "integer"
-			}],
-			"body": "this.height = newHeight;"
-		}	
-			
 	},
 	"events": {
 	}
