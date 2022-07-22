@@ -7,12 +7,12 @@
 	"id": "com.sap.sample.helloworld1",
 	"newInstancePrefix": "HelloWorld1",
 	"version": "0.0.1",
-	"icon": "https://torbenhe1997.github.io/SAC_Integration/icon.png",
+	"icon": "https://torbenhe1997.github.io/newRepo/icon.png",
 	"webcomponents": [
         {
 			"kind": "main",
 			"tag": "com-sap-sample-helloworld1",
-            "url": "https://torbenhe1997.github.io/SAC_Integration/webcomponent.js",
+            "url": "https://torbenhe1997.github.io/newRepo/webcomponent.js",
             "integrity": "",
             "ignoreIntegrity" : true
         }
