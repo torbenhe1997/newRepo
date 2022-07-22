@@ -1,7 +1,23 @@
 (function()  {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-    <input type="button" value="Generate a table" onclick="generate_table()">
+    <style>
+        <html>
+            <body>
+                <div class="header">
+                    <div class ="dropdown">
+                        <button class="link">information</button>
+                        <div class ="dropdown-menu">
+                            Dropdown Content
+                        </div>
+                    </div>    
+                    <a href="#" class = "link">Pricing</a>
+                    <button class ="link"> Login</button>
+                </div>
+            </body>
+        </html>
+    
+        </style>
     `;
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
@@ -12,6 +28,13 @@
 			this._shadowRoot = this.attachShadow({mode: "open"});
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._firstConnection = false;
+
+            this.addEventListener("click", event => {
+                var event = new Event("onClick");
+                this.dispatchEvent(event);
+            });
+            this._props = {};
+
 		}
 
         //Fired when the widget is added to the html DOM of the page
