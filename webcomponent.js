@@ -1,16 +1,8 @@
 (function () {
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-        <h1>Hello World</h1>
-       <div>
-       <style>
-    :host {
-    border-radius: 25px;
-    border-width: 30px;
-    border-color: black;
-    border-style: solid;
-    display: block;
-    } </style> 
+        <h1>Hello World lablalala</h1>
+ 
     `;
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
