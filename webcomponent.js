@@ -1,8 +1,8 @@
 (function()  {
 
 
-    const tbl = document.createElement("table");
-    const tblBody = document.createElement("tbody");
+    let tbl = document.createElement("table");
+    let tblBody = document.createElement("tbody");
   
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
@@ -16,6 +16,9 @@
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
+
+
+            
         }
 
          //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
