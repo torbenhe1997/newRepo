@@ -2,7 +2,14 @@
 
     let tmpl = document.createElement('template');
     tmpl.innerHTML = `
-        <h1>Hello World</h1>
+    <table>
+    <thead>
+      <tr>
+        <th class="pin"> </th>
+        <th>Col Header</th>
+        </tr>
+        </thead>
+    </table>
     `;
   
 
@@ -26,12 +33,16 @@
 
          //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
         disconnectedCallback(){
+
+            tmpl.innerHTML = `<h1>Hello Torben</h1> `;
         
         }
 
          //When the custom widget is updated, the Custom Widget SDK framework executes this function first
 		onCustomWidgetBeforeUpdate(oChangedProperties) {
 
+
+            tmpl.innerHTML = `<h1>Hello Torben</h1> `;
 		}
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
