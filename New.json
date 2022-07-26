@@ -24,11 +24,13 @@
 		"height": {
 			"type": "integer",
 			"default": 100
+		},
+
+		"rowCount":{
+			"type": "integer",
+			"default": 10
 		}
-
-
 	},
-
 	"methods": {
 
 		"setHeight":{
@@ -39,7 +41,6 @@
 				"description": "new height of box"
 			}]
 		},
-
 			"setRowCount":{
 		    "description":"Set rowCount",
 			"parameters":[{
@@ -49,11 +50,8 @@
 			}]
 			
 			}
-		}
-
-
-
-	},
+		},
+	
 	"events": {
 		"onClick": {
 			"description": "Called when the user clicks the Colored Box."
