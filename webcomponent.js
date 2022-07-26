@@ -2,7 +2,7 @@
 
     let tmpl = document.createElement('template');
  
-    innerHTML = "<table width=\'450\' bgcolor=\'white\' border=\'2\' bordercolor=\'black\' cellpadding=\'10\' cellspacing=\'1\'>\n" +
+    tmpl.innerHTML = "<table width=\'450\' bgcolor=\'white\' border=\'2\' bordercolor=\'black\' cellpadding=\'10\' cellspacing=\'1\'>\n" +
                 "   <tr style=min-width:850px>\n" +
                 "        <td>" + dati.codiceCOmmessa + "</td>\n" +
                 "        <td>" + dati.commessaMainSub + "</td>\n"
