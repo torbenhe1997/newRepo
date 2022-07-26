@@ -1,9 +1,6 @@
 (function () {
 
-    let tmpl = document.createElement('template');
-    tmpl.innerHTML = <input type="button" value="Generate a table" onclick="generate_table()"></input>
-
-    function generate_table() {
+    (function generate_table() {
         // creates a <table> element and a <tbody> element
          const tbl = document.createElement("table");
          const tblBody = document.createElement("tbody");
@@ -34,8 +31,17 @@
          // sets the border attribute of tbl to '2'
          tbl.setAttribute("border", "2");
          
-       }
+       }).call(this)
 
+       let template = document.createElement("template");
+       template.innerHTML = `
+               <style>
+                   :host {
+                       display: block;
+                   } 
+               </style> 
+               <div id="chart_div"></div>
+           `;
 
     class HelloWorld1 extends HTMLElement {
 
