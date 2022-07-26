@@ -25,8 +25,7 @@
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
 
-            tmpl.innerHTML = `<h1>Hello Torben</h1> `;
-            
+    
 
             
         }
@@ -34,7 +33,6 @@
          //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
         disconnectedCallback(){
 
-            tmpl.innerHTML = `<h1>Hello Torben</h1> `;
         
         }
 
