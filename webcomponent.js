@@ -31,7 +31,7 @@
          // sets the border attribute of tbl to '2'
          tbl.setAttribute("border", "2");
          
-       }).call(this)
+       }).call(this);
 
     
 
