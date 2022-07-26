@@ -1,6 +1,18 @@
 (function()  {
 
     let tmpl = document.createElement('template');
+    let newDiv = document.createElement("div");
+    var newContent = document.createTextNode("Hi there and greetings!");
+    tmpl.appendChild(newDiv);
+    newDiv.appendChild(newContent); // füge den Textknoten zum neu erstellten div hinzu.
+  
+    // füge das neu erstellte Element und seinen Inhalt ins DOM ein
+    var currentDiv = document.getElementById("div1");
+    document.body.insertBefore(newDiv, currentDiv);
+
+
+
+
     tmpl.innerHTML = `
     <table>
     <thead>
@@ -40,13 +52,7 @@
 		onCustomWidgetBeforeUpdate(oChangedProperties) {
 
 
-            var newDiv = document.createElement("div");
-            var newContent = document.createTextNode("Hi there and greetings!");
-            newDiv.appendChild(newContent); // füge den Textknoten zum neu erstellten div hinzu.
-          
-            // füge das neu erstellte Element und seinen Inhalt ins DOM ein
-            var currentDiv = document.getElementById("div1");
-            document.body.insertBefore(newDiv, currentDiv);
+
 		}
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
