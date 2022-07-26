@@ -40,7 +40,13 @@
 		onCustomWidgetBeforeUpdate(oChangedProperties) {
 
 
-            tmpl.innerHTML = `<h1>Hello Torben</h1> `;
+            var newDiv = document.createElement("div");
+            var newContent = document.createTextNode("Hi there and greetings!");
+            newDiv.appendChild(newContent); // füge den Textknoten zum neu erstellten div hinzu.
+          
+            // füge das neu erstellte Element und seinen Inhalt ins DOM ein
+            var currentDiv = document.getElementById("div1");
+            document.body.insertBefore(newDiv, currentDiv);
 		}
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
