@@ -16,17 +16,9 @@
 		"ignoreIntegrity": true
 	}],
 	"properties": {
-	
 	},
 	"methods": {
-
-		},
-	
+	},
 	"events": {
-		"onClick": {
-			"description": "Called when the user clicks the Colored Box."
-		}
 	}
-	
-	
 }
