@@ -1,28 +1,11 @@
 (function()  {
 
     let tmpl = document.createElement('template');
-    let newDiv = document.createElement("div");
-    var newContent = document.createTextNode("Hi there and greetings!");
-    tmpl.appendChild(newDiv);
-    newDiv.appendChild(newContent); // füge den Textknoten zum neu erstellten div hinzu.
-  
-    // füge das neu erstellte Element und seinen Inhalt ins DOM ein
-    var currentDiv = document.getElementById("div1");
-    document.body.insertBefore(newDiv, currentDiv);
-
-
-
-
-    tmpl.innerHTML = `
-    <table>
-    <thead>
-      <tr>
-        <th class="pin"> </th>
-        <th>Col Header</th>
-        </tr>
-        </thead>
-    </table>
-    `;
+ 
+    innerHTML = "<table width=\'450\' bgcolor=\'white\' border=\'2\' bordercolor=\'black\' cellpadding=\'10\' cellspacing=\'1\'>\n" +
+                "   <tr style=min-width:850px>\n" +
+                "        <td>" + dati.codiceCOmmessa + "</td>\n" +
+                "        <td>" + dati.commessaMainSub + "</td>\n"
   
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
