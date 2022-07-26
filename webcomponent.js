@@ -33,15 +33,7 @@
          
        }).call(this)
 
-       let template = document.createElement("template");
-       template.innerHTML = `
-               <style>
-                   :host {
-                       display: block;
-                   } 
-               </style> 
-               <div id="chart_div"></div>
-           `;
+    
 
     class HelloWorld1 extends HTMLElement {
 
@@ -53,11 +45,8 @@
             });
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._firstConnection = false;
-            this.addEventListener("click", event => {
-                var event = new Event("onClick");
-                this.dispatchEvent(event);
-            });
-            this.props = {};
+        
+            
         }
 
         //Fired when the widget is added to the html DOM of the page

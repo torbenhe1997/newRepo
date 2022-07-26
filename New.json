@@ -16,60 +16,17 @@
 		"ignoreIntegrity": true
 	}],
 	"properties": {
-
-		"width": {
-			"type": "integer",
-			"default": 100
-		},
-		"height": {
-			"type": "integer",
-			"default": 100
-		},
-
-		"rowCount":{
-			"type": "integer",
-			"default": 10
-		}
+	
 	},
 	"methods": {
 
-		"setHeight":{
-			"description":"Set height",
-			"parameters":[{
-				"name":"newHeight",
-				"type": "integer",
-				"description": "new height of box"
-			}]
-		},
-			"setRowCount":{
-		    "description":"Set rowCount",
-			"parameters":[{
-				"name":"newRowCount",
-				"type": "integer",
-				"description": "new rowcount"
-			}]
-			
-			}
 		},
 	
 	"events": {
 		"onClick": {
 			"description": "Called when the user clicks the Colored Box."
 		}
-	},
-	"dataBindings": {
-		"myDataBinding": {
-			"feeds": [{
-					"id": "dimensions",
-					"description": "Dimensions",
-					"type": "dimension"
-				},
-				{
-					"id": "measures",
-					"description": "Measures",
-					"type": "mainStructureMember"
-				}
-			]
-		}
 	}
+	
+	
 }
