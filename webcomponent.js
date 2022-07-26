@@ -1,8 +1,9 @@
 (function()  {
 
-
-    let tbl = document.createElement("table");
-    let tblBody = document.createElement("tbody");
+    let tmpl = document.createElement('template');
+    tmpl.innerHTML = `
+        <h1>Hello World</h1>
+    `;
   
 
     customElements.define('com-sap-sample-helloworld1', class HelloWorld1 extends HTMLElement {
@@ -16,6 +17,7 @@
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback(){
+
 
 
             
