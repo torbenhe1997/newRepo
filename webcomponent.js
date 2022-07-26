@@ -1,5 +1,17 @@
 (function () {
 
+    let template = document.createElement("template");
+    template.innerHTML = `
+    <style>
+    :host {
+    border-radius: 25px;
+    border-width: 30px;
+    border-color: black;
+    border-style: solid;
+    display: block;
+    } </style> 
+    `;
+
     class HelloWorld1 extends HTMLElement {
 
 
@@ -10,15 +22,15 @@
             });
             this._shadowRoot.appendChild(tmpl.content.cloneNode(true));
             this._firstConnection = false;
-        
-            
+
+
         }
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback() {
 
-            
-   
+
+
         }
 
         //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
@@ -35,7 +47,7 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
         onCustomWidgetAfterUpdate(oChangedProperties) {
-           
+
         }
 
         //When the custom widget is removed from the canvas or the analytic application is closed
