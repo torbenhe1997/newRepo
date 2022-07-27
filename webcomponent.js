@@ -3922,7 +3922,7 @@
 
 
                 var options = {
-                    showRowNumber: true,
+                    showRowNumber: false,
                     width: '100%',
                     height: '100%',
                     allowHtml: true
@@ -3978,7 +3978,7 @@
                     data.setCell(2, 2, 'Note', 'Note', {
                         'className': 'header-text'
                     });
-                    data.setCell(3, 3, '', '', {
+                    data.setCell(3, 2, '', '', {
                         'className': 'header-text'
                     });
                     //Column 4
@@ -4025,34 +4025,6 @@
                     });
 
                 }
-
-
-
-                /*             
-                 data.addColumn('string', 'Name');
-                data.addColumn('number', 'Salary');
-                data.addColumn('boolean', 'Full Time Employee');
-                
-                data.addRows([
-                                   ['Mike', {
-                                       v: 10000,
-                                       f: '$10,000'
-                                   }, true],
-                                   ['Jim', {
-                                       v: 8000,
-                                       f: '$8,000'
-                                   }, false],
-                                   ['Alice', {
-                                       v: 12500,
-                                       f: '$12,500'
-                                   }, true],
-                                   ['Bob', {
-                                       v: 7000,
-                                       f: '$7,000'
-                                   }, true]
-                                           ]);
-                                               */
-
 
                 var table = new google.visualization.Table(ctx);
                 table.draw(data, options);
