@@ -2,7 +2,7 @@
 	"name": "Hello World Step 1",
 	"description": "The first step in creating a minamilistic KPI tile",
 	"eula": "",
-	"vendor": "",
+	"vendor": "SAP",
 	"license": "",
 	"id": "com.sap.sample.helloworld1",
 	"newInstancePrefix": "HelloWorld1",
@@ -20,5 +20,10 @@
 	"methods": {
 	},
 	"events": {
+
+		"onClick": {
+			"description": "Called when the user clicks the Colored Box."
+		}
+		
 	}
 }
