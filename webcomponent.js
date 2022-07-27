@@ -3829,9 +3829,7 @@
     let template = document.createElement("template");
     template.innerHTML = `
 			<style>
-				:host {
-					display: block;
-				} 
+				
 
                 .right-text {
                     text-align: right;
