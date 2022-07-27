@@ -6,7 +6,7 @@
          Copyright The Closure Library Authors.
          SPDX-License-Identifier: Apache-2.0
         */
-        
+
         var l;
 
         function aa(a) {
@@ -3830,8 +3830,37 @@
     template.innerHTML = `
 			<style>
 				:host {
+                    border-radius: 25px;
+                    border-width: 4px;
+                    border-color: black;
+                    border-style: solid;
 					display: block;
+
+                    
 				} 
+
+                .right-text {
+                    text-align: right;
+                  }
+                
+                .left-text {
+                    text-align: left;
+                  }
+                
+                .positive-value {
+                    font-weight: bold;
+                    color: green;
+                    background-color: green;
+                    text-align: center;
+                  }
+                  
+                .negative-value {
+                    font-weight: bold;
+                    color: red;
+                    background-color: red;
+                    text-align: center;
+                  }
+
 			</style> 
 			<div id="chart_div"></div>
 		`;
@@ -3880,7 +3909,9 @@
         onCustomWidgetAfterUpdate(oChangedProperties) {
 
             var ctx = this.shadowRoot.getElementById('chart_div');
-            google.charts.load('current', {'packages': ['table']});
+            google.charts.load('current', {
+                'packages': ['table']
+            });
 
             google.charts.setOnLoadCallback(function () {
                 drawTable();
@@ -3888,38 +3919,61 @@
 
 
             function drawTable() {
-        
+
                 var data = new google.visualization.DataTable();
 
 
-               var options = {
+                var options = {
                     showRowNumber: true,
                     width: '100%',
                     height: '100%',
                     allowHtml: true
                 }
 
-                data.addColumn('string', 'Name');
+
+                data.addColumn('string', '');
+                data.addColumn('number', 'MTD');
+                data.addColumn('number', 'QTD');
+                data.addColumn('number', 'YTD');
+                data.addRows(1);
+
+
+                data.setCell(0, 0, 'France', 'France', {
+                    'className': 'left-text'
+                });
+                data.setCell(0, 1, 325, '325', {
+                    'className': 'positive-value'
+                });
+                data.setCell(0, 2, 450, '450', {
+                    'className': 'positive-value'
+                });
+
+
+
+                /*             
+                 data.addColumn('string', 'Name');
                 data.addColumn('number', 'Salary');
                 data.addColumn('boolean', 'Full Time Employee');
+                
                 data.addRows([
-                    ['Mike', {
-                        v: 10000,
-                        f: '$10,000'
-                    }, true],
-                    ['Jim', {
-                        v: 8000,
-                        f: '$8,000'
-                    }, false],
-                    ['Alice', {
-                        v: 12500,
-                        f: '$12,500'
-                    }, true],
-                    ['Bob', {
-                        v: 7000,
-                        f: '$7,000'
-                    }, true]
-                ]);
+                                   ['Mike', {
+                                       v: 10000,
+                                       f: '$10,000'
+                                   }, true],
+                                   ['Jim', {
+                                       v: 8000,
+                                       f: '$8,000'
+                                   }, false],
+                                   ['Alice', {
+                                       v: 12500,
+                                       f: '$12,500'
+                                   }, true],
+                                   ['Bob', {
+                                       v: 7000,
+                                       f: '$7,000'
+                                   }, true]
+                                           ]);
+                                               */
 
 
                 var table = new google.visualization.Table(ctx);
