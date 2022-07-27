@@ -3856,6 +3856,20 @@
         //Fired when the widget is added to the html DOM of the page
         connectedCallback() {
 
+           
+
+        }
+
+        //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
+        disconnectedCallback() {
+
+        
+
+        }
+
+        //When the custom widget is updated, the Custom Widget SDK framework executes this function first
+        onCustomWidgetBeforeUpdate(oChangedProperties) {
+
             google.charts.load('current', {'packages': ['Table']});
 
             google.charts.setOnLoadCallback(function () {
@@ -3875,24 +3889,13 @@
                   ['Bob',   {v: 7000,  f: '$7,000'},  true]
                 ]);
         
-                var ctx = this.shadowRoot.getElementById('chart_div');
-                var table = new google.visualization.Table(ctx);
+              //  var ctx = this.shadowRoot.getElementById('chart_div');
+               // var table = new google.visualization.Table(ctx);
+               var table = new google.visualization.Table(document.getElementById('chart_div'));
         
                 table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
               }
     
-
-        }
-
-        //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
-        disconnectedCallback() {
-
-        
-
-        }
-
-        //When the custom widget is updated, the Custom Widget SDK framework executes this function first
-        onCustomWidgetBeforeUpdate(oChangedProperties) {
           
 
         }
