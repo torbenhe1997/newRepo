@@ -6,7 +6,7 @@
          Copyright The Closure Library Authors.
          SPDX-License-Identifier: Apache-2.0
         */
-        'use strict';
+       
         var l;
 
         function aa(a) {
