@@ -6,7 +6,7 @@
          Copyright The Closure Library Authors.
          SPDX-License-Identifier: Apache-2.0
         */
-       
+        
         var l;
 
         function aa(a) {
@@ -3861,6 +3861,12 @@
 
         }
 
+        //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
+        disconnectedCallback() {
+
+
+
+        }
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function first
         onCustomWidgetBeforeUpdate(oChangedProperties) {
@@ -3884,6 +3890,15 @@
             function drawTable() {
         
                 var data = new google.visualization.DataTable();
+
+
+               var options = {
+                    showRowNumber: true,
+                    width: '100%',
+                    height: '100%',
+                    allowHtml: true
+                }
+
                 data.addColumn('string', 'Name');
                 data.addColumn('number', 'Salary');
                 data.addColumn('boolean', 'Full Time Employee');
@@ -3908,11 +3923,7 @@
 
 
                 var table = new google.visualization.Table(ctx);
-                table.draw(data, {
-                    showRowNumber: true,
-                    width: '100%',
-                    height: '100%'
-                });
+                table.draw(data, options);
             }
 
 
