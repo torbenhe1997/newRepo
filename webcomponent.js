@@ -3968,13 +3968,16 @@
                         'className': 'header-text'
                     });
                     //Column3
-                    data.setCell(0, 1, 'Sales Stage', 'Sales Stage', {
+                    data.setCell(0, 2, 'Sales Stage', 'Sales Stage', {
                         'className': 'header-text'
                     });
                     data.setCell(1, 2, 'Description', 'Description', {
                         'className': 'header-text'
                     });
                     data.setCell(2, 2, 'Note', 'Note', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(3, 3, '', '', {
                         'className': 'header-text'
                     });
                     //Column 4
