@@ -3856,13 +3856,12 @@
         //Fired when the widget is added to the html DOM of the page
         connectedCallback() {
 
-            google.charts.load('current', {
-                'packages': ['Table']
-            });
+            google.charts.load('current', {'packages': ['Table']});
+
             google.charts.setOnLoadCallback(function () {
-                drawChart();
+                drawTable();
             });
-            var ctx = this.shadowRoot.getElementById('chart_div');
+           
 
             function drawTable() {
                 var data = new google.visualization.DataTable();
@@ -3876,6 +3875,7 @@
                   ['Bob',   {v: 7000,  f: '$7,000'},  true]
                 ]);
         
+                var ctx = this.shadowRoot.getElementById('chart_div');
                 var table = new google.visualization.Table(ctx);
         
                 table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
