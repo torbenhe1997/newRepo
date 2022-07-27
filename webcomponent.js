@@ -3870,7 +3870,16 @@
         //When the custom widget is updated, the Custom Widget SDK framework executes this function first
         onCustomWidgetBeforeUpdate(oChangedProperties) {
 
-            google.charts.load('current', {'packages': ['Table']});
+
+        }
+
+       
+
+        //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
+        onCustomWidgetAfterUpdate(oChangedProperties) {
+
+            var ctx = this.shadowRoot.getElementById('chart_div');
+            google.charts.load('current', {'packages': ['table']});
 
             google.charts.setOnLoadCallback(function () {
                 drawTable();
@@ -3889,23 +3898,12 @@
                   ['Bob',   {v: 7000,  f: '$7,000'},  true]
                 ]);
         
-              //  var ctx = this.shadowRoot.getElementById('chart_div');
-               // var table = new google.visualization.Table(ctx);
-               var table = new google.visualization.Table(document.getElementById('chart_div'));
-        
+              
+                var table = new google.visualization.Table(ctx);      
                 table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
               }
     
           
-
-        }
-
-       
-
-        //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
-        onCustomWidgetAfterUpdate(oChangedProperties) {
-
-            
        
 
         }
