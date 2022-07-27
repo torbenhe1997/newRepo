@@ -3836,8 +3836,9 @@
 
                 .header-text {
                     text-align: left;
-                    color: blue;
-                    background-color: grey;
+                    font-weight: bold;
+                    color: #0000b3;
+                    background-color: #e6e6e6;
                     opacity: 0.5;
                     
                   }
