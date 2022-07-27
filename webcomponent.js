@@ -3834,7 +3834,26 @@
 
 				} 
 
+                .right-text {
+                    text-align: left;
+                    color: black;
+                  }
                 
+                .left-text {
+                    text-align: left;
+                  }
+                
+                .positive-value {
+                    font-weight: bold;
+                    color: green;
+                    text-align: center;
+                  }
+                  
+                .negative-value {
+                    font-weight: bold;
+                    color: red;
+                    text-align: center;
+                  }
 
 			</style> 
 			<div id="chart_div"></div>
@@ -3913,9 +3932,15 @@
                 data.addRows(1);
 
 
-                data.setCell(0, 0, 'France', 'France');
-                data.setCell(0, 1, 325, '325');
-                data.setCell(0, 2, 450, '450');
+                data.setCell(0, 0, 'France', 'France', {
+                    'className': 'right-text'
+                });
+                data.setCell(0, 1, 325, '325', {
+                    'className': 'positive-value'
+                });
+                data.setCell(0, 2, 450, '450', {
+                    'className': 'positive-value'
+                });
 
 
 
