@@ -3834,9 +3834,12 @@
 
 				} 
 
-                .right-text {
+                .header-text {
                     text-align: left;
-                    color: black;
+                    color: blue;
+                    background-color: grey;
+                    opacity: 0.5;
+                    
                   }
                 
                 .left-text {
@@ -3924,23 +3927,100 @@
                     allowHtml: true
                 }
 
+                header();
 
-                data.addColumn('string', '');
-                data.addColumn('number', 'MTD');
-                data.addColumn('number', 'QTD');
-                data.addColumn('number', 'YTD');
-                data.addRows(1);
+                function header(){
 
+                    data.addColumn('string', '');
+                    data.addColumn('string', '');
+                    data.addColumn('string', '');
+                    data.addColumn('string', '');
+                    data.addColumn('string', '');
+                    data.addColumn('string', '');
+    
+                    data.addRows(4);
 
-                data.setCell(0, 0, 'France', 'France', {
-                    'className': 'right-text'
-                });
-                data.setCell(0, 1, 325, '325', {
-                    'className': 'positive-value'
-                });
-                data.setCell(0, 2, 450, '450', {
-                    'className': 'positive-value'
-                });
+                    // Row, Column
+                    //Column 1
+                    data.setCell(0, 0, 'LSO', 'LSO', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(1, 0, 'ID', 'ID', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(2, 0, 'Status', 'Status', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(3, 0, '', '', {
+                        'className': 'header-text'
+                    });
+                    //Column 2
+                    data.setCell(0, 1, 'Client/Prospect Name', 'Client/Prospect Name', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(1, 1, 'Sales Manager', 'Sales Manager', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(2, 1, 'Sales Representative', 'Sales Representative', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(3, 1, 'ExB Sponsor', 'ExB Sponsor', {
+                        'className': 'header-text'
+                    });
+                    //Column3
+                    data.setCell(0, 1, 'Sales Stage', 'Sales Stage', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(1, 2, 'Description', 'Description', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(2, 2, 'Note', 'Note', {
+                        'className': 'header-text'
+                    });
+                    //Column 4
+                    data.setCell(0, 3, 'Volume weighted in EUR', 'Volume weighted in EUR', {
+                        'className': 'header-text'
+                    });
+
+                    data.setCell(1, 3, 'Win %', 'Win %', {
+                        'className': 'header-text'
+                    });
+
+                    data.setCell(2, 3, 'Volume unweighted in EUR', 'Volume unweighted in EUR', {
+                        'className': 'header-text'
+                    });                    
+                    data.setCell(3, 3, '', '', {
+                        'className': 'header-text'
+                    });
+                    //Column5
+                    data.setCell(0, 4, 'Start Date', 'LStart DateSO', {
+                        'className': 'header-text'
+                    });
+
+                    data.setCell(1, 4, 'Expected Closure Date', 'Expected Closure Date', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(2, 4, 'Expected Delivery Date', 'Expected Delivery Date', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(3, 4, '', '', {
+                        'className': 'header-text'
+                    });
+                    //Column 6
+                    data.setCell(0, 5, 'Activity Due Date', 'Activity Due Date', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(1, 5, '', '', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(2, 5, '', '', {
+                        'className': 'header-text'
+                    });
+                    data.setCell(3, 5, '', '', {
+                        'className': 'header-text'
+                    });
+
+                }
 
 
 
