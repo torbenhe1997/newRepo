@@ -1,7 +1,3 @@
-const {
-    json
-} = require("body-parser");
-
 (function () {
 
     (function () {
@@ -3841,7 +3837,7 @@ const {
                 .header-text {
                     text-align: left;
                     font-weight: bold;
-                    color:#0A70FF;
+                    color: #0000b3;
                     background-color: #e6e6e6;
                     opacity: 0.5;
                     
@@ -3902,19 +3898,13 @@ const {
         //When the custom widget is updated, the Custom Widget SDK framework executes this function first
         onCustomWidgetBeforeUpdate(oChangedProperties) {
 
-          
 
         }
 
-        getValue() {
 
-            return values;
-            
-        }
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
         onCustomWidgetAfterUpdate(oChangedProperties) {
-            
 
             var ctx = this.shadowRoot.getElementById('chart_div');
             google.charts.load('current', {
@@ -3924,8 +3914,6 @@ const {
             google.charts.setOnLoadCallback(function () {
                 drawTable();
             });
-
-        
 
 
             function drawTable() {
@@ -3942,7 +3930,7 @@ const {
 
                 header();
 
-                function header() {
+                function header(){
 
                     data.addColumn('string', '');
                     data.addColumn('string', '');
@@ -3950,7 +3938,7 @@ const {
                     data.addColumn('string', '');
                     data.addColumn('string', '');
                     data.addColumn('string', '');
-
+    
                     data.addRows(4);
 
                     // Row, Column
@@ -4004,7 +3992,7 @@ const {
 
                     data.setCell(2, 3, 'Volume unweighted in EUR', 'Volume unweighted in EUR', {
                         'className': 'header-text'
-                    });
+                    });                    
                     data.setCell(3, 3, '', '', {
                         'className': 'header-text'
                     });
@@ -4037,35 +4025,6 @@ const {
                     });
 
                 }
-
-               
-
-               
-
-               
-
-
-
-                /*   function addPropoerties(){
-
-                       for(var i = 0; i < value.length;i++){
-                           for(var b = 0; b < value.length; i++){
-
-                               data.setCell(i, b, '', '', {
-                                   'className': 'header-text'
-                               });
-
-
-                           }
-
-                           
-
-                       }
-                       
-
-                   }*/
-
-
 
                 var table = new google.visualization.Table(ctx);
                 table.draw(data, options);
