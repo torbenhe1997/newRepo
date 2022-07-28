@@ -17,14 +17,19 @@
 	}],
 	"properties": {
 		"value": {
-			"type": "array",
+			"type": "string[]",
 			"description": "Default values",
 			"default": ["Test1","Test2","Test3","Test4","Test5", "Test6","Test7","Test8","Test9"]
 		}
 	},
 	"methods": {
 		"getValue": {
-			"returnType": "integer[]",
+			"parameters":[{
+				"name": "values", 
+				"type": "string[]"
+				
+			}],
+			"returnType": "string[]",
 			"description": "Returns the gauge value"
 			
 		},
@@ -47,3 +52,4 @@
 		
 	}
 }
+
