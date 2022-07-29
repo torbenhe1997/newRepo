@@ -1,7 +1,3 @@
-const {
-    getRandomValues
-} = require("crypto");
-
 (function () {
 
         (function () {
