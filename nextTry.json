@@ -19,17 +19,17 @@
 		"value": {
 			"type": "string[]",
 			"description": "Default values",
-			"default": ["Test1","Test2","Test3","Test4","Test5", "Test6","Test7","Test8","Test9"]
+			"default": [["Test1","Test2"],["Test3","Test4","Test5"], ["Test6","Test7","Test8","Test9"]]
 		}
 	},
 	"methods": {
 		"getValue": {
 			"parameters":[{
-				"name": "values", 
-				"type": "string[]"
+				"name": "this.value", 
+				"type": "string[][]"
 				
 			}],
-			"returnType": "string[]",
+			"returnType": "string[][]",
 			"description": "Returns the gauge value"
 			
 		},
@@ -38,7 +38,7 @@
 			"parameters": [
 				{
 					"name": "newValue",
-					"type": "string[]",
+					"type": "string[][]",
 					"description": "The new table values."
 				}
 			]
