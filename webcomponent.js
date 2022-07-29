@@ -3882,6 +3882,7 @@ const {
                     this.dispatchEvent(event);
                 });
                 this._props = {};
+                var _value;
 
             }
 
@@ -3907,25 +3908,25 @@ const {
 
            
 
-          
+            
+            setValue (newValue)         
+            {
+                this._value = newValue;
+                // fire "properties changed"
+                this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                        detail: {
+                            properties: {
+                                value: this._value
+                            }
+                        }}));
+                        console.log("newValue")
+                        console.log(newValue)
+                }
 
             //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
             onCustomWidgetAfterUpdate(oChangedProperties) {
 
-                var _value;
-                setValue (newValue)         
-                {
-                    this._value = newValue;
-                    // fire "properties changed"
-                    this.dispatchEvent(new CustomEvent("propertiesChanged", {
-                            detail: {
-                                properties: {
-                                    value: this._value
-                                }
-                            }}));
-                            console.log("newValue")
-                            console.log(newValue)
-                    }
+               
                 
                     
 
