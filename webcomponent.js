@@ -4076,13 +4076,13 @@
 
                         
 
-                        if (counter <= 23) {
+                        if (counter < 24) {
 
                             counter = counter + 1;
                             console.log("counter1");
                             console.log(counter);
 
-                        } else if (counter === 24) {
+                        } else if (counter == 24) {
                             console.log("counter2");
                             console.log(counter);
 
@@ -4096,22 +4096,22 @@
                             console.log("counter erster iff case");
                             console.log(counter);
                             data.setCell(rowCounter, counter, test[i], test[i], {
-                                'className': 'header-text'
+                                'className': 'positive-value'
                             });
 
                         } else if (counter >= 6 && counter < 12) { //Row2, Column 1-6
                             data.setCell(rowCounter + 1, counter - 6, test[i], test[i], {
-                                'className': 'header-text'
+                                'className': 'positive-value'
                             });
 
                         } else if (counter >= 12 && counter < 18) { //Row3, Column 1-6
                             data.setCell(rowCounter + 2, counter - 12, test[i], test[i], {
-                                'className': 'header-text'
+                                'className': 'positive-value'
                             });
 
                         } else if (counter >= 18 && counter < 24) { //Row4, Column 1-6
                             data.setCell(rowCounter + 3, counter - 18, test[i], test[i], {
-                                'className': 'header-text'
+                                'className': 'positive-value'
                             });
 
                         }
