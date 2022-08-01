@@ -4068,6 +4068,9 @@
 
                     for (var i = 0; i < test[i].length; i++) {
 
+                        console.log("test[i]");
+                        console.log(test[i]);
+
                         if (counter <= 23) {
 
                             counter = counter + 1;
