@@ -3918,8 +3918,10 @@
             console.log("newValue")
             console.log(newValue)
 
+            testIt();
 
 
+            function testIt(){
             var ctx = this.shadowRoot.getElementById('chart_div');
             google.charts.load('current', {
                 'packages': ['table']
@@ -3929,7 +3931,9 @@
                 drawTable();
             });
 
-            drawTable();
+            }
+
+            
 
 
             function drawTable() {
