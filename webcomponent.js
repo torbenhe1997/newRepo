@@ -3902,6 +3902,20 @@
 
         }
 
+        getValue(newValue) {
+            this._value = newValue;
+            // fire "properties changed"
+            this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                detail: {
+                    properties: {
+                        value: this._value
+                    }
+                }
+            }));
+            console.log("newValue")
+            console.log(newValue)
+        }
+
 
 
 

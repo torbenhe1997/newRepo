@@ -24,11 +24,6 @@
 	},
 	"methods": {
 		"getValue": {
-			"parameters":[{
-				"name": "values", 
-				"type": "string[]"
-				
-			}],
 			"returnType": "string[]",
 			"description": "Returns the gauge value"
 			
