@@ -3851,6 +3851,8 @@
                     font-weight: bold;
                     color: green;
                     text-align: center;
+                    word-wrap: break-word;
+                    width: 13em;
                   }
                   
                 .negative-value {
