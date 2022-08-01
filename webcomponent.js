@@ -4058,7 +4058,7 @@
                 }
 
 
-
+/*
                 function iterator() {
 
                     var rowCounter = 4                
@@ -4106,7 +4106,7 @@
 
                 }
 
-
+*/
                 var table = new google.visualization.Table(ctx);
                 table.draw(data, options);
             }
