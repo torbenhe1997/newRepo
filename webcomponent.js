@@ -4062,7 +4062,7 @@
                     var test = ["Test1","Test2","Test3","Test4","Test5", "Test6","Test7","Test8","Test9", "Test1","Test2","Test3","Test4","Test5", "Test6","Test7","Test8","Test9", "Test1","Test2","Test3","Test4","Test5", "Test6"]
 
                     var rowCounter = 4                
-                    var counter = 0;
+                    var counter = -1;
                     data.addRows(4);
 
                     for (var i = 0; i < test[i].length; i++) {
@@ -4079,7 +4079,7 @@
 
                         }
 
-                        if (i < 6) { //Row1, Column 1-6
+                        if (counter < 6) { //Row1, Column 1-6
                             data.setCell(rowCounter, counter, test[i], test[i], {
                                 'className': 'header-text'
                             });
