@@ -3853,6 +3853,7 @@
                     text-align: center;
                     word-wrap: break-word;
                     width: 13em;
+                    maxLength = "5"
                   }
                   
                 .negative-value {
