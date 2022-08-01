@@ -4076,17 +4076,17 @@
 
                         
 
-                        if (counter < 24) {
-
-                            counter = counter + 1;
+                        if (counter < 23) {
                             console.log("counter1");
                             console.log(counter);
+                            counter = counter + 1;
+                            
 
-                        } else if (counter == 24) {
+                        } else if (counter > 22) {
                             console.log("counter2");
                             console.log(counter);
 
-                            counter = counter - 24;
+                            counter = counter - 23;
                             data.addRows(4);
                             rowCounter = rowCounter + 4;
 
