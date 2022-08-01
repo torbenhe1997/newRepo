@@ -3840,6 +3840,7 @@
                     color: #0000b3;
                     background-color: #e6e6e6;
                     opacity: 0.5;
+                    white-space: pre-wrap;
                     
                   }
                 
@@ -3854,6 +3855,7 @@
                     word-wrap: break-word;
                     width: 13em;
                     maxLength = "5"
+                    white-space: pre-wrap;
                   }
                   
                 .negative-value {
@@ -4021,7 +4023,7 @@
                             'className': 'header-text'
                         });
 
-                        data.setCell(2, 3, 'Volume unweighted in EUR', 'Volume unweighted in EUR', {
+                        data.setCell(2, 3, 'Volume <br/> unweighted in EUR', 'Volume unweighted in EUR', {
                             'className': 'header-text'
                         });
                         data.setCell(3, 3, '', '', {
@@ -4068,6 +4070,7 @@
                             "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
                             "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4"
                         ];
+
 
                         var rowCounter = 4
                         var counter = -1;
