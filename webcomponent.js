@@ -3903,6 +3903,12 @@
         }
 
 
+        getValue(){
+
+            return this._value;
+        }
+
+
 
 
         setValue(newValue) {
