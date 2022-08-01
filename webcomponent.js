@@ -4066,12 +4066,12 @@
                     var counter = -1;
                     data.addRows(4);
 
-                    for (var i = 0; i < test[i].length; i++) {
+                    for (var i = 0; i < test.length; i++) {
 
                         console.log("test[i]");
                         console.log(test[i]);
 
-                        /*
+                        
 
                         if (counter <= 23) {
 
@@ -4112,7 +4112,7 @@
                             });
 
                         }
-                        */
+                        
                     }
 
                 }
