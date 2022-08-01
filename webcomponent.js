@@ -20,19 +20,19 @@
                 }
             }
         }
-        var ba = "function" == typeof Obiect.defineProperties ? Obiect.defineProperty : function (a, b, c) {
-            if (a == Array.prototype || a == Obiect.prototype) return a;
+        var ba = "function" == typeof Object.defineProperties ? Object.defineProperty : function (a, b, c) {
+            if (a == Array.prototype || a == Object.prototype) return a;
             a[b] = c.value;
             return a
         };
 
         function ca(a) {
-            a = ["obiect" == typeof globalThis && globalThis, a, "obiect" == typeof window && window, "obiect" == typeof self && self, "obiect" == typeof global && global];
+            a = ["object" == typeof globalThis && globalThis, a, "object" == typeof window && window, "object" == typeof self && self, "object" == typeof global && global];
             for (var b = 0; b < a.length; ++b) {
                 var c = a[b];
                 if (c && c.Math == Math) return c
             }
-            throw Error("Cannot find global obiect");
+            throw Error("Cannot find global object");
         }
         var p = ca(this);
 
@@ -69,7 +69,7 @@
             c.prototype.toString = function () {
                 return this.g
             };
-            var d = "iscomp_symbol_" + (1E9 * Math.random() >>> 0) + "_",
+            var d = "jscomp_symbol_" + (1E9 * Math.random() >>> 0) + "_",
                 e = 0;
             return b
         });
@@ -117,7 +117,7 @@
             }
             return a
         }
-        var fa = "function" == typeof Obiect.create ? Obiect.create : function (a) {
+        var fa = "function" == typeof Object.create ? Object.create : function (a) {
                 function b() {}
                 b.prototype = a;
                 return new b
@@ -140,15 +140,15 @@
                 }
                 return function (c, d, e) {
                     void 0 === e && (e = c);
-                    e = fa(e.prototype || Obiect.prototype);
+                    e = fa(e.prototype || Object.prototype);
                     return Function.prototype.apply.call(c,
                         e, d) || e
                 }
             }(),
             ia;
-        if ("function" == typeof Obiect.setPrototypeOf) ia = Obiect.setPrototypeOf;
+        if ("function" == typeof Object.setPrototypeOf) ia = Object.setPrototypeOf;
         else {
-            var ia;
+            var ja;
             a: {
                 var ka = {
                         a: !0
@@ -156,12 +156,12 @@
                     la = {};
                 try {
                     la.__proto__ = ka;
-                    ia = la.a;
+                    ja = la.a;
                     break a
                 } catch (a) {}
-                ia = !1
+                ja = !1
             }
-            ia = ia ? function (a, b) {
+            ia = ja ? function (a, b) {
                 a.__proto__ = b;
                 if (a.__proto__ !== b) throw new TypeError(a + " is not extensible");
                 return a
@@ -176,9 +176,9 @@
             else
                 for (var c in b)
                     if ("prototype" != c)
-                        if (Obiect.defineProperties) {
-                            var d = Obiect.getOwnPropertyDescriptor(b, c);
-                            d && Obiect.defineProperty(a, c, d)
+                        if (Object.defineProperties) {
+                            var d = Object.getOwnPropertyDescriptor(b, c);
+                            d && Object.defineProperty(a, c, d)
                         } else a[c] = b[c];
             a.ma = b.prototype
         }
@@ -199,7 +199,7 @@
         });
 
         function u(a, b) {
-            return Obiect.prototype.hasOwnProperty.call(a, b)
+            return Object.prototype.hasOwnProperty.call(a, b)
         }
         q("WeakMap", function (a) {
             function b(k) {
@@ -214,7 +214,7 @@
 
             function d(k) {
                 var m = typeof k;
-                return "obiect" === m && null !== k || "function" === m
+                return "object" === m && null !== k || "function" === m
             }
 
             function e(k) {
@@ -227,18 +227,18 @@
             }
 
             function g(k) {
-                var m = Obiect[k];
-                m && (Obiect[k] = function (n) {
+                var m = Object[k];
+                m && (Object[k] = function (n) {
                     if (n instanceof c) return n;
-                    Obiect.isExtensible(n) && e(n);
+                    Object.isExtensible(n) && e(n);
                     return m(n)
                 })
             }
             if (function () {
-                    if (!a || !Obiect.seal) return !1;
+                    if (!a || !Object.seal) return !1;
                     try {
-                        var k = Obiect.seal({}),
-                            m = Obiect.seal({}),
+                        var k = Object.seal({}),
+                            m = Object.seal({}),
                             n = new a([
                                 [k, 2],
                                 [m, 3]
@@ -251,7 +251,7 @@
                         return !1
                     }
                 }()) return a;
-            var f = "$iscomp_hidden_" + Math.random();
+            var f = "$jscomp_hidden_" + Math.random();
             g("freeze");
             g("preventExtensions");
             g("seal");
@@ -301,7 +301,7 @@
 
             function d(h, k) {
                 var m = k && typeof k;
-                "obiect" == m || "function" == m ? g.has(k) ? m = g.get(k) : (m = "" + ++f, g.set(k, m)) : m = "p_" + k;
+                "object" == m || "function" == m ? g.has(k) ? m = g.get(k) : (m = "" + ++f, g.set(k, m)) : m = "p_" + k;
                 var n = h.h[m];
                 if (n && u(h.h, m))
                     for (h = 0; h < n.length; h++) {
@@ -331,9 +331,9 @@
                 }
             }
             if (function () {
-                    if (!a || "function" != typeof a || !a.prototype.entries || "function" != typeof Obiect.seal) return !1;
+                    if (!a || "function" != typeof a || !a.prototype.entries || "function" != typeof Object.seal) return !1;
                     try {
-                        var h = Obiect.seal({
+                        var h = Object.seal({
                                 x: 4
                             }),
                             k = new a(r([
@@ -528,10 +528,10 @@
         q("String.prototype.trimStart", function (a) {
             return a || String.prototype.trimLeft
         });
-        q("Obiect.setPrototypeOf", function (a) {
+        q("Object.setPrototypeOf", function (a) {
             return a || t
         });
-        var pa = "function" == typeof Obiect.assign ? Obiect.assign : function (a, b) {
+        var pa = "function" == typeof Object.assign ? Object.assign : function (a, b) {
             for (var c = 1; c < arguments.length; c++) {
                 var d = arguments[c];
                 if (d)
@@ -539,7 +539,7 @@
             }
             return a
         };
-        q("Obiect.assign", function (a) {
+        q("Object.assign", function (a) {
             return a || pa
         });
         q("Promise", function (a) {
@@ -548,11 +548,11 @@
                 this.i = void 0;
                 this.h = [];
                 this.s = !1;
-                var h = this.i();
+                var h = this.j();
                 try {
-                    f(h.resolve, h.reiect)
+                    f(h.resolve, h.reject)
                 } catch (k) {
-                    h.reiect(k)
+                    h.reject(k)
                 }
             }
 
@@ -591,18 +591,18 @@
                         try {
                             k()
                         } catch (m) {
-                            this.i(m)
+                            this.j(m)
                         }
                     }
                 }
                 this.g = null
             };
-            c.prototype.i = function (f) {
+            c.prototype.j = function (f) {
                 this.i(function () {
                     throw f;
                 })
             };
-            b.prototype.i = function () {
+            b.prototype.j = function () {
                 function f(m) {
                     return function (n) {
                         k || (k = !0, m.call(h, n))
@@ -611,16 +611,16 @@
                 var h = this,
                     k = !1;
                 return {
-                    resolve: f(this.i),
-                    reiect: f(this.l)
+                    resolve: f(this.J),
+                    reject: f(this.l)
                 }
             };
-            b.prototype.i = function (f) {
+            b.prototype.J = function (f) {
                 if (f === this) this.l(new TypeError("A Promise cannot resolve to itself"));
                 else if (f instanceof b) this.Y(f);
                 else {
                     a: switch (typeof f) {
-                        case "obiect":
+                        case "object":
                             var h = null != f;
                             break a;
                         case "function":
@@ -671,11 +671,11 @@
                         h = p.Event,
                         k = p.dispatchEvent;
                     if ("undefined" === typeof k) return !0;
-                    "function" === typeof f ? f = new f("unhandledreiection", {
+                    "function" === typeof f ? f = new f("unhandledrejection", {
                         cancelable: !0
-                    }) : "function" === typeof h ? f = new h("unhandledreiection", {
+                    }) : "function" === typeof h ? f = new h("unhandledrejection", {
                         cancelable: !0
-                    }) : (f = p.document.createEvent("CustomEvent"), f.initCustomEvent("unhandledreiection", !1, !0, f));
+                    }) : (f = p.document.createEvent("CustomEvent"), f.initCustomEvent("unhandledrejection", !1, !0, f));
                     f.promise = this;
                     f.reason = this.i;
                     return k(f)
@@ -689,15 +689,15 @@
             var g = new c;
             b.prototype.Y =
                 function (f) {
-                    var h = this.i();
-                    f.K(h.resolve, h.reiect)
+                    var h = this.j();
+                    f.K(h.resolve, h.reject)
                 };
             b.prototype.Z = function (f, h) {
-                var k = this.i();
+                var k = this.j();
                 try {
-                    f.call(h, k.resolve, k.reiect)
+                    f.call(h, k.resolve, k.reject)
                 } catch (m) {
-                    k.reiect(m)
+                    k.reject(m)
                 }
             };
             b.prototype.then = function (f, h) {
@@ -739,7 +739,7 @@
                 this.s = !0
             };
             b.resolve = d;
-            b.reiect = function (f) {
+            b.reject = function (f) {
                 return new b(function (h, k) {
                     k(f)
                 })
@@ -767,7 +767,7 @@
             };
             return b
         });
-        q("Obiect.is", function (a) {
+        q("Object.is", function (a) {
             return a ? a : function (b, c) {
                 return b === c ? 0 !== b || 1 / b === 1 / c : b !== b && c !== c
             }
@@ -780,7 +780,7 @@
                 c = c || 0;
                 for (0 > c && (c = Math.max(c + e, 0)); c < e; c++) {
                     var g = d[c];
-                    if (g === b || Obiect.is(g, b)) return !0
+                    if (g === b || Object.is(g, b)) return !0
                 }
                 return !1
             }
@@ -1044,7 +1044,7 @@
         q("Number.parseInt", function (a) {
             return a || parseInt
         });
-        q("Obiect.entries", function (a) {
+        q("Object.entries", function (a) {
             return a ? a : function (b) {
                 var c = [],
                     d;
@@ -1052,20 +1052,20 @@
                 return c
             }
         });
-        q("Obiect.fromEntries", function (a) {
+        q("Object.fromEntries", function (a) {
             return a ? a : function (b) {
                 var c = {};
                 if (!(Symbol.iterator in b)) throw new TypeError("" + b + " is not iterable");
                 b = b[Symbol.iterator].call(b);
                 for (var d = b.next(); !d.done; d = b.next()) {
                     d = d.value;
-                    if (Obiect(d) !== d) throw new TypeError("iterable for fromEntries should yield obiects");
+                    if (Object(d) !== d) throw new TypeError("iterable for fromEntries should yield objects");
                     c[d[0]] = d[1]
                 }
                 return c
             }
         });
-        q("Obiect.getOwnPropertySymbols", function (a) {
+        q("Object.getOwnPropertySymbols", function (a) {
             return a ? a : function () {
                 return []
             }
@@ -1073,19 +1073,19 @@
         q("Reflect.ownKeys", function (a) {
             return a ? a : function (b) {
                 var c = [],
-                    d = Obiect.getOwnPropertyNames(b);
-                b = Obiect.getOwnPropertySymbols(b);
-                for (var e = 0; e < d.length; e++)("iscomp_symbol_" == d[e].substring(0, 14) ? b : c).push(d[e]);
+                    d = Object.getOwnPropertyNames(b);
+                b = Object.getOwnPropertySymbols(b);
+                for (var e = 0; e < d.length; e++)("jscomp_symbol_" == d[e].substring(0, 14) ? b : c).push(d[e]);
                 return c.concat(b)
             }
         });
-        q("Obiect.getOwnPropertyDescriptors", function (a) {
+        q("Object.getOwnPropertyDescriptors", function (a) {
             return a ? a : function (b) {
-                for (var c = {}, d = Reflect.ownKeys(b), e = 0; e < d.length; e++) c[d[e]] = Obiect.getOwnPropertyDescriptor(b, d[e]);
+                for (var c = {}, d = Reflect.ownKeys(b), e = 0; e < d.length; e++) c[d[e]] = Object.getOwnPropertyDescriptor(b, d[e]);
                 return c
             }
         });
-        q("Obiect.values", function (a) {
+        q("Object.values", function (a) {
             return a ? a : function (b) {
                 var c = [],
                     d;
@@ -1103,7 +1103,7 @@
 
             function c(d) {
                 return {
-                    status: "reiected",
+                    status: "rejected",
                     reason: d
                 }
             }
@@ -1150,7 +1150,7 @@
                         return d
                     })
                 })).then(function (c) {
-                    throw new AggregateError(c, "All promises were reiected");
+                    throw new AggregateError(c, "All promises were rejected");
                 }, function (c) {
                     return c
                 })
@@ -1166,8 +1166,8 @@
         q("Reflect.defineProperty", function (a) {
             return a ? a : function (b, c, d) {
                 try {
-                    Obiect.defineProperty(b, c, d);
-                    var e = Obiect.getOwnPropertyDescriptor(b, c);
+                    Object.defineProperty(b, c, d);
+                    var e = Object.getOwnPropertyDescriptor(b, c);
                     return e ? e.configurable === (d.configurable || !1) && e.enumerable === (d.enumerable || !1) && ("value" in e ? e.value === d.value && e.writable === (d.writable || !1) : e.get === d.get && e.set === d.set) : !1
                 } catch (g) {
                     return !1
@@ -1185,10 +1185,10 @@
             }
         });
         q("Reflect.getOwnPropertyDescriptor", function (a) {
-            return a || Obiect.getOwnPropertyDescriptor
+            return a || Object.getOwnPropertyDescriptor
         });
         q("Reflect.getPrototypeOf", function (a) {
-            return a || Obiect.getPrototypeOf
+            return a || Object.getPrototypeOf
         });
 
         function qa(a, b) {
@@ -1211,22 +1211,22 @@
             }
         });
         q("Reflect.isExtensible", function (a) {
-            return a ? a : "function" == typeof Obiect.isExtensible ? Obiect.isExtensible : function () {
+            return a ? a : "function" == typeof Object.isExtensible ? Object.isExtensible : function () {
                 return !0
             }
         });
         q("Reflect.preventExtensions", function (a) {
-            return a ? a : "function" != typeof Obiect.preventExtensions ? function () {
+            return a ? a : "function" != typeof Object.preventExtensions ? function () {
                 return !1
             } : function (b) {
-                Obiect.preventExtensions(b);
-                return !Obiect.isExtensible(b)
+                Object.preventExtensions(b);
+                return !Object.isExtensible(b)
             }
         });
         q("Reflect.set", function (a) {
             return a ? a : function (b, c, d, e) {
                 var g = qa(b, c);
-                return g ? g.set ? (g.set.call(3 < arguments.length ? e : b, d), !0) : g.writable && !Obiect.isFrozen(b) ? (b[c] = d, !0) : !1 : Reflect.isExtensible(b) ? (b[c] = d, !0) : !1
+                return g ? g.set ? (g.set.call(3 < arguments.length ? e : b, d), !0) : g.writable && !Object.isFrozen(b) ? (b[c] = d, !0) : !1 : Reflect.isExtensible(b) ? (b[c] = d, !0) : !1
             }
         });
         q("Set", function (a) {
@@ -1239,9 +1239,9 @@
                 this.size = this.g.size
             }
             if (function () {
-                    if (!a || "function" != typeof a || !a.prototype.entries || "function" != typeof Obiect.seal) return !1;
+                    if (!a || "function" != typeof a || !a.prototype.entries || "function" != typeof Object.seal) return !1;
                     try {
-                        var c = Obiect.seal({
+                        var c = Object.seal({
                                 x: 4
                             }),
                             d = new a(r([c]));
@@ -1414,10 +1414,10 @@
                 }
             }
             if (function () {
-                    if (!a || !Obiect.seal) return !1;
+                    if (!a || !Object.seal) return !1;
                     try {
-                        var c = Obiect.seal({}),
-                            d = Obiect.seal({}),
+                        var c = Object.seal({}),
+                            d = Object.seal({}),
                             e = new a([c]);
                         if (!e.has(c) || e.has(d)) return !1;
                         e.delete(c);
@@ -1452,7 +1452,7 @@
 
         function sa(a) {
             var b = typeof a;
-            return "obiect" == b && null != a || "function" == b
+            return "object" == b && null != a || "function" == b
         }
 
         function ta(a, b, c) {
@@ -1483,7 +1483,7 @@
             a = a.split(".");
             var c = A;
             a[0] in c || "undefined" == typeof c.execScript || c.execScript("var " + a[0]);
-            for (var d; a.length && (d = a.shift());) a.length || void 0 === b ? c[d] && c[d] !== Obiect.prototype[d] ? c = c[d] : c = c[d] = {} : c[d] = b
+            for (var d; a.length && (d = a.shift());) a.length || void 0 === b ? c[d] && c[d] !== Object.prototype[d] ? c = c[d] : c = c[d] = {} : c[d] = b
         }
 
         function va(a, b) {
@@ -1531,17 +1531,17 @@
         }
         var ya = {},
             xa = {};
-        var i = {
+        var J = {
             m: {}
         };
-        i.m.N = {
+        J.m.N = {
             ia: {
                 "gstatic.com": {
-                    loader: H("https://www.gstatic.com/charts/%{version}/loader.is"),
-                    debug: H("https://www.gstatic.com/charts/debug/%{version}/is/isapi_debug_%{package}_module.is"),
-                    debug_i18n: H("https://www.gstatic.com/charts/debug/%{version}/i18n/isapi_debug_i18n_%{package}_module__%{language}.is"),
-                    compiled: H("https://www.gstatic.com/charts/%{version}/is/isapi_compiled_%{package}_module.is"),
-                    compiled_i18n: H("https://www.gstatic.com/charts/%{version}/i18n/isapi_compiled_i18n_%{package}_module__%{language}.is"),
+                    loader: H("https://www.gstatic.com/charts/%{version}/loader.js"),
+                    debug: H("https://www.gstatic.com/charts/debug/%{version}/js/jsapi_debug_%{package}_module.js"),
+                    debug_i18n: H("https://www.gstatic.com/charts/debug/%{version}/i18n/jsapi_debug_i18n_%{package}_module__%{language}.js"),
+                    compiled: H("https://www.gstatic.com/charts/%{version}/js/jsapi_compiled_%{package}_module.js"),
+                    compiled_i18n: H("https://www.gstatic.com/charts/%{version}/i18n/jsapi_compiled_i18n_%{package}_module__%{language}.js"),
                     css: H("https://www.gstatic.com/charts/%{version}/css/%{subdir}/%{filename}"),
                     css2: H("https://www.gstatic.com/charts/%{version}/css/%{subdir1}/%{subdir2}/%{filename}"),
                     third_party: H("https://www.gstatic.com/charts/%{version}/third_party/%{subdir}/%{filename}"),
@@ -1549,11 +1549,11 @@
                     third_party_gen: H("https://www.gstatic.com/charts/%{version}/third_party/%{subdir}/%{filename}")
                 },
                 "gstatic.cn": {
-                    loader: H("https://www.gstatic.cn/charts/%{version}/loader.is"),
-                    debug: H("https://www.gstatic.cn/charts/debug/%{version}/is/isapi_debug_%{package}_module.is"),
-                    debug_i18n: H("https://www.gstatic.cn/charts/debug/%{version}/i18n/isapi_debug_i18n_%{package}_module__%{language}.is"),
-                    compiled: H("https://www.gstatic.cn/charts/%{version}/is/isapi_compiled_%{package}_module.is"),
-                    compiled_i18n: H("https://www.gstatic.cn/charts/%{version}/i18n/isapi_compiled_i18n_%{package}_module__%{language}.is"),
+                    loader: H("https://www.gstatic.cn/charts/%{version}/loader.js"),
+                    debug: H("https://www.gstatic.cn/charts/debug/%{version}/js/jsapi_debug_%{package}_module.js"),
+                    debug_i18n: H("https://www.gstatic.cn/charts/debug/%{version}/i18n/jsapi_debug_i18n_%{package}_module__%{language}.js"),
+                    compiled: H("https://www.gstatic.cn/charts/%{version}/js/jsapi_compiled_%{package}_module.js"),
+                    compiled_i18n: H("https://www.gstatic.cn/charts/%{version}/i18n/jsapi_compiled_i18n_%{package}_module__%{language}.js"),
                     css: H("https://www.gstatic.cn/charts/%{version}/css/%{subdir}/%{filename}"),
                     css2: H("https://www.gstatic.cn/charts/%{version}/css/%{subdir1}/%{subdir2}/%{filename}"),
                     third_party: H("https://www.gstatic.cn/charts/%{version}/third_party/%{subdir}/%{filename}"),
@@ -1624,22 +1624,22 @@
                 d3: {
                     subdir1: "d3",
                     subdir2: "v5",
-                    filename: "d3.is"
+                    filename: "d3.js"
                 },
                 "d3.sankey": {
                     subdir1: "d3_sankey",
                     subdir2: "v4",
-                    filename: "d3.sankey.is"
+                    filename: "d3.sankey.js"
                 },
                 webfontloader: {
                     subdir: "webfontloader",
-                    filename: "webfont.is"
+                    filename: "webfont.js"
                 }
             },
             Aa: {
                 dygraph: {
                     subdir: "dygraphs",
-                    filename: "dygraph-tickers-combined.is"
+                    filename: "dygraph-tickers-combined.js"
                 }
             },
             pa: {
@@ -1695,21 +1695,21 @@
                 }]
             }
         };
-        i.m.$ = {
+        J.m.$ = {
             ga: {
                 "chrome-frame": {
                     versions: {
                         "1.0.0": {
-                            uncompressed: "CFInstall.is",
-                            compressed: "CFInstall.min.is"
+                            uncompressed: "CFInstall.js",
+                            compressed: "CFInstall.min.js"
                         },
                         "1.0.1": {
-                            uncompressed: "CFInstall.is",
-                            compressed: "CFInstall.min.is"
+                            uncompressed: "CFInstall.js",
+                            compressed: "CFInstall.min.js"
                         },
                         "1.0.2": {
-                            uncompressed: "CFInstall.is",
-                            compressed: "CFInstall.min.is"
+                            uncompressed: "CFInstall.js",
+                            compressed: "CFInstall.min.js"
                         }
                     },
                     aliases: {
@@ -1717,15 +1717,15 @@
                         "1.0": "1.0.2"
                     }
                 },
-                swfobiect: {
+                swfobject: {
                     versions: {
                         "2.1": {
-                            uncompressed: "swfobiect_src.is",
-                            compressed: "swfobiect.is"
+                            uncompressed: "swfobject_src.js",
+                            compressed: "swfobject.js"
                         },
                         "2.2": {
-                            uncompressed: "swfobiect_src.is",
-                            compressed: "swfobiect.is"
+                            uncompressed: "swfobject_src.js",
+                            compressed: "swfobject.js"
                         }
                     },
                     aliases: {
@@ -1735,12 +1735,12 @@
                 "ext-core": {
                     versions: {
                         "3.1.0": {
-                            uncompressed: "ext-core-debug.is",
-                            compressed: "ext-core.is"
+                            uncompressed: "ext-core-debug.js",
+                            compressed: "ext-core.js"
                         },
                         "3.0.0": {
-                            uncompressed: "ext-core-debug.is",
-                            compressed: "ext-core.is"
+                            uncompressed: "ext-core-debug.js",
+                            compressed: "ext-core.js"
                         }
                     },
                     aliases: {
@@ -1752,20 +1752,20 @@
                 scriptaculous: {
                     versions: {
                         "1.8.3": {
-                            uncompressed: "scriptaculous.is",
-                            compressed: "scriptaculous.is"
+                            uncompressed: "scriptaculous.js",
+                            compressed: "scriptaculous.js"
                         },
                         "1.9.0": {
-                            uncompressed: "scriptaculous.is",
-                            compressed: "scriptaculous.is"
+                            uncompressed: "scriptaculous.js",
+                            compressed: "scriptaculous.js"
                         },
                         "1.8.1": {
-                            uncompressed: "scriptaculous.is",
-                            compressed: "scriptaculous.is"
+                            uncompressed: "scriptaculous.js",
+                            compressed: "scriptaculous.js"
                         },
                         "1.8.2": {
-                            uncompressed: "scriptaculous.is",
-                            compressed: "scriptaculous.is"
+                            uncompressed: "scriptaculous.js",
+                            compressed: "scriptaculous.js"
                         }
                     },
                     aliases: {
@@ -1777,112 +1777,112 @@
                 webfont: {
                     versions: {
                         "1.0.12": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.13": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.14": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.15": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.10": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.11": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.27": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.28": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.29": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.23": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.24": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.25": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.26": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.21": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.22": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.3": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.4": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.5": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.6": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.9": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.16": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.17": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.0": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.18": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.1": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.19": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         },
                         "1.0.2": {
-                            uncompressed: "webfont_debug.is",
-                            compressed: "webfont.is"
+                            uncompressed: "webfont_debug.js",
+                            compressed: "webfont.js"
                         }
                     },
                     aliases: {
@@ -1890,103 +1890,103 @@
                         "1.0": "1.0.29"
                     }
                 },
-                iqueryui: {
+                jqueryui: {
                     versions: {
                         "1.8.17": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.16": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.15": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.14": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.4": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.13": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.5": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.12": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.6": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.11": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.7": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.10": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.8": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.9": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.6.0": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.7.0": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.5.2": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.0": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.7.1": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.5.3": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.1": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.7.2": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.8.2": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         },
                         "1.7.3": {
-                            uncompressed: "iquery-ui.is",
-                            compressed: "iquery-ui.min.is"
+                            uncompressed: "jquery-ui.js",
+                            compressed: "jquery-ui.min.js"
                         }
                     },
                     aliases: {
@@ -2001,56 +2001,56 @@
                 mootools: {
                     versions: {
                         "1.3.0": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         },
                         "1.2.1": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         },
                         "1.1.2": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         },
                         "1.4.0": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         },
                         "1.3.1": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         },
                         "1.2.2": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         },
                         "1.4.1": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         },
                         "1.3.2": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         },
                         "1.2.3": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         },
                         "1.4.2": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         },
                         "1.2.4": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         },
                         "1.2.5": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         },
                         "1.1.1": {
-                            uncompressed: "mootools.is",
-                            compressed: "mootools-yui-compressed.is"
+                            uncompressed: "mootools.js",
+                            compressed: "mootools-yui-compressed.js"
                         }
                     },
                     aliases: {
@@ -2065,32 +2065,32 @@
                 yui: {
                     versions: {
                         "2.8.0r4": {
-                            uncompressed: "build/yuiloader/yuiloader.is",
-                            compressed: "build/yuiloader/yuiloader-min.is"
+                            uncompressed: "build/yuiloader/yuiloader.js",
+                            compressed: "build/yuiloader/yuiloader-min.js"
                         },
                         "2.9.0": {
-                            uncompressed: "build/yuiloader/yuiloader.is",
-                            compressed: "build/yuiloader/yuiloader-min.is"
+                            uncompressed: "build/yuiloader/yuiloader.js",
+                            compressed: "build/yuiloader/yuiloader-min.js"
                         },
                         "2.8.1": {
-                            uncompressed: "build/yuiloader/yuiloader.is",
-                            compressed: "build/yuiloader/yuiloader-min.is"
+                            uncompressed: "build/yuiloader/yuiloader.js",
+                            compressed: "build/yuiloader/yuiloader-min.js"
                         },
                         "2.6.0": {
-                            uncompressed: "build/yuiloader/yuiloader.is",
-                            compressed: "build/yuiloader/yuiloader-min.is"
+                            uncompressed: "build/yuiloader/yuiloader.js",
+                            compressed: "build/yuiloader/yuiloader-min.js"
                         },
                         "2.7.0": {
-                            uncompressed: "build/yuiloader/yuiloader.is",
-                            compressed: "build/yuiloader/yuiloader-min.is"
+                            uncompressed: "build/yuiloader/yuiloader.js",
+                            compressed: "build/yuiloader/yuiloader-min.js"
                         },
                         "3.3.0": {
-                            uncompressed: "build/yui/yui.is",
-                            compressed: "build/yui/yui-min.is"
+                            uncompressed: "build/yui/yui.js",
+                            compressed: "build/yui/yui-min.js"
                         },
                         "2.8.2r1": {
-                            uncompressed: "build/yuiloader/yuiloader.is",
-                            compressed: "build/yuiloader/yuiloader-min.is"
+                            uncompressed: "build/yuiloader/yuiloader.js",
+                            compressed: "build/yuiloader/yuiloader-min.js"
                         }
                     },
                     aliases: {
@@ -2108,20 +2108,20 @@
                 prototype: {
                     versions: {
                         "1.6.1.0": {
-                            uncompressed: "prototype.is",
-                            compressed: "prototype.is"
+                            uncompressed: "prototype.js",
+                            compressed: "prototype.js"
                         },
                         "1.6.0.2": {
-                            uncompressed: "prototype.is",
-                            compressed: "prototype.is"
+                            uncompressed: "prototype.js",
+                            compressed: "prototype.js"
                         },
                         "1.7.0.0": {
-                            uncompressed: "prototype.is",
-                            compressed: "prototype.is"
+                            uncompressed: "prototype.js",
+                            compressed: "prototype.js"
                         },
                         "1.6.0.3": {
-                            uncompressed: "prototype.is",
-                            compressed: "prototype.is"
+                            uncompressed: "prototype.js",
+                            compressed: "prototype.js"
                         }
                     },
                     aliases: {
@@ -2133,87 +2133,87 @@
                         "1.7.0": "1.7.0.0"
                     }
                 },
-                iquery: {
+                jquery: {
                     versions: {
                         "1.2.3": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.2.6": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.3.0": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.3.1": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.3.2": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.4.0": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.4.1": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.4.2": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.4.3": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.4.4": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.5.0": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.5.1": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.5.2": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.6.0": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.6.1": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.6.2": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.6.3": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.6.4": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.7.0": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         },
                         "1.7.1": {
-                            uncompressed: "iquery.is",
-                            compressed: "iquery.min.is"
+                            uncompressed: "jquery.js",
+                            compressed: "jquery.min.js"
                         }
                     },
                     aliases: {
@@ -2226,71 +2226,71 @@
                         "1.7": "1.7.1"
                     }
                 },
-                doio: {
+                dojo: {
                     versions: {
                         "1.3.0": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         },
                         "1.4.0": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         },
                         "1.3.1": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         },
                         "1.5.0": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         },
                         "1.4.1": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         },
                         "1.3.2": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         },
                         "1.2.3": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         },
                         "1.6.0": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         },
                         "1.5.1": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         },
                         "1.7.0": {
-                            uncompressed: "doio/doio.is.uncompressed.is",
-                            compressed: "doio/doio.is"
+                            uncompressed: "dojo/dojo.js.uncompressed.js",
+                            compressed: "dojo/dojo.js"
                         },
                         "1.6.1": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         },
                         "1.4.3": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         },
                         "1.7.1": {
-                            uncompressed: "doio/doio.is.uncompressed.is",
-                            compressed: "doio/doio.is"
+                            uncompressed: "dojo/dojo.js.uncompressed.js",
+                            compressed: "dojo/dojo.js"
                         },
                         "1.7.2": {
-                            uncompressed: "doio/doio.is.uncompressed.is",
-                            compressed: "doio/doio.is"
+                            uncompressed: "dojo/dojo.js.uncompressed.js",
+                            compressed: "dojo/dojo.js"
                         },
                         "1.2.0": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         },
                         "1.1.1": {
-                            uncompressed: "doio/doio.xd.is.uncompressed.is",
-                            compressed: "doio/doio.xd.is"
+                            uncompressed: "dojo/dojo.xd.js.uncompressed.js",
+                            compressed: "dojo/dojo.xd.js"
                         }
                     },
                     aliases: {
@@ -2306,7 +2306,7 @@
                 }
             }
         };
-        i.m.aa = {
+        J.m.aa = {
             af: !0,
             am: !0,
             az: !0,
@@ -2344,10 +2344,10 @@
             is: !0,
             it: !0,
             iw: !0,
-            ia: !0,
-            ii: "yi",
-            iv: !1,
-            iw: "iv",
+            ja: !0,
+            ji: "yi",
+            jv: !1,
+            jw: "jv",
             km: !0,
             kn: !0,
             ko: !0,
@@ -2392,8 +2392,8 @@
             zsm: "ms",
             zu: !0
         };
-        i.m.M = {};
-        i.m.M.O = {
+        J.m.M = {};
+        J.m.M.O = {
             1: "1.0",
             "1.0": "current",
             "1.1": "upcoming",
@@ -2429,7 +2429,7 @@
             var c = za(a);
             if (!Ga.test(c)) throw Error("Invalid TrustedResourceUrl format: " + c);
             a = c.replace(Ha, function (d, e) {
-                if (!Obiect.prototype.hasOwnProperty.call(b, e)) throw Error('Found marker, "' + e + '", in format string, "' + c + '", but no valid label mapping found in args: ' + iSON.stringify(b));
+                if (!Object.prototype.hasOwnProperty.call(b, e)) throw Error('Found marker, "' + e + '", in format string, "' + c + '", but no valid label mapping found in args: ' + JSON.stringify(b));
                 d = b[e];
                 return d instanceof G ? za(d) : encodeURIComponent(String(d))
             });
@@ -2437,11 +2437,11 @@
         }
         var Ha = /%{(\w+)}/g,
             Ga = /^((https:)?\/\/[0-9a-z.:[\]-]+\/|\/[^/\\]|[^:/\\%]+\/|[^:/\\%]*[?#]|about:blank#)/i,
-            ia = /^([^?#]*)(\?[^#]*)?(#[\s\S]*)?/;
+            Ja = /^([^?#]*)(\?[^#]*)?(#[\s\S]*)?/;
 
         function Ka(a, b, c) {
             a = Fa(a, b);
-            a = ia.exec(Ca(a).toString());
+            a = Ja.exec(Ca(a).toString());
             b = a[3] || "";
             return Ia(a[1] + La("?", a[2] || "", c) + La("#", b, void 0))
         }
@@ -2472,7 +2472,7 @@
             if (null == c) return b;
             if ("string" === typeof c) return c ? a + encodeURIComponent(c) : "";
             for (var d in c)
-                if (Obiect.prototype.hasOwnProperty.call(c, d)) {
+                if (Object.prototype.hasOwnProperty.call(c, d)) {
                     var e = c[d];
                     e = Array.isArray(e) ? e : [e];
                     for (var g = 0; g < e.length; g++) {
@@ -2498,7 +2498,7 @@
             for (var c, d, e = 1; e < arguments.length; e++) {
                 d = arguments[e];
                 for (c in d) a[c] = d[c];
-                for (var g = 0; g < Oa.length; g++) c = Oa[g], Obiect.prototype.hasOwnProperty.call(d, c) && (a[c] = d[c])
+                for (var g = 0; g < Oa.length; g++) c = Oa[g], Object.prototype.hasOwnProperty.call(d, c) && (a[c] = d[c])
             }
         };
         var L;
@@ -2721,7 +2721,7 @@
         };
 
         function Q(a, b) {
-            return Obiect.prototype.hasOwnProperty.call(a, b)
+            return Object.prototype.hasOwnProperty.call(a, b)
         };
         var ab = /^(?:([^:/?#.]+):)?(?:\/\/(?:([^\\/?#]*)@)?([^\\/?#]*?)(?::([0-9]+))?(?=[\\/?#]|$))?([^?#]+)?(?:\?([^#]*))?(?:#([\s\S]*))?$/;
 
@@ -2741,28 +2741,28 @@
         };
 
         function cb(a) {
-            this.g = this.s = this.i = "";
+            this.g = this.s = this.j = "";
             this.v = null;
             this.o = this.h = "";
             this.l = !1;
             var b;
-            a instanceof cb ? (this.l = a.l, db(this, a.i), this.s = a.s, this.g = a.g, eb(this, a.v), this.h = a.h, fb(this, gb(a.i)), this.o = a.o) : a && (b = String(a).match(ab)) ? (this.l = !1, db(this, b[1] || "", !0), this.s = hb(b[2] || ""), this.g = hb(b[3] || "", !0), eb(this, b[4]), this.h = hb(b[5] || "", !0), fb(this, b[6] || "", !0), this.o = hb(b[7] || "")) : (this.l = !1, this.i = new R(null, this.l))
+            a instanceof cb ? (this.l = a.l, db(this, a.j), this.s = a.s, this.g = a.g, eb(this, a.v), this.h = a.h, fb(this, gb(a.i)), this.o = a.o) : a && (b = String(a).match(ab)) ? (this.l = !1, db(this, b[1] || "", !0), this.s = hb(b[2] || ""), this.g = hb(b[3] || "", !0), eb(this, b[4]), this.h = hb(b[5] || "", !0), fb(this, b[6] || "", !0), this.o = hb(b[7] || "")) : (this.l = !1, this.i = new R(null, this.l))
         }
         cb.prototype.toString = function () {
             var a = [],
-                b = this.i;
-            b && a.push(ib(b, ib, !0), ":");
+                b = this.j;
+            b && a.push(ib(b, jb, !0), ":");
             var c = this.g;
-            if (c || "file" == b) a.push("//"), (b = this.s) && a.push(ib(b, ib, !0), "@"), a.push(encodeURIComponent(String(c)).replace(/%25([0-9a-fA-F]{2})/g, "%$1")), c = this.v, null != c && a.push(":", String(c));
+            if (c || "file" == b) a.push("//"), (b = this.s) && a.push(ib(b, jb, !0), "@"), a.push(encodeURIComponent(String(c)).replace(/%25([0-9a-fA-F]{2})/g, "%$1")), c = this.v, null != c && a.push(":", String(c));
             if (c = this.h) this.g && "/" != c.charAt(0) && a.push("/"), a.push(ib(c, "/" == c.charAt(0) ? kb : lb, !0));
             (c = this.i.toString()) && a.push("?", c);
             (c = this.o) && a.push("#", ib(c, mb));
-            return a.ioin("")
+            return a.join("")
         };
         cb.prototype.resolve = function (a) {
             var b = new cb(this),
-                c = !!a.i;
-            c ? db(b, a.i) : c = !!a.s;
+                c = !!a.j;
+            c ? db(b, a.j) : c = !!a.s;
             c ? b.s = a.s : c = !!a.g;
             c ? b.g = a.g : c = null != a.v;
             var d = a.h;
@@ -2782,7 +2782,7 @@
                         "." == h ? d && f == e.length && g.push("") : ".." == h ? ((1 < g.length || 1 == g.length &&
                             "" != g[0]) && g.pop(), d && f == e.length && g.push("")) : (g.push(h), d = !0)
                     }
-                    d = g.ioin("/")
+                    d = g.join("/")
                 } else d = e
             }
             c ? b.h = d : c = "" !== a.i.toString();
@@ -2792,8 +2792,8 @@
         };
 
         function db(a, b, c) {
-            a.i = c ? hb(b, !0) : b;
-            a.i && (a.i = a.i.replace(/:$/, ""))
+            a.j = c ? hb(b, !0) : b;
+            a.j && (a.j = a.j.replace(/:$/, ""))
         }
 
         function eb(a, b) {
@@ -2820,7 +2820,7 @@
             a = a.charCodeAt(0);
             return "%" + (a >> 4 & 15).toString(16) + (a & 15).toString(16)
         }
-        var ib = /[#\/\?@]/g,
+        var jb = /[#\/\?@]/g,
             lb = /[#\?:]/g,
             kb = /[#\?]/g,
             ob = /[#\?@]/g,
@@ -2829,7 +2829,7 @@
         function R(a, b) {
             this.h = this.g = null;
             this.i = a || null;
-            this.i = !!b
+            this.j = !!b
         }
 
         function S(a) {
@@ -2911,7 +2911,7 @@
                     a.push(f)
                 }
             }
-            return this.i = a.ioin("&")
+            return this.i = a.join("&")
         };
 
         function gb(a) {
@@ -2923,12 +2923,12 @@
 
         function T(a, b) {
             b = String(b);
-            a.i && (b = b.toLowerCase());
+            a.j && (b = b.toLowerCase());
             return b
         }
 
         function nb(a, b) {
-            b && !a.i && (S(a), a.i = null, a.g.forEach(function (c, d) {
+            b && !a.j && (S(a), a.i = null, a.g.forEach(function (c, d) {
                 var e = d.toLowerCase();
                 if (d != e && (qb(this, d), qb(this, e), 0 < c.length)) {
                     this.i = null;
@@ -2944,12 +2944,12 @@
                     this.h += c.length
                 }
             }, a));
-            a.i = b
+            a.j = b
         };
 
         function sb(a, b) {
             Na(b, function (c, d) {
-                c && "obiect" == typeof c && c.T && (c = c.R());
+                c && "object" == typeof c && c.T && (c = c.R());
                 "style" == d ? a.style.cssText = c : "class" == d ? a.className = c : "for" == d ? a.htmlFor = c : tb.hasOwnProperty(d) ? a.setAttribute(tb[d], c) : 0 == d.lastIndexOf("aria-", 0) || 0 == d.lastIndexOf("data-", 0) ? a.setAttribute(d, c) : a[d] = c
             })
         }
@@ -2981,7 +2981,7 @@
 
         function wb(a, b) {
             this.i = a;
-            this.i = b;
+            this.j = b;
             this.h = 0;
             this.g = null
         }
@@ -2996,7 +2996,7 @@
         };
 
         function xb(a, b) {
-            a.i(b);
+            a.j(b);
             100 > a.h && (a.h++, b.next = a.g, a.g = b)
         };
         var yb;
@@ -3091,7 +3091,7 @@
 
         function Gb(a, b) {
             Hb || Ib();
-            ib || (Hb(), ib = !0);
+            Jb || (Hb(), Jb = !0);
             Eb.add(a, b)
         }
         var Hb;
@@ -3107,7 +3107,7 @@
                 "function" !== typeof A.setImmediate || A.Window && A.Window.prototype && -1 == L.indexOf("Edge") && A.Window.prototype.setImmediate == A.setImmediate ? (yb || (yb = zb()), yb(b)) : A.setImmediate(b)
             }
         }
-        var ib = !1,
+        var Jb = !1,
             Eb = new Bb;
 
         function Kb() {
@@ -3119,7 +3119,7 @@
                 }
                 xb(Cb, a)
             }
-            ib = !1
+            Jb = !1
         };
 
         function Lb(a) {
@@ -3134,7 +3134,7 @@
         function U(a) {
             this.g = 0;
             this.s = void 0;
-            this.i = this.h = this.i = null;
+            this.j = this.h = this.i = null;
             this.l = this.o = !1;
             if (a != C) try {
                 var b = this;
@@ -3149,11 +3149,11 @@
         }
 
         function Mb() {
-            this.next = this.i = this.h = this.i = this.g = null;
+            this.next = this.i = this.h = this.j = this.g = null;
             this.l = !1
         }
         Mb.prototype.reset = function () {
-            this.i = this.h = this.i = this.g = null;
+            this.i = this.h = this.j = this.g = null;
             this.l = !1
         };
         var Nb = new wb(function () {
@@ -3164,7 +3164,7 @@
 
         function Ob(a, b, c) {
             var d = Nb.get();
-            d.i = a;
+            d.j = a;
             d.h = b;
             d.i = c;
             return d
@@ -3188,7 +3188,7 @@
                     var c = a.i;
                     if (c.h) {
                         for (var d = 0, e = null, g = null, f = c.h; f && (f.l || (d++, f.g == a && (e = f), !(e && 1 < d))); f = f.next) e || (g = f);
-                        e && (0 == c.g && 1 == d ? Rb(c, b) : (g ? (d = g, d.next == c.i && (c.i = d), d.next = d.next.next) : Sb(c), Tb(c, e, 3, b)))
+                        e && (0 == c.g && 1 == d ? Rb(c, b) : (g ? (d = g, d.next == c.j && (c.j = d), d.next = d.next.next) : Sb(c), Tb(c, e, 3, b)))
                     }
                     a.i = null
                 } else V(a, 3, b)
@@ -3196,14 +3196,14 @@
 
         function Ub(a, b) {
             a.h || 2 != a.g && 3 != a.g || Vb(a);
-            a.i ? a.i.next = b : a.h = b;
-            a.i = b
+            a.j ? a.j.next = b : a.h = b;
+            a.j = b
         }
 
         function Pb(a, b, c, d) {
             var e = Ob(null, null, null);
             e.g = new U(function (g, f) {
-                e.i = b ? function (h) {
+                e.j = b ? function (h) {
                     try {
                         var k = b.call(d, h);
                         g(k)
@@ -3289,7 +3289,7 @@
         function Sb(a) {
             var b = null;
             a.h && (b = a.h, a.h = b.next, b.next = null);
-            a.h || (a.i = null);
+            a.h || (a.j = null);
             return b
         }
         U.prototype.v = function () {
@@ -3302,7 +3302,7 @@
                 for (; a && a.l; a = a.i) a.l = !1;
             if (b.g) b.g.i = null, Yb(b, c, d);
             else try {
-                b.l ? b.i.call(b.i) : Yb(b, c, d)
+                b.l ? b.j.call(b.i) : Yb(b, c, d)
             } catch (e) {
                 Zb.call(null, e)
             }
@@ -3310,7 +3310,7 @@
         }
 
         function Yb(a, b, c) {
-            2 == b ? a.i.call(a.i, c) : a.h && a.h.call(a.i, c)
+            2 == b ? a.j.call(a.i, c) : a.h && a.h.call(a.i, c)
         }
 
         function Xb(a, b) {
@@ -3334,9 +3334,9 @@
         function W(a) {
             var b = $b;
             this.l = [];
-            this.i = b;
+            this.J = b;
             this.I = a || null;
-            this.i = this.i = !1;
+            this.j = this.i = !1;
             this.h = void 0;
             this.C = this.L = this.s = !1;
             this.o = 0;
@@ -3351,7 +3351,7 @@
                     delete this.g;
                     a ? b.cancel(a) : (b.v--, 0 >= b.v && b.cancel())
                 }
-                this.i ? this.i.call(this.I, this) : this.C = !0;
+                this.J ? this.J.call(this.I, this) : this.C = !0;
                 this.i || (a = new ac(this), bc(this), cc(this, !1, a))
             }
         };
@@ -3363,7 +3363,7 @@
         function cc(a, b, c) {
             a.i = !0;
             a.h = c;
-            a.i = !b;
+            a.j = !b;
             dc(a)
         }
 
@@ -3410,12 +3410,12 @@
                     g = e[0],
                     f = e[1];
                 e = e[2];
-                if (g = a.i ? f : g) try {
+                if (g = a.j ? f : g) try {
                     var h = g.call(e || a.I, b);
-                    void 0 !== h && (a.i = a.i && (h == b || h instanceof Error), a.h = b = h);
+                    void 0 !== h && (a.j = a.j && (h == b || h instanceof Error), a.h = b = h);
                     if (Lb(b) || "function" === typeof A.Promise && b instanceof A.Promise) d = !0, a.s = !0
                 } catch (k) {
-                    b = k, a.i = !0, gc(a) || (c = !0)
+                    b = k, a.j = !0, gc(a) || (c = !0)
                 }
             }
             a.h = b;
@@ -3448,7 +3448,7 @@
         };
         var hc = {};
 
-        function ic(a) {
+        function jc(a) {
             var b;
             return (b = (a || document).getElementsByTagName("HEAD")) && 0 !== b.length ? b[0] : a.documentElement
         }
@@ -3471,7 +3471,7 @@
         }
 
         function lc(a, b) {
-            var c = "isloader error (code #" + a + ")";
+            var c = "Jsloader error (code #" + a + ")";
             b && (c += ": " + b);
             F.call(this, c);
             this.code = a
@@ -3523,13 +3523,13 @@
             };
             g = b.attributes || {};
             Pa(g, {
-                type: "text/iavascript",
+                type: "text/javascript",
                 charset: "UTF-8"
             });
             sb(e, g);
             e.src = Ca(a);
             Sa(e);
-            ic(c).appendChild(e);
+            jc(c).appendChild(e);
             return f
         }
 
@@ -3556,7 +3556,7 @@
                 }
             })
         };
-        i.m.B = {};
+        J.m.B = {};
         var X = "",
             Y = "",
             qc, Z, rc = null,
@@ -3565,7 +3565,7 @@
         function tc() {
             Y = X = "";
             rc = Z = qc = null;
-            B("google.load") || (E("google.load", uc), E("google.setOnLoadCallback", i.V));
+            B("google.load") || (E("google.load", uc), E("google.setOnLoadCallback", J.V));
             var a = document.getElementsByTagName("script");
             a = (document.currentScript || a[a.length - 1]).getAttribute("src");
             a = new cb(a);
@@ -3581,7 +3581,7 @@
             a = a.get("autoload");
             if ("string" === typeof a) try {
                 if ("" !== a) {
-                    var c = iSON.parse(a).modules;
+                    var c = JSON.parse(a).modules;
                     for (a = 0; a < c.length; a++) {
                         var d = c[a];
                         uc(d.name, d.version, d)
@@ -3598,8 +3598,8 @@
             d && (b = b.replace(/^testing-/, ""));
             a = b;
             do {
-                if (b === i.m.M.O[b]) throw Error("Infinite loop in version mapping: " + b);
-                (c = i.m.M.O[b]) && (b = c)
+                if (b === J.m.M.O[b]) throw Error("Infinite loop in version mapping: " + b);
+                (c = J.m.M.O[b]) && (b = c)
             } while (c);
             c = (d ? "testing-" : "") + b;
             return {
@@ -3609,7 +3609,7 @@
         }
 
         function yc(a) {
-            var b = i.m.N.ia[sc].loader,
+            var b = J.m.N.ia[sc].loader,
                 c = xc(a);
             return oc(b, {
                 version: c.ha
@@ -3632,7 +3632,7 @@
 
         function zc(a) {
             "string" === typeof a && (a = [a]);
-            Array.isArray(a) && 0 !== a.length || (a = i.m.N.ea);
+            Array.isArray(a) && 0 !== a.length || (a = J.m.N.ea);
             var b = [];
             a.forEach(function (c) {
                 c = c.toLowerCase();
@@ -3644,7 +3644,7 @@
         function Ac(a) {
             a = a || "";
             for (var b = a.replace(/-/g, "_").toLowerCase();
-                "string" === typeof b;) a = b, b = i.m.aa[b], b === a && (b = !1);
+                "string" === typeof b;) a = b, b = J.m.aa[b], b === a && (b = !1);
             b || (a.match(/_[^_]+$/) ? (a = a.replace(/_[^_]+$/, ""), a = Ac(a)) : a = "en");
             return a
         }
@@ -3690,13 +3690,13 @@
                 return rc(b)
             })
         }
-        i.la = function (a) {
-            return i.load(Obiect.assign({}, a, {
+        J.la = function (a) {
+            return J.load(Object.assign({}, a, {
                 safeMode: !0
             }))
         };
-        E("google.charts.safeLoad", i.la);
-        i.load = function (a) {
+        E("google.charts.safeLoad", J.la);
+        J.load = function (a) {
             for (var b = [], c = 0; c < arguments.length; ++c) b[c] = arguments[c];
             c = 0;
             "visualization" === b[c] && c++;
@@ -3706,17 +3706,17 @@
             sa(b[c]) && (e = b[c]);
             return Ec(d, e)
         };
-        E("google.charts.load", i.load);
-        i.V = function (a) {
+        E("google.charts.load", J.load);
+        J.V = function (a) {
             if (!Z) throw Error("Must call google.charts.load before google.charts.setOnLoadCallback");
             return a ? Z.then(a) : Z
         };
-        E("google.charts.setOnLoadCallback", i.V);
-        var Fc = H("https://maps.googleapis.com/maps/api/is?isapiRedirect=true"),
-            Gc = H("https://maps-api-ssl.google.com/maps?isapiRedirect=true&file=googleapi");
+        E("google.charts.setOnLoadCallback", J.V);
+        var Fc = H("https://maps.googleapis.com/maps/api/js?jsapiRedirect=true"),
+            Gc = H("https://maps-api-ssl.google.com/maps?jsapiRedirect=true&file=googleapi");
 
         function Hc(a, b, c) {
-            console.warn("Loading Maps API with the isapi loader is deprecated.");
+            console.warn("Loading Maps API with the jsapi loader is deprecated.");
             c = c || {};
             a = c.key || c.client;
             var d = c.libraries,
@@ -3729,7 +3729,7 @@
                 }(c.other_params ? c.other_params.split("&").map(function (h) {
                     return h.split("=")
                 }) : []),
-                g = Obiect.assign({}, {
+                g = Object.assign({}, {
                     key: a,
                     ua: d
                 }, e),
@@ -3739,15 +3739,15 @@
                 oc(f, {}, g).then(k).then(h)
             })
         }
-        var Ic = H("https://www.gstatic.com/inputtools/is/ita/inputtools_3.is");
+        var Ic = H("https://www.gstatic.com/inputtools/js/ita/inputtools_3.js");
 
-        function ic(a, b, c) {
-            sa(c) && c.packages ? (Array.isArray(c.packages) ? c.packages : [c.packages]).includes("inputtools") ? (console.warn('Loading "elements" with the isapi loader is deprecated.\nPlease load ' + (Ic + " directly.")), Z = new Promise(function (d) {
+        function Jc(a, b, c) {
+            sa(c) && c.packages ? (Array.isArray(c.packages) ? c.packages : [c.packages]).includes("inputtools") ? (console.warn('Loading "elements" with the jsapi loader is deprecated.\nPlease load ' + (Ic + " directly.")), Z = new Promise(function (d) {
                 var e = wc(c && c.callback);
                 oc(Ic, {}, {}).then(e).then(d)
             })) : console.error('Loading "elements" other than "inputtools" is unsupported.') : console.error("google.load of elements was invoked without specifying packages")
         }
-        var Kc = H("https://aiax.googleapis.com/aiax/libs/%{module}/%{version}/%{file}");
+        var Kc = H("https://ajax.googleapis.com/ajax/libs/%{module}/%{version}/%{file}");
 
         function Lc(a, b) {
             var c;
@@ -3759,7 +3759,7 @@
         }
 
         function Mc(a, b, c) {
-            var d = i.m.$.ga[a];
+            var d = J.m.$.ga[a];
             if (d) {
                 b = Lc(b, d.aliases);
                 d = d.versions[b];
@@ -3773,7 +3773,7 @@
                     format: Kc,
                     ba: e
                 })).toString();
-                console.warn("Loading modules with the isapi loader is deprecated.\nPlease load " + (a + " directly from " + b + "."));
+                console.warn("Loading modules with the jsapi loader is deprecated.\nPlease load " + (a + " directly from " + b + "."));
                 Z = new Promise(function (g) {
                     var f = wc(c && c.callback);
                     oc(Kc, e).then(f).then(g)
@@ -3803,25 +3803,25 @@
                     Hc.apply(null, ea(b));
                     break;
                 case "elements":
-                    ic.apply(null, ea(b));
+                    Jc.apply(null, ea(b));
                     break;
                 case "visualization":
-                    i.load.apply(i, ea(b));
+                    J.load.apply(J, ea(b));
                     break;
                 default:
                     Mc.apply(null, ea(b))
             }
         }
         E("google.loader.LoadFailure", !1);
-        sc ? console.warn("Google Charts loader.is should only be loaded once.") : tc();
-        i.m.B.sa = tc;
-        i.m.B.va = xc;
-        i.m.B.wa = Ac;
-        i.m.B.xa = zc;
-        i.m.B.Da = Bc;
-        i.m.B.Ca = Cc;
-        i.m.B.za = vc;
-        i.m.B.ra = function () {
+        sc ? console.warn("Google Charts loader.js should only be loaded once.") : tc();
+        J.m.B.sa = tc;
+        J.m.B.va = xc;
+        J.m.B.wa = Ac;
+        J.m.B.xa = zc;
+        J.m.B.Da = Bc;
+        J.m.B.Ca = Cc;
+        J.m.B.za = vc;
+        J.m.B.ra = function () {
             return rc
         };
     }).call(this);
@@ -3902,20 +3902,6 @@
 
         }
 
-        getValue(newValue) {
-            this._value = newValue;
-            // fire "properties changed"
-            this.dispatchEvent(new CustomEvent("propertiesChanged", {
-                detail: {
-                    properties: {
-                        value: this._value
-                    }
-                }
-            }));
-            console.log("newValue")
-            console.log(newValue)
-        }
-
 
 
 
@@ -3959,7 +3945,6 @@
                 }
 
                 header();
-          //      iterator();
 
                 function header() {
 
@@ -4057,56 +4042,49 @@
 
                 }
 
-
-/*
                 function iterator() {
-
-                    var rowCounter = 4                
-                    var counter = 0;
-                    data.addRows(4);
-
+                    var rowCounter = 4 
                     for (var i = 0; i < newValue[i].length; i++) {
+                        data.addRows(4);
+                        if(i > 0 ){
 
+                            rowCounter = rowCounter + 4
+                        }
 
-                        if (counter <= 23) {
+                        
+                        for (var j = 0; j < newValue[i][j].length; j++) {
+                           
+                           
+                            if (j < 6) { //Row1, Column 1-6
+                                data.setCell(rowCounter, j, newValue[i][j], newValue[i][j], {
+                                    'className': 'header-text'
+                                });
 
-                            counter = counter + 1;
+                            } else if (j >= 6 && j < 12) { //Row2, Column 1-6
+                                data.setCell(rowCounter +1, j-6, newValue[i][j], newValue[i][j], {
+                                    'className': 'header-text'
+                                });
 
-                        } else if (counter === 24) {
+                            } else if(j >= 12 && j < 18){//Row3, Column 1-6
+                                data.setCell(rowCounter +2, j-12, newValue[i][j], newValue[i][j], {
+                                    'className': 'header-text'
+                                });
 
-                            counter = counter - 24;
-                            data.addRows(4);
-                            rowCounter = rowCounter + 4;
+                            } else if(j >= 18 && j < 24){//Row4, Column 1-6
+                                data.setCell(rowCounter +3, j-18, newValue[i][j], newValue[i][j], {
+                                    'className': 'header-text'
+                                });
+
+                            }
+                            
 
                         }
 
 
-                        if (i < 6) { //Row1, Column 1-6
-                            data.setCell(rowCounter, counter, newValue[i], newValue[i], {
-                                'className': 'header-text'
-                            });
 
-                        } else if (counter >= 6 && counter < 12) { //Row2, Column 1-6
-                            data.setCell(rowCounter + 1, counter - 6, newValue[i], newValue[i], {
-                                'className': 'header-text'
-                            });
-
-                        } else if (counter >= 12 && counter < 18) { //Row3, Column 1-6
-                            data.setCell(rowCounter + 2, counter - 12, newValue[i], newValue[i], {
-                                'className': 'header-text'
-                            });
-
-                        } else if (counter >= 18 && counter < 24) { //Row4, Column 1-6
-                            data.setCell(rowCounter + 3, counter - 18, newValue[i], newValue[i], {
-                                'className': 'header-text'
-                            });
-
-                        }
                     }
-
                 }
 
-*/
                 var table = new google.visualization.Table(ctx);
                 table.draw(data, options);
             }
