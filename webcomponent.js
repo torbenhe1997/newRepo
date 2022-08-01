@@ -3946,10 +3946,6 @@
             function drawTable() {
 
 
-                console.log("newValue")
-                console.log(newValue)
-                console.log()
-
                 var data = new google.visualization.DataTable();
 
 
