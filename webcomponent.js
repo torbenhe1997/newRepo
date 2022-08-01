@@ -3903,10 +3903,7 @@
         }
 
 
-        getValue(){
-
-            return this._value;
-        }
+        
 
 
 
@@ -3924,10 +3921,18 @@
             console.log("newValue")
             console.log(newValue)
 
-            testIt();
 
+            
+        }
 
-            function testIt(){
+        getValue(){
+
+            return this._value;
+        }
+
+        //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
+        onCustomWidgetAfterUpdate(oChangedProperties) {
+
             var ctx = this.shadowRoot.getElementById('chart_div');
             google.charts.load('current', {
                 'packages': ['table']
@@ -3937,11 +3942,7 @@
                 drawTable();
             });
 
-            }
-
-            
-
-
+  
             function drawTable() {
 
 
@@ -4058,70 +4059,12 @@
                 }
 
                 
-                function iterator() {
-
-                    var rowCounter = 4                
-                    var counter = 0;
-                    data.addRows(4);
-
-                    for (var i = 0; i < newValue[i].length; i++) {
-
-                        if (counter <= 23) {
-
-                            counter = counter + 1;
-
-                        } else if (counter === 24) {
-
-                            counter = counter - 24;
-                            data.addRows(4);
-                            rowCounter = rowCounter + 4;
-
-                        }
-
-                        if (i < 6) { //Row1, Column 1-6
-                            data.setCell(rowCounter, counter, newValue[i], newValue[i], {
-                                'className': 'header-text'
-                            });
-
-                        } else if (counter >= 6 && counter < 12) { //Row2, Column 1-6
-                            data.setCell(rowCounter + 1, counter - 6, newValue[i], newValue[i], {
-                                'className': 'header-text'
-                            });
-
-                        } else if (counter >= 12 && counter < 18) { //Row3, Column 1-6
-                            data.setCell(rowCounter + 2, counter - 12, newValue[i], newValue[i], {
-                                'className': 'header-text'
-                            });
-
-                        } else if (counter >= 18 && counter < 24) { //Row4, Column 1-6
-                            data.setCell(rowCounter + 3, counter - 18, newValue[i], newValue[i], {
-                                'className': 'header-text'
-                            });
-
-                        }
-                    }
-
-                }
-
+            
 
 
                 var table = new google.visualization.Table(ctx);
                 table.draw(data, options);
             }
-
-
-
-
-
-
-
-
-
-
-        }
-
-        //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
-        onCustomWidgetAfterUpdate(oChangedProperties) {
 
            
 
