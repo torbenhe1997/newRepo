@@ -4071,6 +4071,8 @@
                         console.log("test[i]");
                         console.log(test[i]);
 
+                        /*
+
                         if (counter <= 23) {
 
                             counter = counter + 1;
@@ -4110,6 +4112,7 @@
                             });
 
                         }
+                        */
                     }
 
                 }
