@@ -4105,7 +4105,7 @@
                             });
 
                         } else if (counter >= 18 && counter < 24) { //Row4, Column 1-6
-                            data.setCell(rowCounter + 3, counter - 18, newValue[i], newValue[i], {
+                            data.setCell(rowCounter + 3, counter - 18, test[i], test[i], {
                                 'className': 'header-text'
                             });
 
