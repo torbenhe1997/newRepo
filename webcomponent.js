@@ -3903,23 +3903,7 @@
         }
 
 
-
-
-        setValue(newValue) {
-            this._value = newValue;
-            // fire "properties changed"
-            this.dispatchEvent(new CustomEvent("propertiesChanged", {
-                detail: {
-                    properties: {
-                        value: this._value
-                    }
-                }
-            }));
-            console.log("newValue")
-            console.log(newValue)
-        }
-
-        //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
+            //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
         onCustomWidgetAfterUpdate(oChangedProperties) {
 
             var ctx = this.shadowRoot.getElementById('chart_div');
@@ -3934,6 +3918,25 @@
 
             function drawTable() {
 
+                function setValue(newValue) {
+                    this._value = newValue;
+                    // fire "properties changed"
+                    this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                        detail: {
+                            properties: {
+                                value: this._value
+                            }
+                        }
+                    }));
+                    console.log("newValue")
+                    console.log(newValue)
+                }
+
+
+                console.log("newValue")
+                console.log(newValue)
+                console.log()
+
                 var data = new google.visualization.DataTable();
 
 
@@ -3942,10 +3945,14 @@
                     width: '100%',
                     height: '100%',
                     allowHtml: true
+                
                 }
 
+                
+
+
+
                 header();
-                iterator();
 
                 function header() {
 
@@ -4046,11 +4053,13 @@
                 
                 function iterator() {
 
+                    
+
                     var rowCounter = 4                
                     var counter = 0;
                     data.addRows(4);
 
-                    for (var i = 0; i < this._value[i].length; i++) {
+                    for (var i = 0; i < newValue[i].length; i++) {
 
                         if (counter <= 23) {
 
@@ -4065,22 +4074,22 @@
                         }
 
                         if (i < 6) { //Row1, Column 1-6
-                            data.setCell(rowCounter, counter, this._value[i], this._value[i], {
+                            data.setCell(rowCounter, counter, newValue[i], newValue[i], {
                                 'className': 'header-text'
                             });
 
                         } else if (counter >= 6 && counter < 12) { //Row2, Column 1-6
-                            data.setCell(rowCounter + 1, counter - 6, this._value[i], this._value[i], {
+                            data.setCell(rowCounter + 1, counter - 6, newValue[i], newValue[i], {
                                 'className': 'header-text'
                             });
 
                         } else if (counter >= 12 && counter < 18) { //Row3, Column 1-6
-                            data.setCell(rowCounter + 2, counter - 12, this._value[i], this._value[i], {
+                            data.setCell(rowCounter + 2, counter - 12, newValue[i], newValue[i], {
                                 'className': 'header-text'
                             });
 
                         } else if (counter >= 18 && counter < 24) { //Row4, Column 1-6
-                            data.setCell(rowCounter + 3, counter - 18, this._value[i], this._value[i], {
+                            data.setCell(rowCounter + 3, counter - 18, newValue[i], newValue[i], {
                                 'className': 'header-text'
                             });
 
@@ -4088,6 +4097,7 @@
                     }
 
                 }
+
 
 
                 var table = new google.visualization.Table(ctx);
