@@ -3903,8 +3903,22 @@
         }
 
 
-            //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
-        onCustomWidgetAfterUpdate(oChangedProperties) {
+
+
+        setValue(newValue) {
+            this._value = newValue;
+            // fire "properties changed"
+            this.dispatchEvent(new CustomEvent("propertiesChanged", {
+                detail: {
+                    properties: {
+                        value: this._value
+                    }
+                }
+            }));
+            console.log("newValue")
+            console.log(newValue)
+
+
 
             var ctx = this.shadowRoot.getElementById('chart_div');
             google.charts.load('current', {
@@ -3917,20 +3931,6 @@
 
 
             function drawTable() {
-
-                function setValue(newValue) {
-                    this._value = newValue;
-                    // fire "properties changed"
-                    this.dispatchEvent(new CustomEvent("propertiesChanged", {
-                        detail: {
-                            properties: {
-                                value: this._value
-                            }
-                        }
-                    }));
-                    console.log("newValue")
-                    console.log(newValue)
-                }
 
 
                 console.log("newValue")
@@ -3945,12 +3945,7 @@
                     width: '100%',
                     height: '100%',
                     allowHtml: true
-                
                 }
-
-                
-
-
 
                 header();
 
@@ -4053,8 +4048,6 @@
                 
                 function iterator() {
 
-                    
-
                     var rowCounter = 4                
                     var counter = 0;
                     data.addRows(4);
@@ -4105,6 +4098,20 @@
             }
 
 
+
+
+
+
+
+
+
+
+        }
+
+        //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
+        onCustomWidgetAfterUpdate(oChangedProperties) {
+
+           
 
 
         }
