@@ -4059,8 +4059,9 @@
                 iterator()
 
                 function iterator() {
-                    var test = ["Test1","Test2","Test3","Test4","Test5", "Test6","Test7","Test8","Test9", "Test1","Test2","Test3","Test4","Test5", "Test6","Test7","Test8","Test9", "Test1","Test2","Test3","Test4","Test5", "Test6"]
-
+                    var test = ["Test1","Test2","Test3","Test4","Test5", "Test6","Test7","Test8","Test9", "Test1","Test2","Test3","Test4","Test5", "Test6","Test7","Test8","Test9", "Test1","Test2","Test3","Test4","Test5", "Test6"];
+                    console.log("test");
+                    console.log(test);
                     var rowCounter = 4                
                     var counter = -1;
                     data.addRows(4);
@@ -4070,8 +4071,12 @@
                         if (counter <= 23) {
 
                             counter = counter + 1;
+                            console.log("counter1");
+                            console.log(counter);
 
                         } else if (counter === 24) {
+                            console.log("counter2");
+                            console.log(counter);
 
                             counter = counter - 24;
                             data.addRows(4);
@@ -4080,6 +4085,8 @@
                         }
 
                         if (counter < 6) { //Row1, Column 1-6
+                            console.log("counter erster iff case");
+                            console.log(counter);
                             data.setCell(rowCounter, counter, test[i], test[i], {
                                 'className': 'header-text'
                             });
