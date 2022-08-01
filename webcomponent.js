@@ -3929,6 +3929,8 @@
                 drawTable();
             });
 
+            drawTable();
+
 
             function drawTable() {
 
