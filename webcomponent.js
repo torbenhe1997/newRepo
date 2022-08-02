@@ -3979,13 +3979,13 @@
 
                     // Row, Column
                     //Column 1
-                    data.setCell(0, 0, 'LSO', 'LSO', {
+                    data.setCell(0, 0, 'LSO     ', 'LSO     ', {
                         'className': 'header-text'
                     });
-                    data.setCell(1, 0, 'ID', 'ID', {
+                    data.setCell(1, 0, 'ID      ', 'ID      ', {
                         'className': 'header-text'
                     });
-                    data.setCell(2, 0, 'Status', 'Status', {
+                    data.setCell(2, 0, 'Status ', 'Status ', {
                         'className': 'header-text'
                     });
                     data.setCell(3, 0, '', '', {
@@ -4011,7 +4011,7 @@
                     data.setCell(1, 2, 'Description', 'Description', {
                         'className': 'header-text'
                     });
-                    data.setCell(2, 2, 'Note', 'Note', {
+                    data.setCell(2, 2, 'Note    ', 'Note    ', {
                         'className': 'header-text'
                     });
                     data.setCell(3, 2, '', '', {
