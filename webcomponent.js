@@ -4084,7 +4084,7 @@
                                 console.log( "LÄNGE")
                                 console.log( test[i].length)
                                 console.log( test[i]);
-                                test[i].replace(/(.{5})/g,"$1$");
+                                test[i] = test[i].replace(/(.{5})/g,"$1$");
                                 console.log( test[i]);
 
 
