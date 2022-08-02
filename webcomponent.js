@@ -4092,9 +4092,9 @@
                             var pos = test[b].substring(0,30).lastIndexOf(' ');
                             pos = pos <= 0 ? l : pos;
                             
-                           //test[b] = test[b].slice(0, pos) + " <br> "+ helper(test[b].slice(pos));
+                           test[b] = test[b].slice(0, pos) + " <br> "+ test[b].slice(pos);
 
-                           test[b] = helper(test[b].slice(pos));
+                          // test[b] = helper(test[b].slice(pos));
 
                            console.log(test[b]);
 
@@ -4102,7 +4102,7 @@
                         }
                     }
 
-
+/*
                     function helper(a){
 
 
@@ -4127,7 +4127,7 @@
                     }
 
 
-
+*/
 
 
 
