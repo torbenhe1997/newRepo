@@ -4101,8 +4101,7 @@
 
                         if (Number.isInteger(i / 6) === true) {
 
-
-
+                            
                             var counter = i;
 
                             data.addRows([
@@ -4112,6 +4111,16 @@
                                 ]
 
                             ]);
+
+                            if(Number.isInteger(i / 5) === true){
+                                data.addRows([
+
+                                    [
+                                        " ", " ", " ", " ", " ", " "
+                                    ]
+    
+                                ]);
+                            }
 
                         }
 
