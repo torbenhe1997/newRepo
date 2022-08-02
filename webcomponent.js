@@ -4087,7 +4087,41 @@
                             test[b] = test[b].replace(/.{20}/g, "$&" + " ");
                             console.log(test[b]);
 
+                        } else if (test[b].length > 20 && test[b].substring(0, test[b].length).lastIndexOf(' ') > -1) {
+
+                            var pos = test[b].substring(0,30).lastIndexOf(' ');
+                            pos = pos <= 0 ? l : pos;
+                            
+                           //test[b] = test[b].slice(0, pos) + " <br> "+ helper(test[b].slice(pos));
+
+                           test[b] = helper(test[b].slice(pos));
+
+                           console.log(test[b]);
+
+
                         }
+                    }
+
+
+                    function helper(){
+
+
+                       
+                    if(test[b].length > 20 && test[b].substring(0, test[b].length).lastIndexOf(' ') > -1){
+
+                        var pos = test[b].substring(0,30).lastIndexOf(' ');
+                        test[b].slice(pos).concat(test[b].slice(0, pos) + " <br> " +  helper(test[b].slice(pos)));
+
+                      
+
+                    } else {
+
+                        return test[b].slice(pos);
+
+
+                    }
+
+                   
                     }
 
 
