@@ -4082,7 +4082,7 @@
                     for (var b = 0; b < test.length; b++) {
 
 
-                        if (test[b].length > 20 && test[b].substring(0, test[b].length).lastIndexOf(' ') === -1) {
+                        if (test[b].length > 20 && test[b].substring(0, test[b].length).lastIndexOf('<br>') === -1) {
 
                             test[b] = test[b].replace(/.{20}/g, "$&" + " ");
                             console.log(test[b]);
