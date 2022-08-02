@@ -4084,10 +4084,8 @@
 
                              if( test[b].length > 20){
 
-                                console.log( "LÄNGE")
-                                console.log( test[b].length)
-                                console.log( test[b]);
-                                test[b] = test[b].replace(/.{5}/g, "$&" + " ");
+                             
+                                test[b] = test[b].replace(/.{20}/g, "$&" + " " + "-");
                                 console.log( test[b]);
 
 
