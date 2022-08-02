@@ -3961,7 +3961,23 @@
                         allowHtml: true
                     }
 
-                    header();
+
+                    data.addColumn('string', 'Name');
+                    data.addColumn('number', 'Salary');
+                    data.addColumn('boolean', 'Full Time Employee');
+                    data.addRows([
+                      ['olume <br/> unweighted in EUR',  {v: 10000, f: '$10,000'}, true],
+                      ['Ji m',   {v:8000,   f: '$8,000'},  false],
+                      ['Alice', {v: 12500, f: '$12,500'}, true],
+                      ['Bob',   {v: 7000,  f: '$7,000'},  true]
+                    ]);
+
+
+
+
+
+
+                  //  header();
 
                     function header() {
 
@@ -4056,18 +4072,13 @@
                         data.setCell(3, 5, '', '', {
                             'className': 'header-text'
                         });
-                        data.addRows([
-                            ['olume <br/> unweighted in EUR',  {v: 10000, f: '$10,000'}, true],
-                            ['Ji m',   {v:8000,   f: '$8,000'},  false],
-                            ['Alice', {v: 12500, f: '$12,500'}, true],
-                            ['Bob',   {v: 7000,  f: '$7,000'},  true]
-                          ]);
+                      
 
 
 
                     }
 
-                    iterator()
+                   // iterator()
 
                     function iterator() {
                         var test = ["Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds",
