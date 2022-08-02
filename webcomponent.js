@@ -4081,8 +4081,9 @@
                              
                             if( test[i].length > 40){
 
-                                
-                                test[i].replace(/(.{40}/g, "$&" + "<br>");
+                                console.log( LÄNGE)
+                                console.log( test[i].length)
+                              //  test[i].replace(/(.{40}/g, "$&" + "<br>");
 
 
                             }
