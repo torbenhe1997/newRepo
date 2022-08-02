@@ -4023,7 +4023,7 @@
                             'className': 'header-text'
                         });
 
-                        data.setCell(2, 3, 'Volume <br/> unweighted in EUR', 'Volume unweighted in EUR', {
+                        data.setCell(2, 3, 'Volume <br/> unweighted in EUR', 'Volume <br/> unweighted in EUR', {
                             'className': 'header-text'
                         });
                         data.setCell(3, 3, '', '', {
