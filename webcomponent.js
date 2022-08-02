@@ -4067,11 +4067,11 @@
 
                 iterator()
 
-                
+
 
                 function iterator() {
 
-                    var test = ["Testekjsnfkjsndfsjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds",
+                    var test = ["Hallo ich bin ein Test", "Gaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanz", "Wir sind uns einig", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds",
                         "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
                         "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
                         "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
@@ -4079,28 +4079,26 @@
                     ];
 
 
-                    for(var b = 0; b < test.length; b++){
+                    for (var b = 0; b < test.length; b++) {
 
 
-                             if( test[b].length > 20){
+                        if (test[b].length > 20 && test[b].substring(0, test[b].length).lastIndexOf(' ') === -1) {
 
-                             
-                                test[b] = test[b].replace(/.{20}/g, "$&" + " " + "-");
-                                console.log( test[b]);
+                            test[b] = test[b].replace(/.{40}/g, "$&" + " ");
+                            console.log(test[b]);
 
-
-                            }
+                        }
                     }
 
 
-                    
+
 
 
 
                     for (var i = 0; i < test.length; i++) {
 
 
-                       
+
                         if (Number.isInteger(i / 6) === true) {
 
 
