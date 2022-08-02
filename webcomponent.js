@@ -3962,27 +3962,9 @@
                     }
 
 
-                                       
+              
 
-                        data.addColumn('string', '');
-                        data.addColumn('string', '');
-                        data.addColumn('string', '');
-                        data.addColumn('string', '');
-                        data.addColumn('string', '');
-                        data.addColumn('string', '');
-
-                        data.addRows([
-
-                            ['Volume <br/> unweighted in EUR', 'Volume <br/> unweighted in EUR', 'Volume <br/> unweighted in EUR', 'Volume <br/> unweighted in EUR','Volume <br/> unweighted in EUR', 'Volume <br/> unweighted in EUR'
-                            ]
-
-                        ]);
-
-
-
-
-
-                  //  header();
+                    header();
 
                     function header() {
 
@@ -4083,15 +4065,39 @@
 
                     }
 
-                   // iterator()
+                    iterator()
 
                     function iterator() {
+
                         var test = ["Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds",
                             "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
                             "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
                             "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
                             "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4"
                         ];
+
+                        for (var i = 0; i < test.length; i++) {
+
+                            
+
+                            if(Number.isInteger(i / 6) === true){
+
+                            var counter = i;
+
+                            data.addRows([
+
+                                [
+                                    test[counter],  test[counter+1], test[counter+2], test[counter+3], test[counter+4], test[counter+5]
+                                ]
+    
+                            ]);
+
+                        }
+
+
+                        }
+
+/*
 
 
                         var rowCounter = 4
@@ -4157,7 +4163,7 @@
 
                             }
 
-                        }
+                        }*/
                     }
 
 
