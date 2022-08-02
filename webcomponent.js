@@ -4148,13 +4148,13 @@
 
                             ]);
 
-                            if(Number.isInteger(i / 5) === true || i/5 !== 0){
+                            if(Number.isInteger(i / 5) === true && i/5 !== 0){
 
                                 console.log("gehst du hier rein ???????");
                                 data.addRows([
 
                                     [
-                                        "________", "________ "," ________", " ________","________ ", " ________"
+                                        "               ", "                ","                ", "                ","                ", "                "
                                     ]
     
                                 ]);
