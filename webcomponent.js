@@ -4103,20 +4103,22 @@
                     }
 
 
-                    function helper(){
+                    function helper(a){
 
 
                        
-                    if(test[b].length > 20 && test[b].substring(0, test[b].length).lastIndexOf(' ') > -1){
+                    if(a.length > 20 && a.substring(0, a.length).lastIndexOf(' ') > -1){
+                        
 
-                        var pos = test[b].substring(0,30).lastIndexOf(' ');
-                        test[b].slice(pos).concat(test[b].slice(0, pos) + " <br> " +  helper(test[b].slice(pos)));
+                        var stringMemory = {};
+                        var pos = a.substring(0,30).lastIndexOf(' ');
+                        stringMemory.concat(test[b].slice(0, pos) + " <br> " +  helper(test[b].slice(pos)));
 
                       
 
                     } else {
 
-                        return test[b].slice(pos);
+                        return stringMemory;
 
 
                     }
