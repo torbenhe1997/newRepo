@@ -3962,16 +3962,21 @@
                     }
 
 
-                    data.addColumn('string', 'Name');
-                    data.addColumn('number', 'Salary');
-                    data.addColumn('boolean', 'Full Time Employee');
-                    data.addRows([
-                      ['olume <br/> unweighted in EUR',  {v: 10000, f: '$10,000'}, true],
-                      ['Ji m',   {v:8000,   f: '$8,000'},  false],
-                      ['Alice', {v: 12500, f: '$12,500'}, true],
-                      ['Bob',   {v: 7000,  f: '$7,000'},  true]
-                    ]);
+                                       
 
+                        data.addColumn('string', '');
+                        data.addColumn('string', '');
+                        data.addColumn('string', '');
+                        data.addColumn('string', '');
+                        data.addColumn('string', '');
+                        data.addColumn('string', '');
+
+                        data.addRows([
+
+                            ['Volume <br/> unweighted in EUR', 'Volume <br/> unweighted in EUR', 'Volume <br/> unweighted in EUR', 'Volume <br/> unweighted in EUR','Volume <br/> unweighted in EUR', 'Volume <br/> unweighted in EUR'
+                            ]
+
+                        ]);
 
 
 
