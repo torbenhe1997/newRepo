@@ -3851,7 +3851,7 @@
                 .positive-value {
                     font-weight: bold;
                     color: green;
-                    text-align: center;
+                    text-align: left;
                     word-wrap: break-word;
                     width: 13em;
                     maxLength = "5"
@@ -4056,6 +4056,12 @@
                         data.setCell(3, 5, '', '', {
                             'className': 'header-text'
                         });
+                        data.addRows([
+                            ['olume <br/> unweighted in EUR',  {v: 10000, f: '$10,000'}, true],
+                            ['Ji m',   {v:8000,   f: '$8,000'},  false],
+                            ['Alice', {v: 12500, f: '$12,500'}, true],
+                            ['Bob',   {v: 7000,  f: '$7,000'},  true]
+                          ]);
 
 
 
@@ -4137,10 +4143,6 @@
 
                         }
                     }
-
-
-
-
 
 
                         var table = new google.visualization.Table(ctx);
