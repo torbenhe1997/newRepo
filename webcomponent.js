@@ -4083,7 +4083,7 @@
 
                                 console.log( "LÄNGE")
                                 console.log( test[i].length)
-                              //  test[i].replace(/(.{40}/g, "$&" + "<br>");
+                                test[i].replace(/(.{40})/g, "$&" + "<br>");
 
 
                             }
