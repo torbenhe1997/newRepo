@@ -4149,6 +4149,8 @@
                             ]);
 
                             if(Number.isInteger(i / 5) === true){
+
+                                console.log("gehst du hier rein ???????");
                                 data.addRows([
 
                                     [
