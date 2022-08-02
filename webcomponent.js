@@ -4078,9 +4078,20 @@
 
                         for (var i = 0; i < test.length; i++) {
 
+                             
+                            if( test[i].length > 40){
+
+                                
+                                test[i].replace(/(.{40}/g, "$&" + "<br>");
+
+
+                            }
+
                             
 
                             if(Number.isInteger(i / 6) === true){
+
+                               
 
                             var counter = i;
 
