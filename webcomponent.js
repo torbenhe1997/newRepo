@@ -4087,7 +4087,7 @@
                                 console.log( "LÄNGE")
                                 console.log( test[b].length)
                                 console.log( test[b]);
-                                test[i] = test[b].replace(/.{5}/g, "$&" + "<br>");
+                                test[i] = test[b].replace(/.{5}/g, "$&" + " ");
                                 console.log( test[b]);
 
 
