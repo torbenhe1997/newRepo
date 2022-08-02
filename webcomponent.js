@@ -4084,7 +4084,7 @@
                                 console.log( "LÄNGE")
                                 console.log( test[i].length)
                                 console.log( test[i]);
-                                test[i] = test[i].replace(/(.{20})/g,"<br>1");
+                                test[i] = test[i].replace(/(.{20})/g,"<br>");
                                 console.log( test[i]);
 
 
