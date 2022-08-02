@@ -4026,7 +4026,7 @@
                         'className': 'header-text'
                     });
 
-                    data.setCell(2, 3, 'Volume unweighted in EUR', 'Volume <br/> unweighted in EUR', {
+                    data.setCell(2, 3, 'Volume unweighted in EUR', 'Volume unweighted in EUR', {
                         'className': 'header-text'
                     });
                     data.setCell(3, 3, '', '', {
@@ -4087,7 +4087,9 @@
                             test[b] = test[b].replace(/.{20}/g, "$&" + " ");
                             console.log(test[b]);
 
-                        } else if (test[b].length > 20 && test[b].substring(0, test[b].length).lastIndexOf(' ') > -1) {
+                        } 
+                        
+                        /*else if (test[b].length > 20 && test[b].substring(0, test[b].length).lastIndexOf(' ') > -1) {
 
                             var pos = test[b].substring(0,30).lastIndexOf(' ');
                             pos = pos <= 0 ? l : pos;
@@ -4099,7 +4101,7 @@
                            console.log(test[b]);
 
 
-                        }
+                        }*/
                     }
 
 /*
