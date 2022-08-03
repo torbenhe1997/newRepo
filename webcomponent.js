@@ -3964,11 +3964,6 @@ const dataBinding = this.dataBindings.getDataBinding('myDataBinding')
 
 console.log("dataBinding");
 console.log(dataBinding);
-this.myDataBinding.data.forEach(row => {
-
-console.log("gehst du hier rein ?????")
-    console.log(this.myDataBinding.data);
-})
 
 
 
