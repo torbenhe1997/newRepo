@@ -3942,7 +3942,7 @@
         getValue() {
             
 
-            return newValue;
+            return value;
             
         }
 
