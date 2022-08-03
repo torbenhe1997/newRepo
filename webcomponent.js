@@ -3941,9 +3941,8 @@
         function2(x){
 
             console.log("Value2");
-
-            console.log(this.x);
             console.log(x);
+            console.log("bist du es wirklich?")
 
 
             var ctx = this.shadowRoot.getElementById('chart_div');
