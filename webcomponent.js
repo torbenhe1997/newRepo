@@ -3968,7 +3968,7 @@
                     allowHtml: true
                 }
 
-                super.header();
+                this.header();
                
 
                 //this.iterator(this.arrayValues);
