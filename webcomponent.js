@@ -3940,10 +3940,10 @@
         }
 
         getValue() {
-            this.value = newValue;
+            
 
-            return this._value;
-            console.log(this.value);
+            return newValue;
+            
         }
 
 
