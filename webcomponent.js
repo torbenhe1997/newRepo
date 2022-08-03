@@ -3942,6 +3942,7 @@
 
             console.log("Value2");
 
+            console.log(this.x);
             console.log(x);
 
 
