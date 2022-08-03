@@ -3968,9 +3968,9 @@
                     allowHtml: true
                 }
 
-                this.header();
+                header();
 
-                this.iterator(this.arrayValues);
+                //this.iterator(this.arrayValues);
 
                 var table = new google.visualization.Table(ctx);
                 table.draw(data, options);
