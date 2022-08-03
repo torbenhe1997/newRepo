@@ -3956,7 +3956,7 @@
 
             console.log("Value2");
 
-            console.log(_value);
+            console.log(_value.data);
 
 
 
