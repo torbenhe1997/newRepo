@@ -19,24 +19,38 @@
 		"value": {
 			"type": "string[]",
 			"description": "Default values",
-			"default": ["Test1","Test2","Test3","Test4","Test5", "Test6","Test7","Test8","Test9", "Test1","Test2","Test3","Test4","Test5", "Test6","Test7","Test8","Test9", "Test1","Test2","Test3","Test4","Test5", "Test6"]
+			"default": ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7", "Test8", "Test9", "Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7", "Test8", "Test9", "Test1", "Test2", "Test3", "Test4", "Test5", "Test6"]
 		}
 	},
+	"dataBindings": {
+		"myDataBinding": {
+			"feeds": [{
+					"id": "dimensions",
+					"description": "Dimensions",
+					"type": "dimension"
+				},
+				{
+					"id": "@MeasureDimension",
+					"description": "Measures",
+					"type": "mainStructureMember"
+				}
+			]
+		}
+	},
+
 	"methods": {
 		"getValue": {
 			"returnType": "string[]",
 			"description": "Returns the gauge value"
-			
+
 		},
 		"setValue": {
 			"description": "Set the value for the table",
-			"parameters": [
-				{
-					"name": "newValue",
-					"type": "string[]",
-					"description": "The new table values."
-				}
-			]
+			"parameters": [{
+				"name": "newValue",
+				"type": "string[]",
+				"description": "The new table values."
+			}]
 		}
 	},
 	"events": {
@@ -44,6 +58,6 @@
 		"onClick": {
 			"description": "Called when the user clicks the Colored Box."
 		}
-		
+
 	}
 }

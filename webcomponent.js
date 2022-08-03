@@ -3908,6 +3908,9 @@
         }
 
 
+        
+
+
 
 
 
@@ -3938,6 +3941,10 @@
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
         onCustomWidgetAfterUpdate(oChangedProperties) {
 
+            
+
+
+
             var ctx = this.shadowRoot.getElementById('chart_div');
             google.charts.load('current', {
                 'packages': ['table']
@@ -3949,6 +3956,24 @@
 
 
             function drawTable() {
+
+
+// Traverse result set
+const dataBinding = this.dataBindings.getDataBinding('myDataBinding')
+
+
+console.log("dataBinding");
+console.log(dataBinding);
+this.myDataBinding.data.forEach(row => {
+
+console.log("gehst du hier rein ?????")
+    console.log(this.myDataBinding.data);
+})
+
+
+
+
+
 
 
                 var data = new google.visualization.DataTable();
