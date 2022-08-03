@@ -3973,7 +3973,7 @@
 
 
 
-               this.header();
+               header();
 
                 function header() {
 
@@ -4074,7 +4074,7 @@
 
                 }
 
-                this.iterator(x);
+                iterator(x);
 
 
 
