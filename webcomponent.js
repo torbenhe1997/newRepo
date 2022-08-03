@@ -3955,7 +3955,7 @@
             });
 
 
-            function drawTable() {
+            function drawTable(x) {
 
                 var data = new google.visualization.DataTable();
 
@@ -4075,17 +4075,19 @@
 
 
 
-                function iterator() {
+                function iterator(x) {
 
                     
         
 
-                    var test = ["Hallo ich bin ein Test", "Gaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanz", "Hallo ich bin ein Test Wir sind uns einig", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds",
+                    var test = x;
+                    
+                    /*["Hallo ich bin ein Test", "Gaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanz", "Hallo ich bin ein Test Wir sind uns einig", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds",
                         "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
                         "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
                         "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Hallo ich bin ein TestHallo <br> ich bin ein TestHallo ich bin ein TestHallo ich bin ein Test", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
                         "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4"
-                    ];
+                    ];*/
 
 
                     for (var b = 0; b < test.length; b++) {
