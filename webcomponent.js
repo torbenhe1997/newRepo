@@ -4093,7 +4093,7 @@
 
                 function iterator() {
 
-                    var test = getValue();
+                    var test = this._value;
                     
                     
                     /*["Hallo ich bin ein Test", "Gaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanz", "Hallo ich bin ein Test Wir sind uns einig", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds",
