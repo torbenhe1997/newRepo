@@ -3883,11 +3883,12 @@
                 this.dispatchEvent(event);
             });
             this._props = {};
-            var _value;
+            var _value = ["Test"];
             
 
 
         }
+
 
 
         //Fired when the widget is added to the html DOM of the page
@@ -3937,10 +3938,9 @@
 
         }
 
-        getValue() {
+         getValue() {
             
             
-
             return this._value;
             
         }
@@ -3951,14 +3951,11 @@
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
         onCustomWidgetAfterUpdate(_value) {
-
-           
-
-            console.log("Value2");
-
-            console.log(_value.data);
+            
 
 
+            console.log("value");
+            console.log(this._value);
 
 
 
@@ -4097,12 +4094,7 @@
                     
         
 
-                    var test = ["Hallo ich bin ein Test", "Gaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanz", "Hallo ich bin ein Test Wir sind uns einig", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds",
-                        "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
-                        "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
-                        "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Hallo ich bin ein TestHallo <br> ich bin ein TestHallo ich bin ein TestHallo ich bin ein Test", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
-                        "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4"
-                    ];
+                    var test = getValue();
 
 
                     for (var b = 0; b < test.length; b++) {
