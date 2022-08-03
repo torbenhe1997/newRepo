@@ -3951,7 +3951,7 @@
             });
 
             google.charts.setOnLoadCallback(function () {
-                drawTable(this.x);
+                drawTable(x);
             });
 
 
