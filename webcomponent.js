@@ -3885,6 +3885,20 @@
             this._props = {};
             var _value;
 
+            // Traverse result set
+            const dataBinding = this.dataBindings.getDataBinding('myDataBinding')
+
+            console.log("dataBinding");
+            console.log(dataBinding);
+
+
+
+
+           
+
+
+
+
         }
 
         //Fired when the widget is added to the html DOM of the page
@@ -3908,7 +3922,7 @@
         }
 
 
-        
+
 
 
 
@@ -3938,10 +3952,16 @@
             return this._value;
         }
 
+
+
+
+
+
+
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
         onCustomWidgetAfterUpdate(oChangedProperties) {
 
-            
+
 
 
 
@@ -3956,18 +3976,6 @@
 
 
             function drawTable() {
-
-
-
-
-
-
-this.myDataBinding.data.forEach(row => {
-
-    console.log("gehst du hier rein ?????")
-        console.log(this.myDataBinding.data);
-    })
-    
 
 
 
@@ -4107,8 +4115,8 @@ this.myDataBinding.data.forEach(row => {
                             test[b] = test[b].replace(/.{20}/g, "$&" + " ");
                             console.log(test[b]);
 
-                        } 
-                        
+                        }
+
                         /*else if (test[b].length > 20 && test[b].substring(0, test[b].length).lastIndexOf(' ') > -1) {
 
                             var pos = test[b].substring(0,30).lastIndexOf(' ');
@@ -4124,32 +4132,32 @@ this.myDataBinding.data.forEach(row => {
                         }*/
                     }
 
-/*
-                    function helper(a){
+                    /*
+                                        function helper(a){
 
 
-                       
-                    if(a.length > 20 && a.substring(0, a.length).lastIndexOf(' ') > -1){
-                        
+                                           
+                                        if(a.length > 20 && a.substring(0, a.length).lastIndexOf(' ') > -1){
+                                            
 
-                        var stringMemory = {};
-                        var pos = a.substring(0,30).lastIndexOf(' ');
-                        stringMemory.concat(test[b].slice(0, pos) + " <br> " +  helper(test[b].slice(pos)));
+                                            var stringMemory = {};
+                                            var pos = a.substring(0,30).lastIndexOf(' ');
+                                            stringMemory.concat(test[b].slice(0, pos) + " <br> " +  helper(test[b].slice(pos)));
 
-                      
+                                          
 
-                    } else {
+                                        } else {
 
-                        return stringMemory;
-
-
-                    }
-
-                   
-                    }
+                                            return stringMemory;
 
 
-*/
+                                        }
+
+                                       
+                                        }
+
+
+                    */
 
 
 
@@ -4159,7 +4167,7 @@ this.myDataBinding.data.forEach(row => {
 
                         if (Number.isInteger(i / 6) === true) {
 
-                            
+
                             var counter = i;
 
                             data.addRows([
@@ -4172,15 +4180,15 @@ this.myDataBinding.data.forEach(row => {
 
                             //TODO ANzahl der leerzeichen entspricht der ANzahl der maximalen zeichen
 
-                            if(Number.isInteger(i / 5) === true && i/5 !== 0){
+                            if (Number.isInteger(i / 5) === true && i / 5 !== 0) {
 
                                 console.log("gehst du hier rein ???????");
                                 data.addRows([
 
                                     [
-                                        "----------", "---------","---------", "---------","---------", "---------"
+                                        "----------", "---------", "---------", "---------", "---------", "---------"
                                     ]
-    
+
                                 ]);
                             }
 
