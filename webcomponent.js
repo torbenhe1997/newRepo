@@ -3952,6 +3952,10 @@
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
         onCustomWidgetAfterUpdate(oChangedProperties) {
 
+            console.log("Value2");
+
+            console.log(this._value);
+
 
 
 
@@ -3967,6 +3971,11 @@
 
 
             function drawTable() {
+
+                
+            console.log("Value3");
+
+            console.log(this._value);
 
 
 
@@ -4089,6 +4098,11 @@
 
 
                 function iterator() {
+
+                    
+            console.log("Value4");
+
+            console.log(this._value);
 
                     var test = ["Hallo ich bin ein Test", "Gaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanz", "Hallo ich bin ein Test Wir sind uns einig", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds",
                         "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
