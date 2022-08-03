@@ -3951,11 +3951,14 @@
             });
 
             google.charts.setOnLoadCallback(function () {
-                drawTable();
+                drawTable(this.x);
             });
 
 
             function drawTable(x) {
+                console.log("Value3");
+            console.log(x);
+            console.log("bist du es wirklich?")
 
                 var data = new google.visualization.DataTable();
 
@@ -3970,7 +3973,7 @@
 
 
 
-                header();
+               this.header();
 
                 function header() {
 
@@ -4071,7 +4074,7 @@
 
                 }
 
-                iterator()
+                this.iterator(this.x);
 
 
 
