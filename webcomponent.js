@@ -3885,16 +3885,7 @@
             this._props = {};
             var _value;
 
-            // Traverse result set
-            const dataBinding = this.dataBindings.getDataBinding('myDataBinding')
 
-            console.log("dataBinding");
-            console.log(dataBinding);
-
-
-
-
-           
 
 
 
