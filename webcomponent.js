@@ -3892,6 +3892,7 @@
 
         }
 
+
         //Fired when the widget is added to the html DOM of the page
         connectedCallback() {
 
@@ -3939,11 +3940,11 @@
         }
 
         getValue() {
+            this.value = newValue;
 
             return this._value;
+            console.log(this.value);
         }
-
-
 
 
 
