@@ -4074,7 +4074,7 @@
 
                 }
 
-                this.iterator(this.x);
+                this.iterator(x);
 
 
 
