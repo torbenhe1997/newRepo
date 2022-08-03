@@ -3925,7 +3925,7 @@
             }));
             
             
-            this.function2(_value);
+            this.function2(this._value);
             
 
         }
