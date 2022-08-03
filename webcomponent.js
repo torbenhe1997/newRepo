@@ -3950,13 +3950,13 @@
 
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
-        onCustomWidgetAfterUpdate(oChangedProperties) {
+        onCustomWidgetAfterUpdate(_value) {
 
-            var value; 
+           
 
             console.log("Value2");
 
-            console.log(value = getValue());
+            console.log(_value);
 
 
 
@@ -3973,10 +3973,6 @@
 
 
             function drawTable() {
-
-                
-         
-
 
                 var data = new google.visualization.DataTable();
 
