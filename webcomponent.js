@@ -3884,10 +3884,7 @@
             });
             this._props = {};
             var _value;
-
-
-
-
+            
 
 
         }
@@ -3921,8 +3918,9 @@
 
 
 
-
+        
         setValue(newValue) {
+            
             this._value = newValue;
             // fire "properties changed"
             this.dispatchEvent(new CustomEvent("propertiesChanged", {
@@ -3941,8 +3939,9 @@
 
         getValue() {
             
+            
 
-            return value;
+            return this._value;
             
         }
 
