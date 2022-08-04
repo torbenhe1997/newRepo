@@ -4164,20 +4164,18 @@
 
                             ]);
 
+                            data.addRows([
+
+                                [
+                                    "----------", "---------", "---------", "---------", "---------", "---------"
+                                ]
+
+                            ]);
+                            
+
                             //TODO ANzahl der leerzeichen entspricht der ANzahl der maximalen zeichen
 
-                            if (Number.isInteger(i / 4) === true && i /4 !== 0) {
-
-                                console.log("gehst du hier rein ???????");
-                                data.addRows([
-
-                                    [
-                                        "----------", "---------", "---------", "---------", "---------", "---------"
-                                    ]
-
-                                ]);
-                            }
-
+                            
                         }
 
 
