@@ -4170,25 +4170,26 @@
 
                             ]);
 
-                            if (Number.isInteger(i / 24) === true && i / 24 !== 0) {
-
-                                console.log("gehst du hier rein ???????");
-                                data.addRows([
-        
-                                    [
-                                        "----------", "---------", "---------", "---------", "---------", "---------"
-                                    ]
-        
-                                ]);
-                            }
-    
+                             
 
                                                         
 
                             //TODO ANzahl der leerzeichen entspricht der ANzahl der maximalen zeichen
 
                             
-                        } 
+                        }
+                        
+                        if (Number.isInteger(i / 24) === true && i / 24 !== 0) {
+
+                            console.log("gehst du hier rein ???????");
+                            data.addRows([
+    
+                                [
+                                    "----------", "---------", "---------", "---------", "---------", "---------"
+                                ]
+    
+                            ]);
+                        }
 
                     }
 
