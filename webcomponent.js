@@ -3969,10 +3969,11 @@
 
 
                 var options = {
-                    showRowNumber: false,
+                    showRowNumber: true,
                     width: '100%',
                     height: '100%',
-                    allowHtml: true
+                    allowHtml: true,
+                    scrollbars: true,
                 }
 
 
