@@ -3883,6 +3883,7 @@
                 this.dispatchEvent(event);
             });
             this._props = {};
+            const dataBinding = this.dataBindings.getDataBinding('myDataBinding');
             var _value;
             
 
@@ -3939,6 +3940,9 @@
         }
 
         function2(x){
+
+            console.log("this.dataBinding.data");
+            console.log(this.dataBinding.data);
 
             console.log("Value2");
             console.log(x);
@@ -4176,6 +4180,16 @@
                             //TODO ANzahl der leerzeichen entspricht der ANzahl der maximalen zeichen
 
                             
+                        } if (Number.isInteger(i / 5) === true && i / 5 !== 0) {
+
+                            console.log("gehst du hier rein ???????");
+                            data.addRows([
+    
+                                [
+                                    "----------", "---------", "---------", "---------", "---------", "---------"
+                                ]
+    
+                            ]);
                         }
 
 
