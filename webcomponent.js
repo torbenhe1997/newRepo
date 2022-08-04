@@ -3883,7 +3883,8 @@
                 this.dispatchEvent(event);
             });
             this._props = {};
-            var dataBinding;
+            const dataBinding = this.dataBindings.getDatabinding('myDataBinding');
+            console.log(dataBinding);
             var _value;
             
 
@@ -3941,10 +3942,6 @@
 
         function2(x){
 
-           console.log("this.dataBinding.data");
-           console.log(this.dataBinding.getDataBinding('myDataBinding'));
-
-             
 
             console.log("Value2");
             console.log(x);
