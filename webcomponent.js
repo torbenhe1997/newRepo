@@ -6,7 +6,7 @@
          Copyright The Closure Library Authors.
          SPDX-License-Identifier: Apache-2.0
         */
-
+        'use strict';
         var l;
 
         function aa(a) {
@@ -3831,45 +3831,13 @@
 			<style>
 				:host {
 					display: block;
-
 				} 
-
-                .header-text {
-                    text-align: left;
-                    font-weight: bold;
-                    color: #0000b3;
-                    background-color: #e6e6e6;
-                    opacity: 0.5;
-                    white-space: pre-wrap;
-                    
-                  }
-                
-                .left-text {
-                    text-align: left;
-                  }
-                
-                .positive-value {
-                    font-weight: bold;
-                    color: green;
-                    text-align: left;
-                    word-wrap: break-word;
-                    width: 13em;
-                    maxLength = "5"
-                    white-space: pre-wrap;
-                  }
-                  
-                .negative-value {
-                    font-weight: bold;
-                    color: red;
-                    text-align: center;
-                  }
-
 			</style> 
 			<div id="chart_div"></div>
 		`;
 
 
-    class HelloWorld1 extends HTMLElement {
+        class HelloWorld1 extends HTMLElement {
 
 
         constructor() {
@@ -3883,339 +3851,77 @@
                 this.dispatchEvent(event);
             });
             this._props = {};
-           // const dataBinding = this.dataBindings.getDatabinding('myDataBinding');
-          //  console.log("dataBinding");
-          //  console.log(dataBinding);
-       
-            var _value;
-            
-
-
         }
-
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback() {
 
+            google.charts.load('current', {
+                'packages': ['Table']
+            });
+            google.charts.setOnLoadCallback(function () {
+                drawChart();
+            });
+            var ctx = this.shadowRoot.getElementById('chart_div');
 
+            function drawTable() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Name');
+                data.addColumn('number', 'Salary');
+                data.addColumn('boolean', 'Full Time Employee');
+                data.addRows([
+                  ['Mike',  {v: 10000, f: '$10,000'}, true],
+                  ['Jim',   {v:8000,   f: '$8,000'},  false],
+                  ['Alice', {v: 12500, f: '$12,500'}, true],
+                  ['Bob',   {v: 7000,  f: '$7,000'},  true]
+                ]);
+        
+                var table = new google.visualization.Table(ctx);
+        
+                table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+              }
+    
 
         }
 
         //Fired when the widget is removed from the html DOM of the page (e.g. by hide)
         disconnectedCallback() {
 
-
+        
 
         }
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function first
         onCustomWidgetBeforeUpdate(oChangedProperties) {
-
-
-        }
-
-
-
-        setValue(newValue) {
-            
-            this._value = newValue;
-            // fire "properties changed"
-            this.dispatchEvent(new CustomEvent("propertiesChanged", {
-                detail: {
-                    properties: {
-                        value: this._value
-                    }
-                }
-            }));
-            
-            
-            this.function2(this._value);
-            
+          
 
         }
 
-        getValue() {
-            
-            
-
-            return this._value;
-            
-        }
-
-        function2(x){
-
-
-            console.log("Value2");
-            console.log(x);
-            console.log("bist du es wirklich?")
-
-
-            var ctx = this.shadowRoot.getElementById('chart_div');
-            google.charts.load('current', {
-                'packages': ['table']
-            });
-
-            google.charts.setOnLoadCallback(function () {
-                drawTable(x);
-            });
-
-
-            function drawTable(x) {
-                console.log("Value3");
-            console.log(x);
-            console.log("bist du es wirklich?")
-
-                var data = new google.visualization.DataTable();
-
-
-                var options = {
-                    showRowNumber: true,
-                    width: '100%',
-                    height: '100%',
-                    allowHtml: true,
-                    scrollbars: true,
-                }
-
-
-
-
-               header();
-
-                function header() {
-
-                    data.addColumn('string', '');
-                    data.addColumn('string', '');
-                    data.addColumn('string', '');
-                    data.addColumn('string', '');
-                    data.addColumn('string', '');
-                    data.addColumn('string', '');
-
-                    data.addRows(4);
-
-                    // Row, Column
-                    //Column 1
-                    data.setCell(0, 0, 'LSO     ', 'LSO     ', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(1, 0, 'ID      ', 'ID      ', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(2, 0, 'Status ', 'Status ', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(3, 0, '', '', {
-                        'className': 'header-text'
-                    });
-                    //Column 2
-                    data.setCell(0, 1, 'Client/Prospect Name', 'Client/Prospect Name', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(1, 1, 'Sales Manager', 'Sales Manager', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(2, 1, 'Sales Representative', 'Sales Representative', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(3, 1, 'ExB Sponsor', 'ExB Sponsor', {
-                        'className': 'header-text'
-                    });
-                    //Column3
-                    data.setCell(0, 2, 'Sales Stage', 'Sales Stage', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(1, 2, 'Description', 'Description', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(2, 2, 'Note    ', 'Note    ', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(3, 2, '', '', {
-                        'className': 'header-text'
-                    });
-                    //Column 4
-                    data.setCell(0, 3, 'Volume weighted in EUR', 'Volume weighted in EUR', {
-                        'className': 'header-text'
-                    });
-
-                    data.setCell(1, 3, 'Win %', 'Win %', {
-                        'className': 'header-text'
-                    });
-
-                    data.setCell(2, 3, 'Volume unweighted in EUR', 'Volume unweighted in EUR', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(3, 3, '', '', {
-                        'className': 'header-text'
-                    });
-                    //Column5
-                    data.setCell(0, 4, 'Start Date', 'LStart DateSO', {
-                        'className': 'header-text'
-                    });
-
-                    data.setCell(1, 4, 'Expected Closure Date', 'Expected Closure Date', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(2, 4, 'Expected Delivery Date', 'Expected Delivery Date', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(3, 4, '', '', {
-                        'className': 'header-text'
-                    });
-                    //Column 6
-                    data.setCell(0, 5, 'Activity Due Date', 'Activity Due Date', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(1, 5, '', '', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(2, 5, '', '', {
-                        'className': 'header-text'
-                    });
-                    data.setCell(3, 5, '', '', {
-                        'className': 'header-text'
-                    });
-
-
-
-
-                }
-
-                iterator(x);
-
-
-
-                function iterator(x) {
-
-                    
-        
-
-                    var test = x;
-                    
-                    /*["Hallo ich bin ein Test", "Gaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanz", "Hallo ich bin ein Test Wir sind uns einig", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds", "Test1 Testekjsnfkjsndfksjdnfksjndfkjsndkjfnksjnfds",
-                        "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
-                        "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
-                        "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Hallo ich bin ein TestHallo <br> ich bin ein TestHallo ich bin ein TestHallo ich bin ein Test", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4",
-                        "Test1", "Test1", "Test1", "Test1", "Test1", "Test1", "Test2", "Test2", "Test2", "Test2", "Test2", "Test2", "Test3", "Test3", "Test3", "Test3", "Test3", "Test3", "Test4", "Test4", "Test4", "Test4", "Test4", "Test4"
-                    ];*/
-
-
-                    for (var b = 0; b < test.length; b++) {
-
-
-                        if (test[b].length > 20 && test[b].substring(0, test[b].length).lastIndexOf('<br>') === -1) {
-
-                            test[b] = test[b].replace(/.{20}/g, "$&" + " ");
-                            console.log(test[b]);
-
-                        }
-
-                        /*else if (test[b].length > 20 && test[b].substring(0, test[b].length).lastIndexOf(' ') > -1) {
-
-                            var pos = test[b].substring(0,30).lastIndexOf(' ');
-                            pos = pos <= 0 ? l : pos;
-                            
-                           test[b] = test[b].slice(0, pos) + " <br> "+ test[b].slice(pos);
-
-                          // test[b] = helper(test[b].slice(pos));
-
-                           console.log(test[b]);
-
-
-                        }*/
-                    }
-
-                    /*
-                                        function helper(a){
-
-
-                                           
-                                        if(a.length > 20 && a.substring(0, a.length).lastIndexOf(' ') > -1){
-                                            
-
-                                            var stringMemory = {};
-                                            var pos = a.substring(0,30).lastIndexOf(' ');
-                                            stringMemory.concat(test[b].slice(0, pos) + " <br> " +  helper(test[b].slice(pos)));
-
-                                          
-
-                                        } else {
-
-                                            return stringMemory;
-
-
-                                        }
-
-                                       
-                                        }
-
-
-                    */
-
-
-
-                    for (var i = 0; i < test.length; i++) {
-
-
-
-                        if (Number.isInteger(i / 6) === true) {
-
-
-                            var counter = i;
-
-                            data.addRows([
-
-                                [
-                                    test[counter], test[counter + 1], test[counter + 2], test[counter + 3], test[counter + 4], test[counter + 5]
-                                ]
-
-                            ]);
-              //TODO ANzahl der leerzeichen entspricht der ANzahl der maximalen zeichen
-
-                            
-                        } if (Number.isInteger(i / 23) === true && i / 23 !== 0) {
-
-                            console.log("gehst du hier rein ???????");
-                            data.addRows([
-    
-                                [
-                                    "----------", "---------", "---------", "---------", "---------", "---------"
-                                ]
-    
-                            ]);
-                        }
-
-
-
-
-                        
-                        
-                    }
-
-                }
-
-
-                var table = new google.visualization.Table(ctx);
-                table.draw(data, options);
-            }
-
-
-        }
-
-
-
-
+       
 
         //When the custom widget is updated, the Custom Widget SDK framework executes this function after the update
-        onCustomWidgetAfterUpdate() {
-
-           
+        onCustomWidgetAfterUpdate(oChangedProperties) {
 
             
-
-
-
+       
 
         }
+
+        //When the custom widget is removed from the canvas or the analytic application is closed
+        onCustomWidgetDestroy() {}
+
+
+        //When the custom widget is resized on the canvas, the Custom Widget SDK framework executes the following JavaScript function call on the custom widget
+        // Commented out by default
+        /*
+        onCustomWidgetResize(width, height){
+        }
+        */
+
+        redraw() {
+
+            
+        }
     }
-    customElements.define('com-sap-sample-helloworld1', HelloWorld1);
+    customElements.define('com-sap-sample-helloworld1',HelloWorld1);
 })();
