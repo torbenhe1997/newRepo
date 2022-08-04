@@ -3941,8 +3941,8 @@
 
         function2(x){
 
-           // console.log("this.dataBinding.data");
-           // console.log(this.dataBinding.getDataBinding('myDataBinding'));
+           console.log("this.dataBinding.data");
+           console.log(this.dataBinding.getDataBinding('myDataBinding'));
 
              
 
