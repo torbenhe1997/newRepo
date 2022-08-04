@@ -3884,7 +3884,9 @@
             });
             this._props = {};
             const dataBinding = this.dataBindings.getDatabinding('myDataBinding');
+            console.log("dataBinding");
             console.log(dataBinding);
+       
             var _value;
             
 
