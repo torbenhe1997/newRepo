@@ -3860,7 +3860,7 @@
                 'packages': ['Table']
             });
             google.charts.setOnLoadCallback(function () {
-                drawChart();
+                drawTable();
             });
             var ctx = this.shadowRoot.getElementById('chart_div');
 
