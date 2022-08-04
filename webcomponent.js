@@ -4169,14 +4169,7 @@
 
                             ]);
 
-                            data.addRows([
-
-                                [
-                                    "----------", "---------", "---------", "---------", "---------", "---------"
-                                ]
-
-                            ]);
-                            
+                                                        
 
                             //TODO ANzahl der leerzeichen entspricht der ANzahl der maximalen zeichen
 
