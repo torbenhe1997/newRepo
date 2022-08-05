@@ -3836,6 +3836,7 @@
 			</style> 
 			<div id="chart_div">
             </div>
+            <a id="exportCSV" href="">Excel</a>
 		`;
 
 
@@ -3959,6 +3960,44 @@
         
                 table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
               }
+
+              var table = new google.visualization.ChartWrapper({
+                chartType: 'Table',
+                containerId: 'chart_div',
+                options: {allowHtml: true}
+            });
+
+
+            document.getElementById("exportCSV").setOnLoadCallback(function () {
+                var csvData = table.getDataTable(); //google visualization DataTable to download
+                export_CSV("exportCSV", csvData);
+            });
+
+            function export_CSV(elementID, data) {
+
+                var csvColumns;
+                var csvContent;
+                var downloadLink;
+            
+                // build column headings
+                csvColumns = '';
+                for (var i = 0; i < data.getNumberOfColumns(); i++) {
+                    csvColumns += data.getColumnLabel(i);
+                    if (i < data.getNumberOfColumns() - 1) {
+                        csvColumns += ',';
+                    }
+                }
+                csvColumns += '\n';
+            
+                // get data rows
+                csvContent = csvColumns + google.visualization.dataTableToCsv(data);
+            
+                //New Download Link - works in chrome and mozilla
+                downloadLink = document.getElementById(elementID);
+                downloadLink.href = 'data:text/csv;charset=utf-8,' + encodeURI(csvContent);
+                downloadLink.download = 'data.csv';
+                downloadLink.target = '_blank';
+            }
     
 
         }
