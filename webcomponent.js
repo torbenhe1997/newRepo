@@ -3971,7 +3971,7 @@
 
 
   
-                document.getElementById("exportCSV").setOnLoadCallback(function () {
+                document.getElementById("exportCSV").setOnLoadCallback(function() {
                     var csvData = table2.getDataTable(); //google visualization DataTable to download
                     export_CSV("exportCSV", csvData);
                 });
