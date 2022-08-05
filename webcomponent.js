@@ -3857,7 +3857,7 @@
                 var event = new Event("onClick");
                 this.dispatchEvent(event);
             });
-            data = new google.visualization.DataTable();
+            var data = new google.visualization.DataTable();
             
             this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
                 var csvData = data.getDataTable(); //google visualization DataTable to download
