@@ -3986,10 +3986,10 @@
                 });
                 
                 console.log(table2);
-                this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
+               /* this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
                     var csvData = table2.getDataTable(); //google visualization DataTable to download
                     export_CSV("exportCSV", csvData);
-                });
+                });*/
 
                function export_CSV(elementID, data2) {
 
@@ -4012,6 +4012,10 @@
                 
                     // get data rows
                     csvContent = csvColumns + google.visualization.dataTableToCsv(data2);
+
+                    console.log(csvContent);
+
+                    
                 
                     //New Download Link - works in chrome and mozilla
                     downloadLink = this.shadowRoot.getElementById(elementID);
