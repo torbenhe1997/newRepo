@@ -8,12 +8,15 @@
 	"newInstancePrefix": "HelloWorld1",
 	"version": "0.0.1",
 	"icon": "https://torbenhe1997.github.io/newRepo/icon.png",
+	"supportsExport":true,
 	"webcomponents": [{
 		"kind": "main",
 		"tag": "com-sap-sample-helloworld1",
 		"url": "https://torbenhe1997.github.io/newRepo/webcomponent.js",
 		"integrity": "",
 		"ignoreIntegrity": true
+		
+
 	}],
 	"properties": {
 		"value": {
@@ -22,35 +25,22 @@
 			"default": ["Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7", "Test8", "Test9", "Test1", "Test2", "Test3", "Test4", "Test5", "Test6", "Test7", "Test8", "Test9", "Test1", "Test2", "Test3", "Test4", "Test5", "Test6"]
 		}
 	},
-	"dataBindings": {
-		"myDataBinding": {
-			"feeds": [{
-					"id": "dimensions",
-					"description": "Dimensions",
-					"type": "dimension"
-				},
-				{
-					"id": "@MeasureDimension",
-					"description": "Measures",
-					"type": "mainStructureMember"
-				}
-			]
-		}
-	},
+
 
 	"methods": {
-		"getValue": {
-			"returnType": "string[]",
-			"description": "Returns the gauge value"
-
-		},
 		"setValue": {
 			"description": "Set the value for the table",
 			"parameters": [{
 				"name": "newValue",
 				"type": "string[]",
 				"description": "The new table values."
-			}]
+			}]},
+
+			"getValue": {
+				"returnType": "string[]",
+				"description": "Returns the gauge value"
+				
+			
 		}
 	},
 	"events": {
