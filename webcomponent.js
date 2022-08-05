@@ -3870,17 +3870,7 @@
             var ctx = this.shadowRoot.getElementById('chart_div');
 
             function drawTable() {
-                var data = new google.visualization.DataTable({
-                    'chartType': 'Table',
-                    'containerId': 'tableDiv',
-                    'options': {
-                        'allowHtml': true,
-                        'page': 'enable',
-                        'width':'100%',
-                        'height':'270px',
-                        'pageSize': 10,
-                    }
-                });
+                var data = new google.visualization.DataTable();
                 data.addColumn('string', 'Name');
                 data.addColumn('number', 'Salary');
                 data.addColumn('boolean', 'Full Time Employee');
@@ -3973,7 +3963,7 @@
                 table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
 
 
-            /*    var table2 = new google.visualization.ChartWrapper({
+               var table2 = new google.visualization.ChartWrapper({
                     chartType: 'Table',
                     containerId: 'div_table',
                     options: {allowHtml: true}
@@ -3981,13 +3971,13 @@
 
 
   
-                document.getElementById("exportCSV").setOnLoadCallback( function () {
+                document.getElementById("exportCSV").setOnLoadCallback(function () {
                     var csvData = table2.getDataTable(); //google visualization DataTable to download
                     export_CSV("exportCSV", csvData);
                 });
 
 
-                    function export_CSV(elementID, data) {
+                    function export_CSV(elementID, data2) {
 
                         var csvColumns;
                         var csvContent;
@@ -4007,11 +3997,15 @@
                         csvContent = csvColumns + google.visualization.dataTableToCsv(data2);
                     
                         //New Download Link - works in chrome and mozilla
-                        downloadLink = document.getElementById(elementID);
+                        downloadLink = this.shadowRoot.getElementById(elementID);
                         downloadLink.href = 'data:text/csv;charset=utf-8,' + encodeURI(csvContent);
                         downloadLink.download = 'data.csv';
                         downloadLink.target = '_blank';
-                    }*/
+
+                        console.log("downloadLink");
+
+                        console.log(downloadLink);
+                    }
             
     
    
