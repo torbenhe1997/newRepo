@@ -3978,65 +3978,7 @@
                 table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
 
 
-                var table2 = new google.visualization.ChartWrapper({
-                    chartType: 'Table',
-                    containerId: 'chart_div',
-                    options: {allowHtml: true}
-                    
-                });
-                
-                console.log(table2);
-               /* this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
-                    var csvData = table2.getDataTable(); //google visualization DataTable to download
-                    export_CSV("exportCSV", csvData);
-                });*/
-
-               function export_CSV(elementID, data2) {
-
-                console.log(elementID);
-                console.log(data2);
-
-                    var csvColumns;
-                    var csvContent;
-                    var downloadLink;
-                
-                    // build column headings
-                    csvColumns = '';
-                    for (var i = 0; i < data2.getNumberOfColumns(); i++) {
-                        csvColumns += data2.getColumnLabel(i);
-                        if (i < data2.getNumberOfColumns() - 1) {
-                            csvColumns += ',';
-                        }
-                    }
-                    csvColumns += '\n';
-                
-                    // get data rows
-                    csvContent = csvColumns + google.visualization.dataTableToCsv(data2);
-
-                    console.log(csvContent);
-
-                    
-                
-                    //New Download Link - works in chrome and mozilla
-                    downloadLink = this.shadowRoot.getElementById(elementID);
-                    downloadLink.href = 'data:text/csv;charset=utf-8,' + encodeURI(csvContent);
-                    downloadLink.download = 'data.csv';
-                    downloadLink.target = '_blank';
-        
-                    console.log(elementID);
-                  console.log(data2);
-        
-                    console.log(downloadLink);
-                }
-
-
-
-
-                this.tableX = table;
-                this.dataX = data;
-
                
-                console.log(this.dataX);
 
               }
 
