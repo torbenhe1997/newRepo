@@ -3851,14 +3851,65 @@
             let shadowRoot = this.attachShadow({
                 mode: "open"
             });
+            var table;
             shadowRoot.appendChild(template.content.cloneNode(true));
             this.addEventListener("click", event => {
                 var event = new Event("onClick");
                 this.dispatchEvent(event);
             });
+
+            
+            this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
+                var csvData = this.table.getDataTable(); //google visualization DataTable to download
+                this.export_CSV("exportCSV", csvData);
+            });
+
+
+
+
+
             this._props = {};
 
           
+        }
+
+
+
+        export_CSV(elementID, data2) {
+
+            var table2 = new google.visualization.ChartWrapper({
+                chartType: 'Table',
+                containerId: 'div_table',
+                options: {allowHtml: true}
+            });
+
+
+            var csvColumns;
+            var csvContent;
+            var downloadLink;
+        
+            // build column headings
+            csvColumns = '';
+            for (var i = 0; i < data2.getNumberOfColumns(); i++) {
+                csvColumns += data2.getColumnLabel(i);
+                if (i < data2.getNumberOfColumns() - 1) {
+                    csvColumns += ',';
+                }
+            }
+            csvColumns += '\n';
+        
+            // get data rows
+            csvContent = csvColumns + google.visualization.dataTableToCsv(data2);
+        
+            //New Download Link - works in chrome and mozilla
+            downloadLink = this.shadowRoot.getElementById(elementID);
+            downloadLink.href = 'data:text/csv;charset=utf-8,' + encodeURI(csvContent);
+            downloadLink.download = 'data.csv';
+            downloadLink.target = '_blank';
+
+            console.log("downloadLink");
+
+            console.log(downloadLink);
         }
 
         //Fired when the widget is added to the html DOM of the page
@@ -3961,63 +4012,16 @@
                   ['Bob',   {v: 7000,  f: '$7,000'},  true]
                                   ]);
         
-                var table = new google.visualization.Table(ctx);
+                this.table = new google.visualization.Table(ctx);
         
-                table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
-
-
-               var table2 = new google.visualization.ChartWrapper({
-                    chartType: 'Table',
-                    containerId: 'div_table',
-                    options: {allowHtml: true}
-                });
-
-
-  
-                 this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
-                    var csvData = data.getDataTable(); //google visualization DataTable to download
-                    export_CSV("exportCSV", csvData);
-                });
-
-
-                    function export_CSV(elementID, data2) {
-
-                        var csvColumns;
-                        var csvContent;
-                        var downloadLink;
-                    
-                        // build column headings
-                        csvColumns = '';
-                        for (var i = 0; i < data2.getNumberOfColumns(); i++) {
-                            csvColumns += data2.getColumnLabel(i);
-                            if (i < data2.getNumberOfColumns() - 1) {
-                                csvColumns += ',';
-                            }
-                        }
-                        csvColumns += '\n';
-                    
-                        // get data rows
-                        csvContent = csvColumns + google.visualization.dataTableToCsv(data2);
-                    
-                        //New Download Link - works in chrome and mozilla
-                        downloadLink = this.shadowRoot.getElementById(elementID);
-                        downloadLink.href = 'data:text/csv;charset=utf-8,' + encodeURI(csvContent);
-                        downloadLink.download = 'data.csv';
-                        downloadLink.target = '_blank';
-
-                        console.log("downloadLink");
-
-                        console.log(downloadLink);
-                    }
-            
-    
-   
+                this.table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
 
               }
 
              
 
             
+             
            
     
 
