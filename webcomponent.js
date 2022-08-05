@@ -3851,18 +3851,23 @@
             let shadowRoot = this.attachShadow({
                 mode: "open"
             });
+
+            var dataX;
+            var tableX;
            
             shadowRoot.appendChild(template.content.cloneNode(true));
             this.addEventListener("click", event => {
                 var event = new Event("onClick");
                 this.dispatchEvent(event);
             });
-            var data = new google.visualization.DataTable();
+            
             
             this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
                 var csvData = data.getDataTable(); //google visualization DataTable to download
                 this.export_CSV("exportCSV", csvData);
             });
+
+            
 
 
 
@@ -3924,11 +3929,12 @@
             var ctx = this.shadowRoot.getElementById('chart_div');
 
             function drawTable() {
+                var data = new google.visualization.DataTable();
                 
-                this.data.addColumn('string', 'Name');
-               this.data.addColumn('number', 'Salary');
-                this.data.addColumn('boolean', 'Full Time Employee');
-                this.data.addRows([
+                data.addColumn('string', 'Name');
+                data.addColumn('number', 'Salary');
+                data.addColumn('boolean', 'Full Time Employee');
+                data.addRows([
                   ['Mike',  {v: 10000, f: '$10,000'}, true],
                   ['Jim',   {v:8000,   f: '$8,000'},  false],
                   ['Alice', {v: 12500, f: '$12,500'}, true],
@@ -4014,7 +4020,13 @@
         
                 var table = new google.visualization.Table(ctx);
         
-                table.draw(this.data, {showRowNumber: true, width: '100%', height: '100%'});
+                table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+
+                this.tableX = table;
+                this.dataX = data;
+
+                console.log(this.tableX);
+                console.log(this.dataX);
 
               }
 
