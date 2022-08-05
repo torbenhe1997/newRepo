@@ -3834,10 +3834,10 @@
                     overflow-x: scroll;
 				} 
 			</style> 
+
             <div>
-            <a id="exportCSV" href="">Excel</a>
-            </div>
-			<div id="chart_div">
+            <a id="exportCSV" href="">Excel</a> 
+			<div id="chart_div"></div>
             </div>
            
 		`;
@@ -3974,7 +3974,7 @@
 
 
   
-                document.getElementById("exportCSV").addEventListener("click", function() {
+                 this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
                     var csvData = data.getDataTable(); //google visualization DataTable to download
                     export_CSV("exportCSV", csvData);
                 });
