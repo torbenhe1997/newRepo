@@ -3859,12 +3859,12 @@
             });
 
             
-            this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
+           /* this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
                 var csvData = this.table.getDataTable(); //google visualization DataTable to download
                 this.export_CSV("exportCSV", csvData);
             });
 
-
+*/
 
 
 
