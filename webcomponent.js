@@ -3860,13 +3860,19 @@
                 var event = new Event("onClick");
                 this.dispatchEvent(event);
             });
+
+            var table = new google.visualization.ChartWrapper({
+                chartType: 'Table',
+                containerId: 'chart_div',
+                options: {allowHtml: true}
+            });
             
             
-            /*this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
-                var csvData = data.getDataTable(); //google visualization DataTable to download
+            this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
+                var csvData = table.getDataTable(); //google visualization DataTable to download
                 this.export_CSV("exportCSV", csvData);
             });
-*/
+
             
 
 
