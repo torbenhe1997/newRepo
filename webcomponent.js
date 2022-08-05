@@ -3831,10 +3831,10 @@
 			<style>
 				:host {
 					display: block;
+                    overflow-x: scroll;
 				} 
 			</style> 
 			<div id="chart_div">
-            overflow-x: scroll;
             </div>
 		`;
 
