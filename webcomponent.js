@@ -3982,15 +3982,19 @@
                     chartType: 'Table',
                     containerId: 'chart_div',
                     options: {allowHtml: true}
+                    
                 });
                 
-                
+                console.log(table2);
                 this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
                     var csvData = table2.getDataTable(); //google visualization DataTable to download
                     export_CSV("exportCSV", csvData);
                 });
 
                function export_CSV(elementID, data2) {
+
+                console.log(elementID);
+                console.log(data2);
 
                     var csvColumns;
                     var csvContent;
@@ -4015,7 +4019,8 @@
                     downloadLink.download = 'data.csv';
                     downloadLink.target = '_blank';
         
-                    console.log("downloadLink");
+                    console.log(elementID);
+                  console.log(data2);
         
                     console.log(downloadLink);
                 }
