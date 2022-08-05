@@ -3870,7 +3870,17 @@
             var ctx = this.shadowRoot.getElementById('chart_div');
 
             function drawTable() {
-                var data = new google.visualization.DataTable();
+                var data = new google.visualization.DataTable({
+                    'chartType': 'Table',
+                    'containerId': 'tableDiv',
+                    'options': {
+                        'allowHtml': true,
+                        'page': 'enable',
+                        'width':'100%',
+                        'height':'270px',
+                        'pageSize': 10,
+                    }
+                });
                 data.addColumn('string', 'Name');
                 data.addColumn('number', 'Salary');
                 data.addColumn('boolean', 'Full Time Employee');
@@ -3963,9 +3973,18 @@
                 table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
 
 
+            /*    var table2 = new google.visualization.ChartWrapper({
+                    chartType: 'Table',
+                    containerId: 'div_table',
+                    options: {allowHtml: true}
+                });
+
+
   
-                    var csvData = table.getDataTable(); //google visualization DataTable to download
+                document.getElementById("exportCSV").setOnLoadCallback( function () {
+                    var csvData = table2.getDataTable(); //google visualization DataTable to download
                     export_CSV("exportCSV", csvData);
+                });
 
 
                     function export_CSV(elementID, data) {
@@ -3976,23 +3995,23 @@
                     
                         // build column headings
                         csvColumns = '';
-                        for (var i = 0; i < data.getNumberOfColumns(); i++) {
-                            csvColumns += data.getColumnLabel(i);
-                            if (i < data.getNumberOfColumns() - 1) {
+                        for (var i = 0; i < data2.getNumberOfColumns(); i++) {
+                            csvColumns += data2.getColumnLabel(i);
+                            if (i < data2.getNumberOfColumns() - 1) {
                                 csvColumns += ',';
                             }
                         }
                         csvColumns += '\n';
                     
                         // get data rows
-                        csvContent = csvColumns + google.visualization.dataTableToCsv(data);
+                        csvContent = csvColumns + google.visualization.dataTableToCsv(data2);
                     
                         //New Download Link - works in chrome and mozilla
                         downloadLink = document.getElementById(elementID);
                         downloadLink.href = 'data:text/csv;charset=utf-8,' + encodeURI(csvContent);
                         downloadLink.download = 'data.csv';
                         downloadLink.target = '_blank';
-                    }
+                    }*/
             
     
    
