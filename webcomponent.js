@@ -3851,7 +3851,7 @@
             let shadowRoot = this.attachShadow({
                 mode: "open"
             });
-            var table;
+           
             shadowRoot.appendChild(template.content.cloneNode(true));
             this.addEventListener("click", event => {
                 var event = new Event("onClick");
@@ -4012,9 +4012,9 @@
                   ['Bob',   {v: 7000,  f: '$7,000'},  true]
                                   ]);
         
-                this.table = new google.visualization.Table(ctx);
+                var table = new google.visualization.Table(ctx);
         
-                this.table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+                table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
 
               }
 
