@@ -3857,14 +3857,14 @@
                 var event = new Event("onClick");
                 this.dispatchEvent(event);
             });
-
+            data = new google.visualization.DataTable();
             
-           /* this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
-                var csvData = this.table.getDataTable(); //google visualization DataTable to download
+            this._shadowRoot.getElementById("exportCSV").addEventListener("click", function() {
+                var csvData = data.getDataTable(); //google visualization DataTable to download
                 this.export_CSV("exportCSV", csvData);
             });
 
-*/
+
 
 
 
@@ -3924,11 +3924,11 @@
             var ctx = this.shadowRoot.getElementById('chart_div');
 
             function drawTable() {
-                var data = new google.visualization.DataTable();
-                data.addColumn('string', 'Name');
-                data.addColumn('number', 'Salary');
-                data.addColumn('boolean', 'Full Time Employee');
-                data.addRows([
+                
+                this.data.addColumn('string', 'Name');
+               this.data.addColumn('number', 'Salary');
+                this.data.addColumn('boolean', 'Full Time Employee');
+                this.data.addRows([
                   ['Mike',  {v: 10000, f: '$10,000'}, true],
                   ['Jim',   {v:8000,   f: '$8,000'},  false],
                   ['Alice', {v: 12500, f: '$12,500'}, true],
@@ -4014,7 +4014,7 @@
         
                 var table = new google.visualization.Table(ctx);
         
-                table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+                table.draw(this.data, {showRowNumber: true, width: '100%', height: '100%'});
 
               }
 
