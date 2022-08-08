@@ -10794,11 +10794,25 @@
                 this.dispatchEvent(event);
             });
 
+            this.shadowRoot.getElementById("exportCSV").addEventListener("click", function () {
+                this.generatePDF();
+            });
+
+
 
 
             this._props = {};
 
 
+        }
+
+        generatePDF() {
+
+            var doc = new jsPDF();
+            doc.setFontSize(33);
+            doc.setFillColor(135, 124, 45, 0);
+            //doc.addImage(imageTags[0], 'png', 10, 10, 150, 100);
+            doc.save('sample.pdf');
         }
 
 
@@ -10878,18 +10892,8 @@
                 });
 
 
-                this.shadowRoot.getElementById("exportCSV").addEventListener("click", function () {
-                    generatePDF();
-                });
-
-                function generatePDF() {
-
-                    var doc = new jsPDF();
-                    doc.setFontSize(33);
-                    doc.setFillColor(135, 124, 45, 0);
-                    //doc.addImage(imageTags[0], 'png', 10, 10, 150, 100);
-                    doc.save('sample.pdf');
-                }
+              
+             
 
 
 
