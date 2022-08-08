@@ -10820,7 +10820,10 @@
             google.charts.setOnLoadCallback(function () {
                 drawTable();
             });
+            
             var ctx = this.shadowRoot.getElementById('chart_div');
+            console.log("ctx");
+            console.log(ctx);
 
             function drawTable() {
                 var data = new google.visualization.DataTable();
@@ -10885,10 +10888,8 @@
 
                 generatePDF();
 
-                var container =  this.shadowRoot.getElementById('chart_div');
-                var chart = new google.visualization.LineChart(container);
-                console.log("container");
-                console.log(container);
+                var chart = new google.visualization.LineChart(ctx);
+                
                 console.log("chart");
                 console.log(chart);
 
