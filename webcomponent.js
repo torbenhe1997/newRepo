@@ -10851,7 +10851,7 @@
 
                 table.draw(data,{showRowNumber: false, width: '100%', height: '100%'});
 
-                imgData = table.getImageURI()
+              /* imgData = table.getImageURI()
 
                 generatePDF();
 
@@ -10863,7 +10863,7 @@
                     doc.addImage(imgData, 'png', 10, 10, 150, 100);
                     doc.save('sample.pdf');
                 }
-
+*/
             
                 
 
