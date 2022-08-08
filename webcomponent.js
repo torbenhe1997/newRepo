@@ -10845,11 +10845,11 @@
                   ['Alice', {v: 12500, f: '$12,500'}, true]
                                   ]);
         
-                var table = new google.visualization.Table(ctx);
+                //var table = new google.visualization.Table(ctx);
 
 
 
-                table.draw(data);
+              /*  table.draw(data);
 
                 imgData = table.getImageURI()
 
@@ -10864,7 +10864,7 @@
                     doc.save('sample.pdf');
                 }
 
-              
+              */
                 
 
                
