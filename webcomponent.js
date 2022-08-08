@@ -10820,25 +10820,32 @@
                 drawTable();
             });
 
-            var dataValues = [['Mon', 20, 28, 38, 45],
-            ['Tue', 31, 38, 55, 66],
-            ['Wed', 50, 55, 77, 80],
-            ['Thu', 77, 77, 66, 50],
-            ['Fri', 68, 66, 22, 15]]
+          
             var ctx = this.shadowRoot.getElementById('chart_div');
 
             function drawTable() {
 
               
 
-
-                var data = google.visualization.arrayToDataTable(dataValues, true)
-
-               
-                var table = new google.visualization.CandlestickChart(ctx);
-
-                console.log("table");
-                console.log(table);
+                var data = new google.visualization.DataTable();
+                
+                data.addColumn('string', 'Name');
+                data.addColumn('number', 'Salary');
+                data.addColumn('boolean', 'Full Time Employee');
+                data.addRows([
+                  ['Mike',  {v: 10000, f: '$10,000'}, true],
+                  ['Jim',   {v:8000,   f: '$8,000'},  false],
+                  ['Alice', {v: 12500, f: '$12,500'}, true],
+                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
+                  ['Mike',  {v: 10000, f: '$10,000'}, true],
+                  ['Jim',   {v:8000,   f: '$8,000'},  false],
+                  ['Alice', {v: 12500, f: '$12,500'}, true],
+                  ['Bob',   {v: 7000,  f: '$7,000'},  true], ['Mike',  {v: 10000, f: '$10,000'}, true],
+                  ['Jim',   {v:8000,   f: '$8,000'},  false],
+                  ['Alice', {v: 12500, f: '$12,500'}, true]
+                                  ]);
+        
+                var table = new google.visualization.Table(ctx);
 
 
 
