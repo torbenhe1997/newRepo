@@ -3905,12 +3905,10 @@
                 table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
 
 
-                this.shadowRoot.getElementById("exportCSV").addEventListener("click", function () {
-                    generatePDF();
-                });
-
+              generatePDF();
+              
                 function generatePDF() {
-                    var imageTags = $('#graph-images img');
+                
                       var doc = new jsPDF();
                       doc.setFontSize(33);
                       doc.setFillColor(135, 124,45,0);
