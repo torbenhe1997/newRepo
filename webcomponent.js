@@ -1,3 +1,5 @@
+const { table } = require("console");
+
 (function () {
 
     (function () {
@@ -10849,7 +10851,7 @@
 
 
 
-              /*  table.draw(data);
+               table.draw(data);
 
                 imgData = table.getImageURI()
 
@@ -10864,7 +10866,7 @@
                     doc.save('sample.pdf');
                 }
 
-              */
+            
                 
 
                
