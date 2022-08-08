@@ -10820,10 +10820,7 @@
             google.charts.setOnLoadCallback(function () {
                 drawTable();
             });
-            
             var ctx = this.shadowRoot.getElementById('chart_div');
-            console.log("ctx");
-            console.log(ctx);
 
             function drawTable() {
                 var data = new google.visualization.DataTable();
@@ -10888,44 +10885,20 @@
 
                 generatePDF();
 
-                var chart = new google.charts.Line(ctx);
-                
-                console.log("chart");
-                console.log(chart);
-
+       
 
                function generatePDF() {
                 //chart.getImageURI();
 
 
                     var doc = new jsPDF();
-                    //doc.addImage(chart.getImageURI(), 0, 0);
+                    doc.addImage(table.getImageURI(), 0, 0);
                     doc.save('chart.pdf');
 
                     
                 }
 
-                chart.draw(data, {
-                    chartArea: {
-                      bottom: 24,
-                      left: 36,
-                      right: 12,
-                      top: 48,
-                      width: '100%',
-                      height: '100%'
-                    },
-                    height: 600,
-                    title: 'chart title',
-                    width: 600
-                  });
-        
-
-
-              
-             
-
-
-
+               
 
             }
 
