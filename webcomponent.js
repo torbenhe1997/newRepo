@@ -10813,6 +10813,61 @@
             
 
 
+            google.charts.load('current', {
+                'packages': ['Table']   
+            });
+            google.charts.setOnLoadCallback(function () {
+                drawTable();
+            });
+
+          
+            var ctx = this.shadowRoot.getElementById('chart_div');
+
+            function drawTable() {
+
+              
+
+                var data = new google.visualization.DataTable();
+                
+                data.addColumn('string', 'Name');
+                data.addColumn('number', 'Salary');
+                data.addColumn('boolean', 'Full Time Employee');
+                data.addRows([
+                  ['Mike',  {v: 10000, f: '$10,000'}, true],
+                  ['Jim',   {v:8000,   f: '$8,000'},  false],
+                  ['Alice', {v: 12500, f: '$12,500'}, true],
+                  ['Alice', {v: 12500, f: '$12,500'}, true],
+                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
+                  ['Mike',  {v: 10000, f: '$10,000'}, true],
+                  ['Jim',   {v:8000,   f: '$8,000'},  false],
+                  ['Alice', {v: 12500, f: '$12,500'}, true],
+                  ['Bob',   {v: 7000,  f: '$7,000'},  true], ['Mike',  {v: 10000, f: '$10,000'}, true],
+                  ['Jim',   {v:8000,   f: '$8,000'},  false],
+                  ['Alice', {v: 12500, f: '$12,500'}, true]
+                                  ]);
+        
+                var table = new google.visualization.Table(ctx);
+
+
+
+                table.draw(data,{showRowNumber: false, width: '100%', height: '100%'});
+
+                imgData = table.getImageURI()
+ 
+                generatePDF();
+
+
+
+                 function generatePDF() {
+                    var doc = new jsPDF();
+                    doc.setFontSize(33);
+                    doc.setFillColor(135, 124,45,0);
+                    doc.addImage(imgData, 'png', 10, 10, 150, 100);
+                    doc.save('sample.pdf');
+                }
+
+            
+                
 
                
 
