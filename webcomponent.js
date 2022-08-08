@@ -10835,7 +10835,7 @@
                 var data = google.visualization.arrayToDataTable(dataValues, true)
 
                
-                var table = new google.visualization.CandlestickChart(ctx);
+                var table = new google.visualization.ColumnChart(ctx);
 
                 console.log("table");
                 console.log(table);
