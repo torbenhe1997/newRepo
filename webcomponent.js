@@ -3852,8 +3852,6 @@
                 mode: "open"
             });
 
-            var dataX;
-            var tableX;
            
             shadowRoot.appendChild(template.content.cloneNode(true));
             this.addEventListener("click", event => {
@@ -3899,83 +3897,26 @@
                   ['Alice', {v: 12500, f: '$12,500'}, true],
                   ['Bob',   {v: 7000,  f: '$7,000'},  true], ['Mike',  {v: 10000, f: '$10,000'}, true],
                   ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true], ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true], ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
-                  ['Mike',  {v: 10000, f: '$10,000'}, true],
-                  ['Jim',   {v:8000,   f: '$8,000'},  false],
-                  ['Alice', {v: 12500, f: '$12,500'}, true],
-                  ['Bob',   {v: 7000,  f: '$7,000'},  true]
+                  ['Alice', {v: 12500, f: '$12,500'}, true]
                                   ]);
         
                 var table = new google.visualization.Table(ctx);
         
                 table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+
+
+                this.shadowRoot.getElementById("exportCSV").addEventListener("click", function () {
+                    generatePDF();
+                });
+
+                function generatePDF() {
+                    var imageTags = $('#graph-images img');
+                      var doc = new jsPDF();
+                      doc.setFontSize(33);
+                      doc.setFillColor(135, 124,45,0);
+                      //doc.addImage(imageTags[0], 'png', 10, 10, 150, 100);
+                      doc.save('sample.pdf');
+                   }
 
 
                
