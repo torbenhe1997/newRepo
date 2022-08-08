@@ -10885,14 +10885,18 @@
 
                 generatePDF();
 
-                var container = document.getElementById('chart_div');
+                var container =  this.shadowRoot.getElementById('chart_div');
                 var chart = new google.visualization.LineChart(container);
+                console.log("chart");
+                console.log(chart);
 
 
                function generatePDF() {
+                chart.getImageURI();
+
 
                     var doc = new jsPDF();
-                    doc.addImage(chart.getImageURI(), 0, 0);
+                    //doc.addImage(chart.getImageURI(), 0, 0);
                     doc.save('chart.pdf');
 
                     
