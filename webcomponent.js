@@ -10888,7 +10888,7 @@
 
                 generatePDF();
 
-                var chart = new google.visualization.LineChart(ctx);
+                var chart = new google.charts.Line(ctx);
                 
                 console.log("chart");
                 console.log(chart);
