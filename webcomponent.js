@@ -1,5 +1,3 @@
-const { table } = require("console");
-
 (function () {
 
     (function () {
@@ -10847,11 +10845,11 @@ const { table } = require("console");
                   ['Alice', {v: 12500, f: '$12,500'}, true]
                                   ]);
         
-                //var table = new google.visualization.Table(ctx);
+                var table = new google.visualization.Table(ctx);
 
 
 
-               table.draw(data);
+                table.draw(data,{showRowNumber: false, width: '100%', height: '100%'});
 
                 imgData = table.getImageURI()
 
