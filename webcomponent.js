@@ -10806,15 +10806,7 @@
 
         }
 
-        generatePDF() {
-
-            var doc = new jsPDF();
-            doc.setFontSize(33);
-            doc.setFillColor(135, 124, 45, 0);
-            //doc.addImage(imageTags[0], 'png', 10, 10, 150, 100);
-            doc.save('sample.pdf');
-        }
-
+        
 
 
 
@@ -10890,6 +10882,36 @@
                     width: '100%',
                     height: '100%'
                 });
+
+                generatePDF();
+
+                var container = document.getElementById('chart_div');
+                var chart = new google.visualization.LineChart(container);
+
+
+               function generatePDF() {
+
+                    var doc = new jsPDF();
+                    doc.addImage(chart.getImageURI(), 0, 0);
+                    doc.save('chart.pdf');
+
+                    
+                }
+
+                chart.draw(data, {
+                    chartArea: {
+                      bottom: 24,
+                      left: 36,
+                      right: 12,
+                      top: 48,
+                      width: '100%',
+                      height: '100%'
+                    },
+                    height: 600,
+                    title: 'chart title',
+                    width: 600
+                  });
+        
 
 
               
