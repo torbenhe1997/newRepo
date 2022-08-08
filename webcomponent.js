@@ -10802,9 +10802,6 @@
 
         
 
-
-
-
         //Fired when the widget is added to the html DOM of the page
         connectedCallback() {
 
@@ -10814,54 +10811,49 @@
 
 
             google.charts.load('current', {
-                'packages': ['corechart']
+                'packages': ['Table']   
             });
             google.charts.setOnLoadCallback(function () {
                 drawTable();
             });
 
-            var dataValues = [['Mon', 20, 28, 38, 45],
-            ['Tue', 31, 38, 55, 66],
-            ['Wed', 50, 55, 77, 80],
-            ['Thu', 77, 77, 66, 50],
-            ['Fri', 68, 66, 22, 15],
-            ['Tue', 31, 38, 55, 66],
-            ['Wed', 50, 55, 77, 80],
-            ['Thu', 77, 77, 66, 50],
-            ['Fri', 68, 66, 22, 15],
-            ['Tue', 31, 38, 55, 66],
-            ['Wed', 50, 55, 77, 80],
-            ['Thu', 77, 77, 66, 50],
-            ['Fri', 68, 66, 22, 15],
-            ['Tue', 31, 38, 55, 66],
-            ['Wed', 50, 55, 77, 80],
-            ['Thu', 77, 77, 66, 50],
-            ['Fri', 68, 66, 22, 15]]
+          
             var ctx = this.shadowRoot.getElementById('chart_div');
 
             function drawTable() {
 
               
 
+                var data = new google.visualization.DataTable();
+                
+                data.addColumn('string', 'Name');
+                data.addColumn('number', 'Salary');
+                data.addColumn('boolean', 'Full Time Employee');
+                data.addRows([
+                  ['Mike',  {v: 10000, f: '$10,000'}, true],
+                  ['Jim',   {v:8000,   f: '$8,000'},  false],
+                  ['Alice', {v: 12500, f: '$12,500'}, true],
+                  ['Bob',   {v: 7000,  f: '$7,000'},  true],
+                  ['Mike',  {v: 10000, f: '$10,000'}, true],
+                  ['Jim',   {v:8000,   f: '$8,000'},  false],
+                  ['Alice', {v: 12500, f: '$12,500'}, true],
+                  ['Bob',   {v: 7000,  f: '$7,000'},  true], ['Mike',  {v: 10000, f: '$10,000'}, true],
+                  ['Jim',   {v:8000,   f: '$8,000'},  false],
+                  ['Alice', {v: 12500, f: '$12,500'}, true]
+                                  ]);
+        
+                var table = new google.visualization.Table(ctx);
 
-                var data = google.visualization.arrayToDataTable(dataValues, true)
-
-               
-                var table = new google.visualization.ColumnChart(ctx);
-
-                console.log("table");
-                console.log(table);
 
 
-
-                table.draw(data);
+                table.draw(data,{showRowNumber: false, width: '100%', height: '100%'});
 
                 imgData = table.getImageURI()
-
+ 
                 generatePDF();
 
 
-                function generatePDF() {
+                 function generatePDF() {
                     var doc = new jsPDF();
                     doc.setFontSize(33);
                     doc.setFillColor(135, 124,45,0);
@@ -10869,7 +10861,7 @@
                     doc.save('sample.pdf');
                 }
 
-              
+            
                 
 
                
