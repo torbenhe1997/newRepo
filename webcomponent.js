@@ -10819,27 +10819,32 @@
             google.charts.setOnLoadCallback(function () {
                 drawTable();
             });
-            
+
+            dataValues = [['Mon', 20, 28, 38, 45],
+            ['Tue', 31, 38, 55, 66],
+            ['Wed', 50, 55, 77, 80],
+            ['Thu', 77, 77, 66, 50],
+            ['Fri', 68, 66, 22, 15]]
+            var ctx = this.shadowRoot.getElementById('chart_div');
+
             function drawTable() {
 
-                var dataValues = [['Mon', 20, 28, 38, 45],
-                ['Tue', 31, 38, 55, 66],
-                ['Wed', 50, 55, 77, 80],
-                ['Thu', 77, 77, 66, 50],
-                ['Fri', 68, 66, 22, 15]]
+              
 
 
                 var data = google.visualization.arrayToDataTable(dataValues, true)
 
                
-                var table = new google.visualization.CandlestickChart(this.shadowRoot.getElementById('chart_div'));
+                var table = new google.visualization.CandlestickChart(ctx);
+
+                console.log("table");
+                console.log(table);
+
 
 
                 table.draw(data);
 
                 imgData = chart.getImageURI()
-
-            
 
                 generatePDF();
 
