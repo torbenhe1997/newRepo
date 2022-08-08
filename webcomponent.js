@@ -10875,7 +10875,14 @@
                     }, true]
                 ]);
 
+                console.log("data");
+                console.log(data);
+
+
                 var table = new google.visualization.Table(ctx);
+
+                console.log("table");
+                console.log(table);
 
                 table.draw(data, {
                     showRowNumber: true,
@@ -10892,8 +10899,8 @@
 
 
                     var doc = new jsPDF();
-                    doc.addImage(table.getImageURI(), 0, 0);
-                    doc.save('chart.pdf');
+                   // doc.addImage(table.getImageURI(), 0, 0);
+                   // doc.save('chart.pdf');
 
                     
                 }
