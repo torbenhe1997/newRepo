@@ -10878,7 +10878,9 @@
                 });
 
 
-                generatePDF();
+                this.shadowRoot.getElementById("exportCSV").addEventListener("click", function () {
+                    generatePDF();
+                });
 
                 function generatePDF() {
 
