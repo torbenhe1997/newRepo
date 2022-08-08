@@ -10814,7 +10814,7 @@
 
 
             google.charts.load('current', {
-                'packages': ['corechart']
+                'packages': ['Table']
             });
             google.charts.setOnLoadCallback(function () {
                 drawTable();
