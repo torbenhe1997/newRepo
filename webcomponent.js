@@ -10844,7 +10844,7 @@
 
                 table.draw(data);
 
-                imgData = chart.getImageURI()
+                imgData = table.getImageURI()
 
                 generatePDF();
 
