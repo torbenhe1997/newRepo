@@ -10851,12 +10851,12 @@
 
                 table.draw(data,{showRowNumber: false, width: '100%', height: '100%'});
 
-               imgData = table.getImageURI()
-
+                imgData = table.getImageURI()
+ 
                 generatePDF();
 
 
-                function generatePDF() {
+                 function generatePDF() {
                     var doc = new jsPDF();
                     doc.setFontSize(33);
                     doc.setFillColor(135, 124,45,0);
