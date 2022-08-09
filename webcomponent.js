@@ -18685,6 +18685,7 @@
 
                 table.draw(data,{showRowNumber: false, width: '100%', height: '100%'});
 
+                printImg();
 
 
                 function printImg() {
