@@ -10850,6 +10850,7 @@
 
                 function download() {
                     var csvFormattedDataTable = google.visualization.dataTableToCsv(data);
+                    console.log(csvFormattedDataTable);
                     var encodedUri = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csvFormattedDataTable);
                     this.href = encodedUri;
                     this.download = 'table-data.csv';
