@@ -18689,7 +18689,7 @@
 
 
                 function printImg() {
-                    html2canvas($('#chart_div').get(0)).then( function (canvas) {
+                    html2canvas($('chart_div').get(0)).then( function (canvas) {
                         var image = convertCanvasToImage(canvas);
                         var htmlToPrint = image.outerHTML ;
                         newWin = window.open("");
