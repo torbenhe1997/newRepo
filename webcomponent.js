@@ -10766,7 +10766,7 @@
 			<style>
 				:host {
 					display: block;
-                    overflow-x: scroll;
+                
 				} 
 			</style> 
 
