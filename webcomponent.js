@@ -10800,10 +10800,6 @@
 
         }
 
-        
-
-
-
 
         //Fired when the widget is added to the html DOM of the page
         connectedCallback() {
@@ -10824,7 +10820,6 @@
             var ctx = this.shadowRoot.getElementById('chart_div');
 
             function drawTable() {
-
               
 
                 var data = new google.visualization.DataTable();
@@ -10847,28 +10842,21 @@
         
                 var table = new google.visualization.Table(ctx);
 
-                var csv = google.visualization.dataTableToCsv(data);
-                console.log(csv);
-
 
                 table.draw(data,{showRowNumber: false, width: '100%', height: '100%'});
 
-                
+                download();
 
-             
-                         
-                
 
-               
+                function download() {
+                    var csvFormattedDataTable = google.visualization.dataTableToCsv(data);
+                    var encodedUri = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csvFormattedDataTable);
+                    this.href = encodedUri;
+                    this.download = 'table-data.csv';
+                    this.target = '_blank';
+                };
 
             }
-
-
-
-
-
-
-
 
         }
 
