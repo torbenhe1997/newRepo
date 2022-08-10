@@ -1,6 +1,3 @@
-
-
-
 (function () {
     
 
@@ -3843,15 +3840,11 @@
     </style> 
     <div>
     <button id="print">Download Pdf</button>
-    <div id="chart_div">
-    
+    <div id="chart_div"> 
     </div>
     </div>
     
     `;
-
-
-
 
     class HelloWorld1 extends HTMLElement {
 
