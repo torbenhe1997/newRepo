@@ -16480,17 +16480,23 @@
 
     let template = document.createElement("template");
     template.innerHTML = `
-			<style>
-				:host {
-					display: block;
-                    overflow-x:auto;
-                
-				} 
-			</style> 
+		
 
             <div>
             <a id="exportCSV" href="">Excel</a> 
-			<div id="chart_div"></div>
+			<div id="chart_div">
+           
+
+            background: yellow;
+  width: 70%;
+  height: 100px;
+  margin: 50px auto;
+  border: 1px solid orange;
+  padding: 20px;
+  overflow-y:auto;
+            
+            
+            </div>
             </div>
            
 		`;
@@ -16867,6 +16873,8 @@
                 executer();
 
 
+
+
                 function executer() {
                     console.log("gehst du rein?");
                     var currentPosition = ctx.scrollTop;
@@ -16876,24 +16884,20 @@
                     console.log(w);
                     console.log(h);
                     ctx.style.height = "auto";
+                    
+                        html2canvas(ctx, {
 
-                    html2canvas(ctx, {
-
-                        
-
-                        dpi: 300, // Set to 300 DPI
-                        scale: 3, // Adjusts your resolution
-                         function (canvas) {
-                            var img = canvas.toDataURL("image/jpeg", 1);
-                            var doc = new jsPDF('L', 'px', [w, h]);
-                            doc.addImage(img, 'JPEG', 0, 0, w, h);
-                            doc.addPage();
-                            doc.save('sample-file.pdf');
-                            console.log("gehst du rein 2");
-                        }
-                       
-                    }
-                    );
+                            dpi: 300, // Set to 300 DPI
+                            scale: 3, // Adjusts your resolution
+                            onrendered: function(canvas) {
+                              var img = canvas.toDataURL("image/jpeg", 1);
+                              var doc = new jsPDF('L', 'px', [w, h]);
+                              doc.addImage(img, 'JPEG', 0, 0, w, h);
+                              doc.addPage();
+                              doc.save('sample-file.pdf');
+                            }
+                    
+                    });
                     console.log("currentPosition");
                     console.log(currentPosition);
                     ctx.style.height = "100px";
