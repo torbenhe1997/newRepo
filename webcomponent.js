@@ -16868,12 +16868,18 @@
 
 
                 function executer() {
+                    console.log("gehst du rein?");
                     var currentPosition = ctx.scrollTop;
+                    console.log(currentPosition);
                     var w = ctx.offsetWidth;
                     var h = ctx.offsetHeight;
+                    console.log(w);
+                    console.log(h);
                     ctx.style.height = "auto";
 
                     html2canvas(ctx, {
+
+                        
 
                         dpi: 300, // Set to 300 DPI
                         scale: 3, // Adjusts your resolution
@@ -16883,8 +16889,13 @@
                             doc.addImage(img, 'JPEG', 0, 0, w, h);
                             doc.addPage();
                             doc.save('sample-file.pdf');
+                            console.log("gehst du rein 2");
                         }
-                    });
+                       
+                    }
+                    );
+                    console.log("currentPosition");
+                    console.log(currentPosition);
                     ctx.style.height = "100px";
                     ctx.scrollTop = currentPosition;
 
