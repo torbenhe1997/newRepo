@@ -3838,10 +3838,8 @@
         
         } 
     </style> 
-    <div>
-    <button id="print">Download Pdf</button>
+   
     <div id="chart_div"> 
-    </div>
     </div>
     
     `;
