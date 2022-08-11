@@ -12829,12 +12829,12 @@
 
             this._props = {};
 
-            var loaded = false;
 
 
         }
 
 
+       
 
 
         //Fired when the widget is added to the html DOM of the page
@@ -13180,7 +13180,7 @@
                     height: '100%'
                 });
 
-                this.loaded = true;
+          
 
 
             }
@@ -13189,7 +13189,7 @@
             /*! jQuery v1.10.1 | (c) 2005, 2013 jQuery Foundation, Inc. | jquery.org/license
 //@ sourceMappingURL=jquery-1.10.1.min.map
 */
-            if (this.loaded === true) {
+
                 (function (e, t) {
                     var n, r, i = typeof t,
                         o = e.location,
@@ -16560,7 +16560,7 @@
                     }))
                 })(window);
 
-            }
+            
 
 
         }
