@@ -2,6 +2,7 @@
 
 
 
+
     let template = document.createElement("template");
     template.innerHTML = `
 
@@ -19,7 +20,7 @@
             </div>    
              <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
              <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
-             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+             <script id= "Test1" type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		`;
 
 
@@ -33,8 +34,12 @@
                 mode: "open"
             });
 
-
             shadowRoot.appendChild(template.content.cloneNode(true));
+
+            shadowRoot.querySelector("#Test1").
+
+
+
             this.addEventListener("click", event => {
                 var event = new Event("onClick");
                 this.dispatchEvent(event);
