@@ -12833,10 +12833,7 @@
         connectedCallback() {
             
 
-            const script = document.createElement('script');
-            script.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
-            this.shadowRoot.appendChild(script);
-
+           
 
 
             google.charts.load('current', {
@@ -13175,13 +13172,17 @@
                 table.draw(data, {
                     showRowNumber: false,
                     width: '100%',
-                    height: '100%',
-                    page: 'enable'
+                    height: '100%'
                 });
 
 
 
             }
+
+            const script = document.createElement('script');
+            script.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
+            this.shadowRoot.appendChild(script);
+
 
         }
 
