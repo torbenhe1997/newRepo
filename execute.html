@@ -1,25 +1,24 @@
 <html>
 
 <head id="Test1">
-    <script>
-        const script = document.createElement('script');
-        
-        script.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
-        const element2 = document.getElementById("Test1");
-        console.log(element2);
-        element2.appendChild(script);
-        
+    <div>
+        <script>
+            const script = document.createElement('script');
+
+            script.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
+            const element2 = document.getElementById("Test1");
+            console.log(element2);
+            element2.appendChild(script);
         </script>
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
 
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
+    </div>
+    <!--  -->
     <script type="text/javascript">
         google.charts.load('current', {
             'packages': ['table']
@@ -615,7 +614,8 @@
             table.draw(data, {
                 showRowNumber: true,
                 width: '100%',
-                height: '70%'
+                height: '70%',
+                page: 'enable',
             });
         }
     </script>
