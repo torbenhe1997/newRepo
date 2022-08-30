@@ -3832,6 +3832,7 @@
 				:host {
 					display: block;
                     overflow-x: auto;
+                    overflow-x: hidden;
 
 				} 
 
