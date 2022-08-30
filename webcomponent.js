@@ -3969,7 +3969,7 @@
 
 
                 var options = {
-                    showRowNumber: true,
+                    showRowNumber: false,
                     width: '100%',
                     height: '100%',
                     allowHtml: true,
