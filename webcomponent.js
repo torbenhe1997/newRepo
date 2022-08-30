@@ -3831,6 +3831,7 @@
 			<style>
 				:host {
 					display: block;
+                    overflow-x: auto;
 
 				} 
 
